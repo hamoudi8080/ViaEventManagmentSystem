@@ -9,7 +9,6 @@
     <ItemGroup>
       <Folder Include="Aggregates\Events\" />
       <Folder Include="Aggregates\Guests\" />
-      <Folder Include="Common\Bases\" />
     </ItemGroup>
 
 </Project>
