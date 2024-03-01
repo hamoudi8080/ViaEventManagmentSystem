@@ -26,4 +26,10 @@
       <ProjectReference Include="..\..\src\Core\Tools\ViaEventManagmentSystem.Core.Tools.OperationResult\ViaEventManagmentSystem.Core.Tools.OperationResult.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Common\" />
+      <Folder Include="Features\Event\" />
+      <Folder Include="Features\GuestTests\" />
+    </ItemGroup>
+
 </Project>
