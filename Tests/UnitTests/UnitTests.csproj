@@ -24,12 +24,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\Core\Tools\ViaEventManagmentSystem.Core.Tools.OperationResult\ViaEventManagmentSystem.Core.Tools.OperationResult.csproj" />
+      <ProjectReference Include="..\..\src\Core\ViaEventManagmentSystem.Core.Domain\ViaEventManagmentSystem.Core.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Common\" />
-      <Folder Include="Features\Event\" />
-      <Folder Include="Features\GuestTests\" />
+      <Folder Include="Features\Event\SetVisibility\" />
     </ItemGroup>
 
 </Project>
