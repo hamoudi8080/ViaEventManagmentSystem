@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Tools\ViaEventManagmentSystem.Core.Tools.OperationResult\ViaEventManagmentSystem.Core.Tools.OperationResult.csproj" />
+    </ItemGroup>
+
 </Project>

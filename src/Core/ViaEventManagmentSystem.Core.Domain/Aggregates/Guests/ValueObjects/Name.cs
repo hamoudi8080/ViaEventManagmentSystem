@@ -1,4 +1,5 @@
 ﻿using ViaEventManagmentSystem.Core.Domain.Common.Values;
+using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 
@@ -18,6 +19,15 @@ public class Name : ValueObject
         LastName = lastName;
     }
 
+    public Result<Name> Create(string firstName, string lastName)
+    {
+        if (string.IsNullOrWhiteSpace(firstName))
+            return Result<Name>.Failure(Error.GetInvalidInputError());
+        
+        if (string.IsNullOrWhiteSpace(lastName))
+            return Result<Name>.Failure(Error.GetInvalidInputError());
+        return Result<Name>.Success(new Name(firstName, lastName));
+    }
     //The GetEqualityComponents() method is an overridden method from the ValueObject base class.
     //This method is crucial for defining how equality is determined for instances of the value object.
     protected override IEnumerable<object> GetEqualityComponents()

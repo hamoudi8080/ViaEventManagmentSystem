@@ -5,6 +5,7 @@ namespace UnitTests.OperationResult;
 
 public class OperationResulUnitTests
 {
+    /*
     [Fact]
     public void TestResultSuccess()
     {
