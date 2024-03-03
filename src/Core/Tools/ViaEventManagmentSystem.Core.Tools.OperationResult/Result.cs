@@ -3,37 +3,37 @@
 public class Result
 {
     public bool IsSuccess { get; }
-    public List<Error> Errors { get; }
+    public Error Error { get; }
 
-    protected Result(bool isSuccess, List<Error> errors)
+    protected Result(bool isSuccess, Error error)
     {
         IsSuccess = isSuccess;
-        Errors = errors;
+        Error = error;
     }
 
     public static Result Success()
     {
-        return new Result(true, new List<Error>());
+        return new Result(true,  Error.NotFoundError);
     }
 
     public static Result Failure(Error error)
     {
-        return new Result(false, new List<Error> { error });
+        return new Result(false, error);
     }
 
-    public static Result Failure(List<Error> errors)
-    {
-        return new Result(false, errors);
-    }
 
-    public static Result Combine(params Result[] results)
+
+    public static  Result Combine(params Result[] results)
     {
         var combinedErrors = new List<Error>();
         foreach (var result in results)
         {
-            combinedErrors.AddRange(result.Errors);
+            if (!result.IsSuccess)
+            {
+                combinedErrors.Add(result.Error);
+            }
         }
-        return new Result(combinedErrors.Count == 0, combinedErrors);
+        return new Result(combinedErrors.Count == 0, Error.NotFoundError);
     }
 
     public static implicit operator Result(bool success)
@@ -45,28 +45,26 @@ public class Result
 public class Result<T> : Result
 {
     public T Value { get; }
+    public string ErrorMessage { get; private set; } = null!;
 
-    protected Result(bool isSuccess, T value, List<Error> errors) : base(isSuccess, errors)
+    protected Result(bool isSuccess, T value, Error error) : base(isSuccess, error)
     {
         Value = value;
     }
 
-    public static Result<T> Success(T value)
+    public static new Result<T> Success(T value)
     {
-        return new Result<T>(true, value, new List<Error>());
+        return new Result<T>(true, value, Error.NotFoundError);
     }
 
     public static new Result<T> Failure(Error error)
     {
-        return new Result<T>(false, default, new List<Error> { error });
+        return new Result<T>(false, default, error);
     }
 
-    public static new Result<T> Failure(List<Error> errors)
-    {
-        return new Result<T>(false, default, errors);
-    }
+     
 
-    public static Result<T> Combine(params Result<T>[] results)
+    public static new Result<T> Combine(params Result<T>[] results)
     {
         var combinedErrors = new List<Error>();
         T value = default;
@@ -74,16 +72,15 @@ public class Result<T> : Result
         {
             if (!result.IsSuccess)
             {
-                combinedErrors.AddRange(result.Errors);
+                combinedErrors.Add(result.Error);
             }
-            else
+            else if (result.IsSuccess && value == null)
             {
                 value = result.Value;
             }
         }
-        return new Result<T>(combinedErrors.Count == 0, value, combinedErrors);
+        return new Result<T>(combinedErrors.Count == 0, value, Error.NotFoundError);
     }
-
     public static implicit operator Result<T>(T value)
     {
         return Success(value);

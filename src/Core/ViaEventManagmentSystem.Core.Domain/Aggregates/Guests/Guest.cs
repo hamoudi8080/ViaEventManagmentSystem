@@ -5,9 +5,10 @@ namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 
 public class Guest : Aggregate<GuestId>
 {
-    private GuestId Id { get;  }
-    public Name Name { get; private set; }
-    public Email Email { get; private set; }
+    
+    internal  GuestId Id { get;  }
+    internal  Name Name;
+    internal  Email Email;
 
    
 

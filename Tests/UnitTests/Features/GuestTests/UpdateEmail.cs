@@ -5,24 +5,49 @@ namespace UnitTests.Features.GuestTests;
 
 public class UpdateEmail
 {
+    /*
     [Fact]
-    public void UpdateEmail_UpdatesGuestEmail()
+    public void UpdateEmail_WithValidEmail_ShouldUpdateEmail()
     {
-        
         // Arrange
-        Name name = new Name("John","Jensen");
-        
-        Email oldEmail = new Email("old@example.com");
-        
-        Email newEmail = new Email("new@example.com");
-        
-       // Guest guest = new Guest(name, oldEmail);
-        
-        
+        GuestId guestId = new GuestId(Guid.NewGuid());
+        Name initialName = new Name("John", "Doe");
+        Email initialEmail = new Email("john.doe@example.com");
+        Guest guest = new Guest(initialName, guestId, initialEmail);
+        Email newEmail = new Email("johndoe@example.com");
+
         // Act
-      //  guest.UpdateEmail(newEmail);
+        guest.UpdateEmail(newEmail);
 
         // Assert
-        //Assert.Equal(newEmail, guest.UpdateEmail(newEmail.Value.Remov);
+    
     }
+    
+    [Fact]
+    public void UpdateEmail_WithNullEmail_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var guestId = new GuestId(Guid.NewGuid());
+        var initialName = new Name("John", "Doe");
+        var initialEmail = new Email("john.doe@example.com");
+        var guest = new Guest(initialName, guestId, initialEmail);
+
+        // Act & Assert
+        Assert.Throws<ArgumentNullException>(() => guest.UpdateEmail(null));
+    }
+
+    [Fact]
+    public void UpdateEmail_WithInvalidEmail_ShouldThrowArgumentException()
+    {
+        // Arrange
+        var guestId = new GuestId(Guid.NewGuid());
+        var initialName = new Name("John", "Doe");
+        var initialEmail = new Email("john.doe@example.com");
+        var guest = new Guest(initialName, guestId, initialEmail);
+        var invalidEmail = new Email("invalidemail"); // invalid email format
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => guest.UpdateEmail(invalidEmail));
+    }
+    */
 }
