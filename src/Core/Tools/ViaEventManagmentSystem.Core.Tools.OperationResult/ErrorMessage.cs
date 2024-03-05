@@ -6,7 +6,9 @@ public class ErrorMessage : Enumeration
         new(0, "Title must be set before making an event ready");
     
     public static readonly ErrorMessage InvalidEmailAddress =
-        new(0, "InvalidEmailAddress");
+        new(0, "Invalid Email Address");
+    public static readonly ErrorMessage InvalidInputError =
+        new(0, "Invalid Input Error");
     
     public static readonly ErrorMessage DescriptionMustBeSetBeforeMakingAnEventReady =
         new(0, "Description must be set before making an event ready");
@@ -41,8 +43,8 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage ActiveEventCannotBeDeleted =
         new(0, "Active event cannot be deleted, if you intend to cancel this event, please cancel it instead");
 
-    public static readonly ErrorMessage TitleMustBeBetween3And75Chars =
-        new(0, "Event title must be between 3 and 75 characters");
+    public static readonly ErrorMessage TitleMustBeBetween3And50Chars =
+        new(0, "Event title must be between 3 and 50 characters");
 
     public static readonly ErrorMessage DescriptionMustBeLessThan250Chars =
         new(0, "Event Description must be less than 250 characters");

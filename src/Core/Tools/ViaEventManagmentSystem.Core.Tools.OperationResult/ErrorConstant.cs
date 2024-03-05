@@ -8,6 +8,7 @@
 
         public static readonly ErrorConstant Unknown =
             new ErrorConstant(0, "Unknown");
+      
 
         public static readonly ErrorConstant BadRequest =
             new ErrorConstant(400, "Bad Request");

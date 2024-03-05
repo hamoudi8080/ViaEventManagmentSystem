@@ -33,8 +33,7 @@ public class Error
     public static Error BadRequest(ErrorMessage message ) {
         return new Error(ErrorConstant.BadRequest, message);
     } 
-
-  
+    
 
     public static Error AddCustomError(string InvalidInputError)
     {

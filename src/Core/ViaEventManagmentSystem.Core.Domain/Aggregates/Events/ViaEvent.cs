@@ -11,7 +11,7 @@ public class ViaEvent : Aggregate<EventId>
     internal EventDescription Description { get; }
     internal DateTime StartDateTime { get; }
     internal DateTime EndDateTime { get; }
-    internal int MaxNumberOfGuests;
+    internal MaxNumberOfGuests MaxNumberOfGuests;
     internal EventVisibility EventVisibility { get; }
 
 
