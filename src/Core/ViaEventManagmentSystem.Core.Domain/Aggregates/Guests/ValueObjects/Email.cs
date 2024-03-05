@@ -1,4 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Common.Values;
+﻿using ViaEventManagmentSystem.Core.Domain.Common.Bases;
+using ViaEventManagmentSystem.Core.Domain.Common.Values;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
@@ -7,18 +8,16 @@ public class Email : ValueObject
 {
     public string Value { get; }
 
-    private Email(string address)
+    public Email(string address)
     {
         Value = address;
     }
 
     public static Result<Email> Create(string input)
     {
-        if (string.IsNullOrWhiteSpace(input))
-            return Result<Email>.Failure(new Error(0, "Invalid input provided."));
-
+        
         if (!IsValidEmailAddress(input))
-            return Result<Email>.Failure(new Error(0, "Invalid email format."));
+            return Result<Email>.Failure(Error.BadRequest(ErrorMessage.InvalidEmailAddress));
 
         return Result<Email>.Success(new Email(input));
     }

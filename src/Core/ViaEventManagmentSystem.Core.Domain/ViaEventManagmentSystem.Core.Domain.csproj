@@ -7,7 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Tools\ViaEventManagmentSystem.Core.Tools.OperationResult\ViaEventManagmentSystem.Core.Tools.OperationResult.csproj" />
+        <ProjectReference Include="..\Tools\ViaEventManagmentSystem.Core.Tools.OperationResult\ViaEventManagmentSystem.Core.Tools.OperationResult.csproj"/>
     </ItemGroup>
 
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Patameter1>
+                UnitTests
+            </_Patameter1>
+
+        </AssemblyAttribute>
+    </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Common.Values;
+﻿using ViaEventManagmentSystem.Core.Domain.Common.Bases;
+using ViaEventManagmentSystem.Core.Domain.Common.Values;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
@@ -12,20 +13,17 @@ public class GuestId : ValueObject
         Value = id;
     }
 
-    public static Result<GuestId> Create(Guid id)
+    public static GuestId Create()
     {
-        return Result<GuestId>.Success(new GuestId(id));
+        return new GuestId(Guid.NewGuid());
     }
 
     // Factory method to create a GuestId from string
     public static Result<GuestId> Create(string id)
     {
-        if (!Guid.TryParse(id, out Guid result))
-            return Result<GuestId>.Failure(new Error(0, "Invalid GuestId format"));
-
-        return Create(result);
+        bool canBeParsed = Guid.TryParse(id, out Guid guid);
+        return canBeParsed ? Result<GuestId>.Success(new GuestId(guid)) : Result<GuestId>.Failure(Error.AddCustomError("Problems occured during create a guid id for gueest"));
     }
-
     // Equality comparison logic
     protected override IEnumerable<object> GetEqualityComponents()
     {

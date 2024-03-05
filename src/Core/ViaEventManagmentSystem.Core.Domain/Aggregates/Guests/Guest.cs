@@ -1,36 +1,36 @@
 ﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Common.Bases;
-
+using ViaEventManagmentSystem.Core.Tools.OperationResult;
 namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 
 public class Guest : Aggregate<GuestId>
 {
     
     internal  GuestId Id { get;  }
-    internal  Name Name;
-    internal  Email Email;
+    internal  FirstName FirstName { get; set; }
+    internal  LastName LastName { get; set; }
+    internal  Email Email { get; set; }
 
    
 
-    public Guest(Name name, GuestId id, Email email) 
+    public Guest(FirstName fname,LastName lName, Email email) 
     {
-        if (name == null)
-            throw new ArgumentNullException(nameof(name));
-        if (email == null)
-            throw new ArgumentNullException(nameof(email));
-
-        Name = name;
+       
+        Id = GuestId.Create();
+        FirstName = fname;
+        LastName = lName;
         Email = email;
     }
 
-    public void UpdateEmail(Email newEmail)
+    public Result<Guest> UpdateEmail(Email email)
     {
-        if (newEmail == null)
-            throw new ArgumentNullException(nameof(newEmail));
+        if (email == null)
+            return Result<Guest>.Failure(Error.AddCustomError("Email is null"));
 
-        Email = newEmail;
+        return Result<Guest>.Success(this);
     }
 
+    /*
     public void UpdateFirstName(string newFirstName)
     {
         if (string.IsNullOrWhiteSpace(newFirstName))
@@ -45,5 +45,12 @@ public class Guest : Aggregate<GuestId>
             throw new ArgumentException("Last name cannot be null or empty.");
 
         Name = new Name(Name.FirstName, newLastName);
+    }
+    */
+
+
+    public static Guest CreateGuest(FirstName firstName, LastName lastName, Email email)
+    {
+        return new Guest(firstName, lastName, email);
     }
 }

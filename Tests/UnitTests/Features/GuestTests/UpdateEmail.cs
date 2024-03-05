@@ -7,47 +7,33 @@ public class UpdateEmail
 {
     /*
     [Fact]
-    public void UpdateEmail_WithValidEmail_ShouldUpdateEmail()
+    public void UpdateEmail_Should_Return_Success_When_Email_Is_Valid()
     {
         // Arrange
-        GuestId guestId = new GuestId(Guid.NewGuid());
-        Name initialName = new Name("John", "Doe");
-        Email initialEmail = new Email("john.doe@example.com");
-        Guest guest = new Guest(initialName, guestId, initialEmail);
-        Email newEmail = new Email("johndoe@example.com");
+        Email validEmail = new Email("test@example.com");  
+        Guest guest = new Guest(new Name("Alex","jen"),validEmail);  
+        // Act
+        Result<Guest> result = guest.UpdateEmail(validEmail);
+      
+        // Assert
+        Assert.True(result.IsSuccess);
+       // Assert.Equal("test@example.com", s.ToString()); 
+    }
+    
+    [Fact]
+    public void UpdateEmail_Should_Return_Failure_When_Email_Is_Null()
+    {
+        // Arrange
+        Email validEmail = new Email("test@example.com");  
+        Guest guest = new Guest(new Name("Alex","jen"),validEmail);  
 
         // Act
-        guest.UpdateEmail(newEmail);
+        Result<Guest> result = guest.UpdateEmail(null);
 
         // Assert
-    
-    }
-    
-    [Fact]
-    public void UpdateEmail_WithNullEmail_ShouldThrowArgumentNullException()
-    {
-        // Arrange
-        var guestId = new GuestId(Guid.NewGuid());
-        var initialName = new Name("John", "Doe");
-        var initialEmail = new Email("john.doe@example.com");
-        var guest = new Guest(initialName, guestId, initialEmail);
-
-        // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => guest.UpdateEmail(null));
-    }
-
-    [Fact]
-    public void UpdateEmail_WithInvalidEmail_ShouldThrowArgumentException()
-    {
-        // Arrange
-        var guestId = new GuestId(Guid.NewGuid());
-        var initialName = new Name("John", "Doe");
-        var initialEmail = new Email("john.doe@example.com");
-        var guest = new Guest(initialName, guestId, initialEmail);
-        var invalidEmail = new Email("invalidemail"); // invalid email format
-
-        // Act & Assert
-        Assert.Throws<ArgumentException>(() => guest.UpdateEmail(invalidEmail));
+        Assert.False(result.IsSuccess);
+        //Assert.Equal("Email: Is Null", result.Error.ErrorMessage);
     }
     */
+
 }

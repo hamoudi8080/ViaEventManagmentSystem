@@ -3,47 +3,47 @@
 
 public class Error
 {
-    public int ErrorCode { get; }
-    public string ErrorMessage { get; }
+    public ErrorConstant  ErrorCode { get; }
+    public List<ErrorMessage> Messages { get; init; }
+    public string CustomMessage { get; init; }
+    
 
-    public Error(int errorCode, string errorMessage)
-    {
+    internal Error(ErrorConstant errorCode, List<ErrorMessage> messages) {
         ErrorCode = errorCode;
-        ErrorMessage = errorMessage;
+        
+        if (messages.Count == 0) {
+            throw new Exception(" one error message is required");
+        }
+        Messages = messages;
+    }
+    internal Error(string message) {
+        
+        CustomMessage = message;
+    }
+    internal Error(ErrorConstant errorCode, ErrorMessage message) {
+        ErrorCode = errorCode;
+        Messages = new List<ErrorMessage> {message};
     }
 
-    public static Error NotFoundError => new Error((int)ErrorConstant.NotFound, "Not Found");
-    public static Error ValidationError(string fieldName) => new Error(400, $"Validation error for {fieldName}");
+    public static Error NotFound(ErrorMessage message)
+    {
+        return new Error(ErrorConstant.NotFound, message);
+    }
+
+    public static Error BadRequest(ErrorMessage message ) {
+        return new Error(ErrorConstant.BadRequest, message);
+    } 
 
   
 
-    public static Error GetInvalidInputError()
+    public static Error AddCustomError(string InvalidInputError)
     {
-        return CreateError(ErrorConstant.InvalidInput, "Invalid input provided.");
+        return CreateError(InvalidInputError);
     }
 
-    public static Error GetUnauthorizedAccessError()
-    {
-        return CreateError(ErrorConstant.UnauthorizedAccess, "Unauthorized access.");
-    }
 
-    public static Error GetServerError()
+    private static Error CreateError(string errorMessage)
     {
-        return CreateError(ErrorConstant.ServerError, "Internal server error.");
-    }
-
-    public static Error GetNotFoundError()
-    {
-        return CreateError(ErrorConstant.NotFound, "Resource not found.");
-    }
-
-    public static Error GetTimeoutError()
-    {
-        return CreateError(ErrorConstant.Timeout, "Request timeout.");
-    }
-
-    private static Error CreateError(ErrorConstant errorCode, string errorMessage)
-    {
-        return new Error((int)errorCode, errorMessage);
+        return new Error(errorMessage);
     }
 }

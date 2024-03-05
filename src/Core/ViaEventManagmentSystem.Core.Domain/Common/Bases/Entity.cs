@@ -11,7 +11,7 @@ public abstract class Entity<TId>
 
     protected Entity()
     {
-        throw new NotImplementedException();
+     
     }
 
 

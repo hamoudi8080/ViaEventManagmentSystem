@@ -1,4 +1,4 @@
-﻿namespace ViaEventManagmentSystem.Core.Domain.Common.Values;
+﻿namespace ViaEventManagmentSystem.Core.Domain.Common.Bases;
 
 
 public abstract class ValueObject
