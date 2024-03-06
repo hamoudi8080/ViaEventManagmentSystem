@@ -1,10 +1,3 @@
-﻿namespace Docs.Requiremets;
-
-public class Assignment_Requirements
-{
-    /*
-     * Requirements
-
 The below requirements are ordered by importance. You are intended to implement these in order.
 
 Must have:
@@ -62,5 +55,3 @@ Could have:
 24) Event creator cancels event (active only).
 
 25) Event creator deletes event (draft, ready only).
-     */
-}

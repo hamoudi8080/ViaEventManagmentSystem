@@ -1,7 +1,9 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2352682_002Ddb8d_002D4826_002D9bd9_002D54d7eb016198/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="OperationResulUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.OperationResult.OperationResulUnitTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.UpdateEmail&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.EventDescriptionTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.EventTitleTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.MaxNumberOfGuestsTest.addMaxNumberOfGuests_Within_TheRange_AndReturnSuccess&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.MaxNumberOfGuestsTest.CreateMaxNumberOfGuests_OutOF_TheRange_AndReturnFalse&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

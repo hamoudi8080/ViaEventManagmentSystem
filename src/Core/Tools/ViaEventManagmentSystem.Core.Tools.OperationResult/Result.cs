@@ -5,7 +5,7 @@ public class Result
     public bool IsSuccess { get; }
     public Error? Error { get; init; }
 
-    public ErrorMessage ErrorMessage { get; }
+    public string ErrorMessage => Error?.CustomMessage; 
 
     protected Result(bool isSuccess)
     {
@@ -18,10 +18,7 @@ public class Result
 
     protected Result(bool isSuccess, Error error)
     {
-        /* if (isSuccess && error != Error.NotFoundError || !IsSuccess && error == Error.NotFoundError)
-         {
-             throw new AggregateException("Invalid error");
-         }*/
+         
         IsSuccess = isSuccess;
         Error = error;
     }
@@ -30,7 +27,7 @@ public class Result
     {
         return new Result(true);
     }
-
+ 
     public static Result Failure(Error error)
     {
         return new Result(false, error);
@@ -42,7 +39,7 @@ public class Result
 public class Result<T> : Result
 {
     public T Payload { get; }
-    public string ErrorMessage { get; private set; } = null!;
+   
 
     protected Result(bool isSuccess, T value, Error error) : base(isSuccess, error)
     {
@@ -53,14 +50,15 @@ public class Result<T> : Result
     {
     }
 
-    private Result(bool isSuccess, T value) : base()
+    private Result(bool isSuccess, T value) : base(isSuccess)
     {
         Payload = value;
     }
 
+   
     public static new Result<T> Success(T value)
     {
-        return new Result<T>(true, value);
+        return new Result<T>(true, value); // Corrected to pass true for isSuccess
     }
 
     public static new Result<T> Failure(Error error)

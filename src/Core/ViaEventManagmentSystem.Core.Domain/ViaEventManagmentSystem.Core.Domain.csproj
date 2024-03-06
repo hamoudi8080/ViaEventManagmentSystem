@@ -13,10 +13,9 @@
 
     <ItemGroup>
         <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-            <_Patameter1>
+            <_Parameter1>
                 UnitTests
-            </_Patameter1>
-
+            </_Parameter1>
         </AssemblyAttribute>
     </ItemGroup>
 </Project>

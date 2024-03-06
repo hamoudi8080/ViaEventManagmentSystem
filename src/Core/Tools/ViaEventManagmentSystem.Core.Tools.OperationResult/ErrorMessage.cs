@@ -67,11 +67,10 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage EventCannotStartBefore8Am =
         new(0, "Event start time cannot be before 8 am");
 
-    public static readonly ErrorMessage MaxGuestsNotLessThan5 =
-        new(0, "Maximum number of Guests cannot be less than 5");
+   
 
-    public static readonly ErrorMessage MaxGuestsNotMoreThan50 =
-        new(0, "Maximum number of Guests cannot be more than 50");
+    public static readonly ErrorMessage MaxGuestsNoMustBeWithin4and50 =
+        new(0, "Maximum number of Guests cannot be less than 4 or more than 50 ");
 
     public static readonly ErrorMessage ActiveEventIsUnmodifiable =
         new(0, "Active event cannot be modified");
