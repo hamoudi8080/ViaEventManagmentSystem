@@ -15,15 +15,10 @@ public class EventDescription : ValueObject
 
     public static Result<EventDescription> Create(string eventDescription)
     {
-        if (string.IsNullOrWhiteSpace(eventDescription))
-            return Result<EventDescription>.Failure(Error.AddCustomError("The Description is null or white spaces"));
-
-        if (eventDescription.Length < 1 || eventDescription.Length > 400)
+        if (eventDescription.Length < 0 || eventDescription.Length > 250)
         {
-            return Result<EventDescription>.Failure(
-                Error.AddCustomError("The Description Must be between 1 and 400 characters"));
+            return Result<EventDescription>.Failure(Error.BadRequest(ErrorMessage.DescriptionMustBeBetween0And250Chars));
         }
-
         return Result<EventDescription>.Success(new EventDescription(eventDescription));
     }
 

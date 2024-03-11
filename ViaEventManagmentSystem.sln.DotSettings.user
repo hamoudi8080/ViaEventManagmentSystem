@@ -1,9 +1,31 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2352682_002Ddb8d_002D4826_002D9bd9_002D54d7eb016198/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="OperationResulUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6509f8ca_002D2091_002D4f79_002D8c69_002D8fc11bf6dc4b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="UpdateTitleTest_F2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F3&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F4&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F5&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F6.UpdateTitle_Failure_ActiveEvent&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F6&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.CreateEvent.CreateEventTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_S1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.EventDescriptionTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.EventTitleTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_S2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateDescription.UpdateDescriptionTest+UpdateDescriptionTest_S1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateDescription.UpdateDescriptionTest+UpdateDescriptionTest_S2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateDescription.UpdateDescriptionTest+UpdateDescriptionTes_s3&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2352682_002Ddb8d_002D4826_002D9bd9_002D54d7eb016198/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="OperationResulUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.EventDescriptionTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.EventTitleTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.MaxNumberOfGuestsTest.addMaxNumberOfGuests_Within_TheRange_AndReturnSuccess&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.MaxNumberOfGuestsTest.CreateMaxNumberOfGuests_OutOF_TheRange_AndReturnFalse&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.CreateEvent.CreateEventTest.Create_ValidEvent_ReturnsViaEvent2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.CreateEvent.CreateEventTest.Create_ValidEvent_ReturnsViaEvent&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F1&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -13,7 +13,7 @@ public class EventId : ValueObject
         Value = id;
     }
 
-    public static EventId Create()
+    public static Result<EventId> Create()
     {
         return new EventId(Guid.NewGuid());
     }

@@ -34,7 +34,7 @@ public class EventTitleTest
         Assert.NotNull(result.Error);
 
 
-        Assert.Contains("Invalid Input Error", result.Error.Messages[0].ToString());
+        Assert.Contains("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
         
     }
 
@@ -51,7 +51,7 @@ public class EventTitleTest
         // Assert
         Assert.False(result.IsSuccess);
         Assert.NotNull(result.Error);
-        Assert.Contains("Invalid Input Error", result.Error.Messages[0].ToString());
+        Assert.Contains("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
     }
    
 }

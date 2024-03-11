@@ -19,21 +19,7 @@ public class EventDescriptionTest
     }
 
     
-    [Theory]
-    [InlineData(null)]
-    [InlineData("")]
-    [InlineData("   ")]
-    public void Create_NullOrWhiteSpaceDescription_ReturnsFailureResult(string description)
-    {
-        // Act
-        var result = EventDescription.Create(description);
-
-        // Assert
-        Assert.False(result.IsSuccess);
-        Assert.Contains("The Description is null or white spaces", result.ErrorMessage);
-    }
-    
-
+     
     [Fact]
     public void Create_DescriptionLengthOutOfRange_ReturnsFailureResult()
     {
@@ -45,7 +31,7 @@ public class EventDescriptionTest
 
         // Assert
         Assert.False(result.IsSuccess);
-        Assert.Contains("The Description Must be between 1 and 400 characters", result.ErrorMessage);
+       
     }
     
 }

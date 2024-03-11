@@ -13,7 +13,7 @@ public class EventTitle : ValueObject
     {
         if (!ValidateEventTitle(title))
         {
-            return Result<EventTitle>.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
+            return Result<EventTitle>.Failure(Error.BadRequest(ErrorMessage.TitleMustBeBetween3And75Chars));
         }
 
         return Result<EventTitle>.Success(new EventTitle(title));
@@ -26,7 +26,7 @@ public class EventTitle : ValueObject
         if (string.IsNullOrWhiteSpace(title))
             return false;
         
-        if (title.Length < 3 || title.Length > 30)
+        if (title.Length < 3 || title.Length > 75)
             return false;
 
         return true;

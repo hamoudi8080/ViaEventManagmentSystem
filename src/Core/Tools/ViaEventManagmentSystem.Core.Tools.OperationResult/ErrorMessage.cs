@@ -28,7 +28,7 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage ActiveEventCannotBeMadeReady =
         new(0, "Active event cannot be made ready");
 
-    public static readonly ErrorMessage CancelledEventIsUnmodifiable =
+    public static readonly ErrorMessage CancelledEventCannotBenmodifiable =
         new(0, "Cancelled event cannot be modified");
 
     public static readonly ErrorMessage CancelledEventCannotBeMadeReady =
@@ -43,11 +43,11 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage ActiveEventCannotBeDeleted =
         new(0, "Active event cannot be deleted, if you intend to cancel this event, please cancel it instead");
 
-    public static readonly ErrorMessage TitleMustBeBetween3And50Chars =
-        new(0, "Event title must be between 3 and 50 characters");
+    public static readonly ErrorMessage TitleMustBeBetween3And75Chars =
+        new(0, "Event title must be between 3 and 75 characters");
 
-    public static readonly ErrorMessage DescriptionMustBeLessThan250Chars =
-        new(0, "Event Description must be less than 250 characters");
+    public static readonly ErrorMessage DescriptionMustBeBetween0And250Chars =
+        new(0, "Event Description must be between 0 and 250 characters");
 
     public static readonly ErrorMessage StartTimeMustBeBeforeEndTime =
         new(0, "Event start time cannot be after event end time");
@@ -72,7 +72,7 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage MaxGuestsNoMustBeWithin4and50 =
         new(0, "Maximum number of Guests cannot be less than 4 or more than 50 ");
 
-    public static readonly ErrorMessage ActiveEventIsUnmodifiable =
+    public static readonly ErrorMessage ActiveEventCanotBeModified =
         new(0, "Active event cannot be modified");
 
     public static readonly ErrorMessage ActiveEventCannotBePrivate =

@@ -45,4 +45,14 @@ public class Error
     {
         return new Error(errorMessage);
     }
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+
+        Error other = (Error)obj;
+        return ErrorCode == other.ErrorCode && Messages.SequenceEqual(other.Messages);
+    }
 }
