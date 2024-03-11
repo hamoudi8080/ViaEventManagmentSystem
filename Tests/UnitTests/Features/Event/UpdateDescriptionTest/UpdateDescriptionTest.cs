@@ -1,11 +1,11 @@
 ﻿using UnitTests.Features.Event.EventFactory;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 
-namespace UnitTests.Features.Event.UpdateDescription;
+namespace UnitTests.Features.Event.UpdateDescriptionTest;
 
 public abstract class UpdateDescriptionTest
 {
-    public class UpdateDescriptionTest_S1
+    public class S1
     {
         [Theory]
         [InlineData(
@@ -26,7 +26,7 @@ public abstract class UpdateDescriptionTest
     }
 
 
-    public class UpdateDescriptionTest_S2
+    public class S2
     {
         [Fact]
         public void UpdateDescription_Success_EmptyDescription()

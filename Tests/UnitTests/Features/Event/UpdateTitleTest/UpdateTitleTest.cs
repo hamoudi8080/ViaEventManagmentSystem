@@ -6,150 +6,151 @@ using Xunit;
 
 namespace UnitTests.Features.Event.UpdateTitleTest
 {
-    public class UpdateTitleTest_S1
+    public abstract class UpdateTitleTest
     {
-        [Theory]
-        [InlineData("Scary Movie Night!")]
-        [InlineData("Graduation Gala")]
-        [InlineData("VIA Hackathon")]
-        public void UpdateTitle_Success_DraftStatus(string newTitle)
+        public class S1
         {
-            // Arrange
-            var viaEvent = ViaEventTestFactory.CreateEvent();
+            [Theory]
+            [InlineData("Scary Movie Night!")]
+            [InlineData("Graduation Gala")]
+            [InlineData("VIA Hackathon")]
+            public void UpdateTitle_Success_DraftStatus(string newTitle)
+            {
+                // Arrange
+                var viaEvent = ViaEventTestFactory.CreateEvent();
 
-            // Act
-            var result = viaEvent.UpdateTitle(newTitle);
+                // Act
+                var result = viaEvent.UpdateTitle(newTitle);
 
-            // Assert
-            Assert.True(result.IsSuccess);
-            Assert.Equal(newTitle, viaEvent._EventTitle.Value);
-            Assert.Equal(EventStatus.Draft, viaEvent._EventStatus);
+                // Assert
+                Assert.True(result.IsSuccess);
+                Assert.Equal(newTitle, viaEvent._EventTitle.Value);
+                Assert.Equal(EventStatus.Draft, viaEvent._EventStatus);
+            }
         }
-    }
 
-    public class UpdateTitleTest_S2
-    {
-        [Theory]
-        [InlineData("Scary Movie Night!")]
-        [InlineData("Graduation Gala")]
-        [InlineData("VIA Hackathon")]
-        public void UpdateTitle_Success_ReadyStatus(string newTitle)
+        public class S2
         {
-            // Arrange
-            var viaEvent = ViaEventTestFactory.ReadyEvent(); // Create an event with Ready status
-            var originalStatus = viaEvent._EventStatus;
+            [Theory]
+            [InlineData("Scary Movie Night!")]
+            [InlineData("Graduation Gala")]
+            [InlineData("VIA Hackathon")]
+            public void UpdateTitle_Success_ReadyStatus(string newTitle)
+            {
+                // Arrange
+                var viaEvent = ViaEventTestFactory.ReadyEvent(); // Create an event with Ready status
+                var originalStatus = viaEvent._EventStatus;
 
-            // Act
-            var result = viaEvent.UpdateTitle(newTitle);
+                // Act
+                var result = viaEvent.UpdateTitle(newTitle);
 
-            // Assert
-            Assert.True(result.IsSuccess); // Ensure the operation succeeded
-            Assert.Equal(newTitle, viaEvent._EventTitle.Value); // Check that the title has been updated
-            // Check that the title has been updated
-            Assert.Equal(EventStatus.Draft, viaEvent._EventStatus); // Check that the event status is now Draft
-            Assert.NotEqual(originalStatus, viaEvent._EventStatus); // Ensure that the event status was actually changed
+                // Assert
+                Assert.True(result.IsSuccess); // Ensure the operation succeeded
+                Assert.Equal(newTitle, viaEvent._EventTitle.Value); // Check that the title has been updated
+                // Check that the title has been updated
+                Assert.Equal(EventStatus.Draft, viaEvent._EventStatus); // Check that the event status is now Draft
+                Assert.NotEqual(originalStatus,
+                    viaEvent._EventStatus); // Ensure that the event status was actually changed
+            }
         }
-    }
 
-    public class UpdateTitleTest_F1
-    {
-        [Theory]
-        [InlineData("")]
-        public void UpdateTitle_Failure_EmptyTitle(string newTitle)
+        public class F1
         {
-            // Arrange
-            var viaEvent = ViaEventTestFactory.ReadyEvent();
+            [Theory]
+            [InlineData("")]
+            public void UpdateTitle_Failure_EmptyTitle(string newTitle)
+            {
+                // Arrange
+                var viaEvent = ViaEventTestFactory.ReadyEvent();
 
-            // Act
-            var result = viaEvent.UpdateTitle(newTitle);
+                // Act
+                var result = viaEvent.UpdateTitle(newTitle);
 
-            // Assert
-            Assert.False(result.IsSuccess);
-            Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+                // Assert
+                Assert.False(result.IsSuccess);
+                Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+            }
         }
-    }
 
-    public class UpdateTitleTest_F2
-    {
-        [Theory]
-        [InlineData("XY")]
-        [InlineData("A")]
-        public void UpdateTitle_Failure_EmptyTitle(string newTitle)
+        public class F2
         {
-            // Arrange
-            var viaEvent = ViaEventTestFactory.CreateEvent();
+            [Theory]
+            [InlineData("XY")]
+            [InlineData("A")]
+            public void UpdateTitle_Failure_EmptyTitle(string newTitle)
+            {
+                // Arrange
+                var viaEvent = ViaEventTestFactory.CreateEvent();
 
-            // Act
-            var result = viaEvent.UpdateTitle(newTitle);
+                // Act
+                var result = viaEvent.UpdateTitle(newTitle);
 
-            // Assert
-            Assert.False(result.IsSuccess);
-            Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+                // Assert
+                Assert.False(result.IsSuccess);
+                Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+            }
         }
-    }
 
-    public class UpdateTitleTest_F3
-    {
-        [Theory]
-        [InlineData(
-            "This is a very long title that exceeds the maximum character limit of 75 characters. This title is definitely too long.")]
-        public void UpdateTitle_Failure_EmptyTitle(string newTitle)
+        public class F3
         {
-            // Arrange
-            var viaEvent = ViaEventTestFactory.CreateEvent();
+            [Theory]
+            [InlineData(
+                "This is a very long title that exceeds the maximum character limit of 75 characters. This title is definitely too long.")]
+            public void UpdateTitle_Failure_EmptyTitle(string newTitle)
+            {
+                // Arrange
+                var viaEvent = ViaEventTestFactory.CreateEvent();
 
-            // Act
-            var result = viaEvent.UpdateTitle(newTitle);
+                // Act
+                var result = viaEvent.UpdateTitle(newTitle);
 
-            // Assert
-            Assert.False(result.IsSuccess);
-            Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+                // Assert
+                Assert.False(result.IsSuccess);
+                Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+            }
         }
-    }
 
-    public class UpdateTitleTest_F4
-    {
-        [Fact]
-        public void UpdateTitle_Failure_NullTitle()
+        public class F4
         {
-            // Arrange
-            var viaEvent = ViaEventTestFactory.CreateEvent();
+            [Fact]
+            public void UpdateTitle_Failure_NullTitle()
+            {
+                // Arrange
+                var viaEvent = ViaEventTestFactory.CreateEvent();
 
-            // Act
-            var result = viaEvent.UpdateTitle(null);
+                // Act
+                var result = viaEvent.UpdateTitle(null);
 
-            // Assert
-            Assert.False(result.IsSuccess);
-            Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+                // Assert
+                Assert.False(result.IsSuccess);
+                Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+            }
         }
-    }
 
-    public class UpdateTitleTest_F5
-    {
-        [Theory]
-        [InlineData("Scary Movie Night!")]
-        [InlineData("Graduation Gala")]
-        [InlineData("VIA Hackathon")]
-        public void UpdateTitle_Failure_ActiveEvent(string title)
+        public class F5
         {
-            // Arrange
-            var viaEvent = ViaEventTestFactory.CreateActiveEvent();
-            ;
+            [Theory]
+            [InlineData("Scary Movie Night!")]
+            [InlineData("Graduation Gala")]
+            [InlineData("VIA Hackathon")]
+            public void UpdateTitle_Failure_ActiveEvent(string title)
+            {
+                // Arrange
+                var viaEvent = ViaEventTestFactory.CreateActiveEvent();
+                ;
 
 
-            // Act
-            var result = viaEvent.UpdateTitle(title);
+                // Act
+                var result = viaEvent.UpdateTitle(title);
 
-            // Assert
-            Assert.False(result.IsSuccess);
+                // Assert
+                Assert.False(result.IsSuccess);
 
-            Assert.Equal("Active event cannot be modified", result.Error.Messages[0].ToString());
+                Assert.Equal("Active event cannot be modified", result.Error.Messages[0].ToString());
+            }
         }
-    }
 
-    public class UpdateTitleTest_F6
-    {
-        public class UpdateTitleTest
+        public class F6
         {
             [Theory]
             [InlineData("Scary Movie Night!")]
