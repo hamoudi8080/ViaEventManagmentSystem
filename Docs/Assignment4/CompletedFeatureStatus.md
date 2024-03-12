@@ -30,20 +30,20 @@
     * [X] Value - ViaEventDescription
     * [X] S1
     * [X] S2
-    * [ ] S3
-    * [ ] F1
-    * [ ] F2
-    * [ ] F3
+    * [X] S3
+    * [X] F1
+    * [X] F2
+    * [X] F3
 
 
-* [ ] UC4 - Update Start and End Time
-    * [ ] Value - ViaStartDate
-    * [ ] Value - ViaEndDate
-    * [ ] S1
-    * [ ] S2
-    * [ ] S3
-    * [ ] S4
-    * [ ] S5
+* [X] UC4 - Update Start and End Time
+    * [X] Value - ViaStartDate
+    * [X] Value - ViaEndDate
+    * [X] S1
+    * [X] S2
+    * [X] S3
+    * [X] S4
+    * [X] S5
     * [ ] F1
     * [ ] F2
     * [ ] F3

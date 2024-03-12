@@ -2,6 +2,9 @@
 
 public class ErrorMessage : Enumeration
 {
+ 
+        
+
     public static readonly ErrorMessage TitleMustBeSetBeforeMakingAnEventReady =
         new(0, "Title must be set before making an event ready");
     
@@ -28,7 +31,7 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage ActiveEventCannotBeMadeReady =
         new(0, "Active event cannot be made ready");
 
-    public static readonly ErrorMessage CancelledEventCannotBenmodifiable =
+    public static readonly ErrorMessage CancelledEventCannotBemodified =
         new(0, "Cancelled event cannot be modified");
 
     public static readonly ErrorMessage CancelledEventCannotBeMadeReady =
@@ -52,22 +55,32 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage StartTimeMustBeBeforeEndTime =
         new(0, "Event start time cannot be after event end time");
 
-    public static readonly ErrorMessage EventDurationMustBeMoreThan1Hour =
-        new(0, "Event duration cannot be less than 1 hour");
+    public static readonly ErrorMessage EventDurationGreaterThan10Hours =
+        new(0, "Event duration Greater Than 10 Hours");
 
     public static readonly ErrorMessage EventDurationMustBeLessThan10Hour =
-        new(0, "Event duration cannot be less than 1 hour");
+        new(0, "Event duration cannot be less than 10 hour");
 
     public static readonly ErrorMessage EventCannotSpanBetween1AmAnd8Am =
         new(0, "Event cannot take place from 1am to 8am");
+    
+    
+    public static readonly ErrorMessage EventcannotEndTimeAfter1AM =
+        new(0, "Event cannot End After 1 AM");
+    
+    
 
     public static readonly ErrorMessage EventStartTimeCannotBeInPast =
         new(0, "Event start time must not be on past");
 
     public static readonly ErrorMessage EventCannotStartBefore8Am =
         new(0, "Event start time cannot be before 8 am");
+    
+    public static readonly ErrorMessage EventCannotEndTimeBefore8AM =
+        new(0, "Event Cannot End Time Before 8 AM");
 
-   
+    public static readonly ErrorMessage EventStartAndEndDateMustBeSame =
+        new(0, "Start And End Date Must Be Same");
 
     public static readonly ErrorMessage MaxGuestsNoMustBeWithin4and50 =
         new(0, "Maximum number of Guests cannot be less than 4 or more than 50 ");

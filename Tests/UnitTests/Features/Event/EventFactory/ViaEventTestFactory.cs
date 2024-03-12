@@ -15,16 +15,16 @@ public class ViaEventTestFactory
 
     public static ViaEvent ReadyEvent()
     {
-        var id = EventId.Create();
+        var id = EventId.Create().Payload;
         var title = EventTitle.Create("Event sport title").Payload;
-        var description = EventDescription.Create(" training event description").Payload;
-        DateTime startDate = DateTime.Now;
-        DateTime endDate = DateTime.Now.AddHours(3);
+        var description = EventDescription.Create("Training event description").Payload;
+        var startDate = StartDateTime.Create(DateTime.Now).Payload;
+        var endDate = EndDateTime.Create(DateTime.Now.AddHours(3)).Payload;
         var maxNumberOfGuests = MaxNumberOfGuests.Create(40).Payload;
-        EventVisibility eventVisibility = EventVisibility.Public;
-        EventStatus eventStatus = EventStatus.Ready;
+        var eventVisibility = EventVisibility.Public;
+        var eventStatus = EventStatus.Ready;
 
-        return ViaEvent.Create(id.Payload, title, description, startDate, endDate, maxNumberOfGuests, eventVisibility,
+        return ViaEvent.Create(id, title, description, startDate, endDate, maxNumberOfGuests, eventVisibility,
             eventStatus).Payload;
     }
 
