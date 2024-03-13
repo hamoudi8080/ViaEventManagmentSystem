@@ -56,10 +56,10 @@ public class ErrorMessage : Enumeration
         new(0, "Event start time cannot be after event end time");
 
     public static readonly ErrorMessage EventDurationGreaterThan10Hours =
-        new(0, "Event duration Greater Than 10 Hours");
+        new(0, "Event Duration Cannot Be Greater Than 10 Hours");
 
-    public static readonly ErrorMessage EventDurationMustBeLessThan10Hour =
-        new(0, "Event duration cannot be less than 10 hour");
+    public static readonly ErrorMessage EventDurationLessThan1Hour =
+        new(0, "Event Duration Cannot Be Less Than 1 Hours");
 
     public static readonly ErrorMessage EventCannotSpanBetween1AmAnd8Am =
         new(0, "Event cannot take place from 1am to 8am");

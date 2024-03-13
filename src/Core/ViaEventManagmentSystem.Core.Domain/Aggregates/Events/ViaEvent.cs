@@ -114,8 +114,12 @@ public class ViaEvent : Aggregate<EventId>
         return Result.Success();
     }
     
-    public Result EventTimeDuration(StartDateTime startDateTime, EndDateTime endDateTime)
+    public Result EventTimeDuration(StartDateTime? startDateTime, EndDateTime? endDateTime)
     {
+        if (startDateTime == null)
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
+        }
         if (_EventStatus == EventStatus.Active)
         {
             return Result.Failure(Error.BadRequest(ErrorMessage.ActiveEventCanotBeModified));
@@ -130,18 +134,31 @@ public class ViaEvent : Aggregate<EventId>
         DateTime endTime = endDateTime.Value;
 
         // Check if start time is after end time
-        if (startTime >= endTime)
+        if (startTime > endTime)
         {
-            return Result.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
+            return Result.Failure(Error.BadRequest(ErrorMessage.StartTimeMustBeBeforeEndTime));
         }
         
-        /*
-        // Check if duration is less than or equal to 10 hours
-        if ((endTime - startTime).TotalHours > 10)
+        // Check if the hour is before 08:00 or if it's after 24:00
+        if (startTime.Hour < 8 )
+            return Result.Failure(Error.BadRequest(ErrorMessage.EventCannotStartBefore8Am));
+        
+        
+      /*
+          // Check if the hour is before 08:00 or if it's after 24:00
+        if (startTime.Hour < 8 || endTime.Hour >= 24)
+            return Result.Failure(Error.BadRequest(ErrorMessage.EventCannotStartBefore8Am));
+            
+        if ((endTime - startTime).TotalHours > 10 )
         {
             return Result.Failure(Error.BadRequest(ErrorMessage.EventDurationGreaterThan10Hours));
         }
-        */
+         */
+        if ((endTime - startTime).TotalHours < 1 )
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.EventDurationLessThan1Hour));
+        }
+       
         _StartDateTime = startDateTime;
         _EndDateTime = endDateTime;
 
