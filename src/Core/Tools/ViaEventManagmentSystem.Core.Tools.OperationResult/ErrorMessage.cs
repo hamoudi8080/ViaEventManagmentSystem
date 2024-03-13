@@ -2,8 +2,8 @@
 
 public class ErrorMessage : Enumeration
 {
- 
-        
+   
+
 
     public static readonly ErrorMessage TitleMustBeSetBeforeMakingAnEventReady =
         new(0, "Title must be set before making an event ready");
@@ -54,6 +54,9 @@ public class ErrorMessage : Enumeration
 
     public static readonly ErrorMessage StartTimeMustBeBeforeEndTime =
         new(0, "Event start time cannot be after event end time");
+    
+    public static readonly  ErrorMessage StartTimeBefore1EndTimeAfter1 =
+        new(0, "Event start time cannot be before 1:00 and endtime cannot be after 1:00");
 
     public static readonly ErrorMessage EventDurationGreaterThan10Hours =
         new(0, "Event Duration Cannot Be Greater Than 10 Hours");
