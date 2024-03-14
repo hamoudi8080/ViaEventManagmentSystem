@@ -9,6 +9,11 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=48e7760a_002D8eb3_002D4b54_002Da419_002Dfcc4aee2db71/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="F3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4b984bc1_002D3bc8_002D435d_002D9d97_002Df0742d862568/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SetMaxNumberOfGuests_ExistingEventWithDraftStatusAndValidNumberOfGuests_Success" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.SetMaxNumberOfGuestsTest.SetMaxNumberOfGuestsTest+S1.SetMaxNumberOfGuests_ExistingEventWithDraftStatusAndValidNumberOfGuests_Success&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5c7bf424_002Df40c_002D41e9_002D8f0b_002D48886b042729/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SetEventTimes_InvalidInput_StartDateAfterEndDate #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.EventTimeDurationTest.EventTimeDurationTest+F1.SetEventTimes_InvalidInput_StartDateAfterEndDate&lt;/TestId&gt;&#xD;

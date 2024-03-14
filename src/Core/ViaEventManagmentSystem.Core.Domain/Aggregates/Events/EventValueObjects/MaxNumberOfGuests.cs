@@ -16,11 +16,12 @@ public class MaxNumberOfGuests : ValueObject
 
     public static Result<MaxNumberOfGuests> Create(int maxNumber)
     {
-        if (maxNumber <=4 || maxNumber >= 50)
+        /*
+        if (maxNumber <5 || maxNumber > 50)
         {
-            return Result<MaxNumberOfGuests>.Failure(Error.BadRequest(ErrorMessage.MaxGuestsNoMustBeWithin4and50));
+            return Result<MaxNumberOfGuests>.Failure(Error.BadRequest(ErrorMessage.MaxGuestsNoMustBeWithin5and50));
         }
-
+*/
         return Result<MaxNumberOfGuests>.Success(new MaxNumberOfGuests(maxNumber));
     }
 

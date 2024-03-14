@@ -33,6 +33,9 @@ public class ErrorMessage : Enumeration
 
     public static readonly ErrorMessage CancelledEventCannotBemodified =
         new(0, "Cancelled event cannot be modified");
+    
+    public static readonly ErrorMessage CancelledEventCannotBePublic =
+        new(0, "Cancelled event cannot be modified");
 
     public static readonly ErrorMessage CancelledEventCannotBeMadeReady =
         new(0, "Cancelled event cannot be made ready");
@@ -85,8 +88,8 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage EventStartAndEndDateMustBeSame =
         new(0, "Start And End Date Must Be Same");
 
-    public static readonly ErrorMessage MaxGuestsNoMustBeWithin4and50 =
-        new(0, "Maximum number of Guests cannot be less than 4 or more than 50 ");
+    public static readonly ErrorMessage MaxGuestsNoMustBeWithin5and50 =
+        new(0, "Maximum number of Guests cannot be less than 5 or more than 50 ");
 
     public static readonly ErrorMessage ActiveEventCanotBeModified =
         new(0, "Active event cannot be modified");

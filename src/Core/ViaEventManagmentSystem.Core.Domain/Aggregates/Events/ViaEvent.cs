@@ -177,4 +177,90 @@ public class ViaEvent : Aggregate<EventId>
 
         return Result.Success();
     }
+
+    public Result MakeEventReady()
+    {
+        _EventStatus = EventStatus.Ready;
+
+        return Result.Success();
+    }
+
+
+    public Result MakeEventPublic()
+    {
+        if (_EventStatus == EventStatus.Cancelled)
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBePublic));
+        }
+
+        if (_EventVisibility == EventVisibility.Public)
+        {
+            // Event is already public, no need to change anything
+            return Result.Success();
+        }
+
+        _EventVisibility = EventVisibility.Public;
+
+        return Result.Success();
+    }
+
+
+    public Result MakeEventPrivate()
+    {
+        if (_EventStatus == EventStatus.Active)
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.ActiveEventCannotBePrivate));
+        }
+
+        if (_EventStatus == EventStatus.Cancelled)
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBemodified));
+        }
+
+        if (_EventVisibility == EventVisibility.Private)
+        {
+            // Event is already private, no need to change anything
+            return Result.Success();
+        }
+
+        _EventVisibility = EventVisibility.Private;
+        _EventStatus = EventStatus.Draft;
+/*
+        // If the event is public and the status is Draft or Ready, change the status to Draft
+        if (_EventVisibility == EventVisibility.Public &&
+            (_EventStatus == EventStatus.Draft || _EventStatus == EventStatus.Ready))
+        {
+            _EventVisibility = EventVisibility.Private;
+            _EventStatus = EventStatus.Draft;
+        }
+*/
+        return Result.Success();
+    }
+    
+    
+    
+    
+    public Result<ViaEvent> SetMaxNumberOfGuests(MaxNumberOfGuests maxGuests)
+    {
+        
+
+        if (_EventStatus == EventStatus.Active && maxGuests.Value < _MaxNumberOfGuests.Value) // Check if the new max number of guests is less than the current value
+        {
+            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.ActiveEventCannotReduceMaxGuests));
+        }
+
+        if (_EventStatus == EventStatus.Cancelled)
+        {
+            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBemodified));
+        }
+
+        if (maxGuests.Value <5 || maxGuests.Value  > 50)
+        {
+            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.MaxGuestsNoMustBeWithin5and50));
+        }
+        _MaxNumberOfGuests = maxGuests;
+        
+        //The this keyword is passed as an argument to the Success method, which means we're passing the current instance of the ViaEvent class.
+        return Result<ViaEvent>.Success(this);
+    }
 }

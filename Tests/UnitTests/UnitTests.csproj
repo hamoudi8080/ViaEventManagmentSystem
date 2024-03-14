@@ -30,7 +30,6 @@
     <ItemGroup>
       <Folder Include="Common\Factories\" />
       <Folder Include="Common\Values\" />
-      <Folder Include="Features\Event\SetVisibility\" />
     </ItemGroup>
 
 </Project>

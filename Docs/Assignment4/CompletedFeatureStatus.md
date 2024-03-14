@@ -55,3 +55,26 @@
     * [X] F9
     * [X] F10
     * [X] F11
+
+* [X] UC5 - The creator makes the event private
+  * [X] Value - EventVisibility
+  * [X] S1
+  * [X] S2
+  * [X] F1
+  * [X] F2
+
+
+* [X] UC6 - The creator makes the event public
+  * [X] Value - EventVisibility
+  * [X] S1
+  * [X] S2
+  * [X] F1
+  * [X] F2
+
+
+* [X] UC7 - The creator sets maximum number of guests
+  * [X] Value - MaxNumberOfGuests
+  * [X] S1
+  * [X] S2
+  * [X] F1
+  * [X] F2
