@@ -78,3 +78,17 @@
   * [X] S2
   * [X] F1
   * [X] F2
+
+* [X] UC8 - The creator readies an event
+  * [X] S1
+  * [X] F1
+  * [X] F2
+  * [X] F3
+  * [X] F4
+
+* [X] UC9 - The creator activates an event
+  * [X] S1
+  * [X] S2
+  * [X] S3
+  * [X] F1
+  * [X] F2

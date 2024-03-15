@@ -21,7 +21,7 @@ public class MaxNumberOfGuests : ValueObject
         {
             return Result<MaxNumberOfGuests>.Failure(Error.BadRequest(ErrorMessage.MaxGuestsNoMustBeWithin5and50));
         }
-*/
+ */
         return Result<MaxNumberOfGuests>.Success(new MaxNumberOfGuests(maxNumber));
     }
 

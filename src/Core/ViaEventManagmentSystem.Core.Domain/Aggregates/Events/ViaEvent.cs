@@ -1,4 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+﻿using System.Text;
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Common.Bases;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
@@ -178,13 +179,78 @@ public class ViaEvent : Aggregate<EventId>
         return Result.Success();
     }
 
-    public Result MakeEventReady()
+    public Result<ViaEvent> MakeEventReady()
     {
+        if (_EventStatus == EventStatus.Cancelled)
+        {
+            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBeMadeReady));
+        }
+
+        StringBuilder errorMessage = new StringBuilder("The following fields are missing or have default values:");
+
+        if (_EventTitle == null)
+        {
+            errorMessage.Append("\n- Title is missing");
+        }
+        else if (_EventTitle == EventTitle.Create("Working Title").Payload)
+        {
+            errorMessage.Append("\n- Title has default value");
+        }
+
+        if (_Description == null)
+        {
+            errorMessage.Append("\n- Description is missing");
+        }
+        else if (_Description == EventDescription.Create(string.Empty).Payload)
+        {
+            errorMessage.Append("\n- Description has default value");
+        }
+
+        if (_StartDateTime == null)
+        {
+            errorMessage.Append("\n- Start date and time are missing");
+        }
+        var fiveMinutesAgo = DateTime.Now.AddMinutes(-5);
+        if (_StartDateTime.Value < fiveMinutesAgo)
+        {
+            errorMessage.Append("\n- Start date and time cannot be in the past");
+        }
+        else if (_StartDateTime == StartDateTime.Create(DateTime.Now).Payload)
+        {
+            errorMessage.Append("\n- Start date and time have default value");
+        }
+
+
+        if (_EndDateTime == null)
+        {
+            errorMessage.Append("\n- End date and time are missing");
+        }
+
+        if (_EventVisibility == null)
+        {
+            errorMessage.Append("\n- Visibility is missing");
+        }
+
+        if (_MaxNumberOfGuests == null)
+        {
+            errorMessage.Append("\n- Maximum number of guests is missing");
+        }
+        else if (_MaxNumberOfGuests.Value < 5 || _MaxNumberOfGuests.Value > 50)
+        {
+            errorMessage.Append("\n- Maximum number of guests must be between 5 and 50");
+        }
+
+        // Check if any error message is added
+        if (errorMessage.Length > "The following fields are missing or have default values:".Length)
+        {
+            Console.WriteLine(errorMessage.ToString());
+            return Result<ViaEvent>.Failure(Error.AddCustomError(errorMessage.ToString()));
+        }
+
+        // No errors found, make event ready
         _EventStatus = EventStatus.Ready;
-
-        return Result.Success();
+        return Result<ViaEvent>.Success(this);
     }
-
 
     public Result MakeEventPublic()
     {
@@ -236,15 +302,13 @@ public class ViaEvent : Aggregate<EventId>
 */
         return Result.Success();
     }
-    
-    
-    
-    
+
+
     public Result<ViaEvent> SetMaxNumberOfGuests(MaxNumberOfGuests maxGuests)
     {
-        
-
-        if (_EventStatus == EventStatus.Active && maxGuests.Value < _MaxNumberOfGuests.Value) // Check if the new max number of guests is less than the current value
+        if (_EventStatus == EventStatus.Active &&
+            maxGuests.Value <
+            _MaxNumberOfGuests.Value) // Check if the new max number of guests is less than the current value
         {
             return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.ActiveEventCannotReduceMaxGuests));
         }
@@ -254,13 +318,35 @@ public class ViaEvent : Aggregate<EventId>
             return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBemodified));
         }
 
-        if (maxGuests.Value <5 || maxGuests.Value  > 50)
+        if (maxGuests.Value < 5 || maxGuests.Value > 50)
         {
             return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.MaxGuestsNoMustBeWithin5and50));
         }
+
         _MaxNumberOfGuests = maxGuests;
-        
+
         //The this keyword is passed as an argument to the Success method, which means we're passing the current instance of the ViaEvent class.
         return Result<ViaEvent>.Success(this);
     }
+    
+    
+    public Result<ViaEvent> ActivateEvent()
+    {
+        if (_EventStatus == EventStatus.Cancelled)
+        {
+            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBeActivated));
+        }
+        // Make the event ready first
+        var makeReadyResult = MakeEventReady();
+        
+        if (!makeReadyResult.IsSuccess)
+        {
+            return Result<ViaEvent>.Failure(makeReadyResult.Error);
+        }
+
+        // If making the event ready is successful, make it active
+        _EventStatus = EventStatus.Active;
+        return Result<ViaEvent>.Success(this);
+    }
+
 }

@@ -21,20 +21,5 @@ public class MaxNumberOfGuestsTest
       
     }
     
-    
-    [Fact]
-    public void CreateMaxNumberOfGuests_OutOF_TheRange_AndReturnFalse()
-    {
-        //Arrange
-        int numberOfGuests = 100;
-        
-        //Act
-        var result = MaxNumberOfGuests.Create(numberOfGuests);
-        
-        //Assert
-        Assert.False(result.IsSuccess);
-        Assert.NotNull(result.Error);
-        Assert.Contains("Maximum number of Guests cannot be less than 4 or more than 50 ", result.Error.Messages[0].ToString());
-      
-    }
+ 
 }

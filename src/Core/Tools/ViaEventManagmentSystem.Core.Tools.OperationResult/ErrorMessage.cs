@@ -26,8 +26,9 @@ public class ErrorMessage : Enumeration
         new(0, "The first name must be between 2 and 30 characters or Is null or white space");
     public static readonly ErrorMessage LastNameMustBeBetween2And30CharsOrIsNullOrWhiteSpace =
         new(0, "The first name must be between 2 and 30 characters or Is null or white space");
-
-
+    public static readonly ErrorMessage EventSetToDraftBeforeMakingItReady =
+        new(0, "Event must be in Draft Before Making It Ready");
+    
     public static readonly ErrorMessage ActiveEventCannotBeMadeReady =
         new(0, "Active event cannot be made ready");
 
@@ -102,6 +103,12 @@ public class ErrorMessage : Enumeration
 
     public static readonly ErrorMessage UnParsableGuid =
         new(0, "The provided guid value is not parsable");
+    public static readonly ErrorMessage EventAlreadyReady =
+        new(0, "Event had already been ready");
+    public static readonly ErrorMessage RequiredFieldsNotSet =
+        new(0, "Required Fields Not Set to some value");
+    
+    
 
     private ErrorMessage()
     {
