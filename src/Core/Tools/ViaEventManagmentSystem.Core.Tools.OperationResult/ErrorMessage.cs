@@ -22,10 +22,10 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage EventInThePastCannotBeReady =
         new(0, "Event with start time at past cannot be made ready");
     
-    public static readonly ErrorMessage FirstNameMustBeBetween2And30CharsOrIsNullOrWhiteSpace =
-        new(0, "The first name must be between 2 and 30 characters or Is null or white space");
-    public static readonly ErrorMessage LastNameMustBeBetween2And30CharsOrIsNullOrWhiteSpace =
-        new(0, "The first name must be between 2 and 30 characters or Is null or white space");
+    public static readonly ErrorMessage FirstNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace =
+        new(0, "The first name must be between 2 and 25 characters or Is null or white space");
+    public static readonly ErrorMessage LastNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace =
+        new(0, "The first name must be between 2 and 25 characters or Is null or white space");
     public static readonly ErrorMessage EventSetToDraftBeforeMakingItReady =
         new(0, "Event must be in Draft Before Making It Ready");
     
@@ -108,8 +108,28 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage RequiredFieldsNotSet =
         new(0, "Required Fields Not Set to some value");
     
+    public static readonly ErrorMessage EmailMustEndWithViaDK =
+        new(0, "Email Must End With Via.DK");
+     
+    public static readonly ErrorMessage TextLengthOutOfRange =
+        new(0, "Email Text Length Out Of Range");
+    public static readonly ErrorMessage TextFormatInvalid =
+        new(0, "Email Text Format Invalid");
     
-
+    public static readonly ErrorMessage FirstNameCannotContainNumbers =
+        
+        new(0, "Firstname must not contain numbers");
+    public static readonly ErrorMessage LastNameCannotContainNumbers =
+        new(0, "Lastname must not contain numbers");
+    
+    public static readonly ErrorMessage FirstNameCannotContainSymbols =
+        new(0, "FirstName Cannot Contain Symbols");
+    public static readonly ErrorMessage LastNameCannotContainSymbols =
+        new(0, "LastName Cannot Contain Symbols");
+    
+    public static readonly ErrorMessage FirstNameCannotBeNull =
+        new(0, "FirstName Cannot be null, please provide a name");
+    
     private ErrorMessage()
     {
     }

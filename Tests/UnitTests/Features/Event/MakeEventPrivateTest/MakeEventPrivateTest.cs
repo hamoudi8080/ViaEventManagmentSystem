@@ -2,7 +2,7 @@
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
-namespace UnitTests.Features.Event.MakeEventPrivate;
+namespace UnitTests.Features.Event.MakeEventPrivateTest;
 
 public abstract class MakeEventPrivateTest
 {
