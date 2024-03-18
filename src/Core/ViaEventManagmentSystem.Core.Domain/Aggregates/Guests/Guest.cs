@@ -1,4 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+﻿ 
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Common.Bases;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
@@ -10,7 +11,7 @@ public class Guest : Aggregate<GuestId>
     internal FirstName _FirstName { get; private set; }
     internal LastName _LastName { get; private set; }
     internal Email _Email { get; private set; }
-
+  
 
     public Guest(GuestId Id) : base(Id)
     {
@@ -77,6 +78,9 @@ public class Guest : Aggregate<GuestId>
             throw new ArgumentException("Last name cannot be null or empty.");
     }
 
+ 
+    
+ 
 
    
 }

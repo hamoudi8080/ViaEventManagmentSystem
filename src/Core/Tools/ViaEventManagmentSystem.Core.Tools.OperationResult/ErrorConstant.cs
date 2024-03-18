@@ -38,7 +38,7 @@
             new ErrorConstant(415, "Unsupported Media Type");
 
         public static readonly ErrorConstant UnprocessableEntity =
-            new ErrorConstant(422, "Unprocessable Entity");
+            new ErrorConstant(422, "Unprocessable Entities");
 
         public static readonly ErrorConstant TooManyRequests =
             new ErrorConstant(429, "Too Many Requests");

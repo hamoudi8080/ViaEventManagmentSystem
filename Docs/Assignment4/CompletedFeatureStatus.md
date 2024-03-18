@@ -102,3 +102,11 @@
   * [X] F5
   * [X] F6
   * [X] F7
+
+* [X] UC11 - Guest participates public event
+  * [X] S1
+  * [X] F1
+  * [X] F2
+  * [X] F3
+  * [X] F4
+  * [X] F5

@@ -12,6 +12,23 @@ public class ErrorMessage : Enumeration
         new(0, "Invalid Email Address");
     public static readonly ErrorMessage InvalidInputError =
         new(0, "Invalid Input Error");
+    public static readonly ErrorMessage   GuestAlreadyParticipating =
+        new(0, "Error Guest Already Participating");
+    public static readonly ErrorMessage   EventIsFull =
+        new(0, "Error Event Is Full");
+    public static readonly ErrorMessage   CannotParticipatedInStartedEvent =
+        new(0, "Only future events can be participated");
+    public static readonly ErrorMessage   OnlyPublicEventCanBeParticipated =
+        new(0, "Only Public Event Can Be Participated");
+    public static readonly ErrorMessage   GuestAlreadyParticipantAtEvent =
+        new(0, "Guest Already Participant At Event");
+    
+    public static readonly ErrorMessage   OnlyActiveEventCanBeJoined =
+        new(0, "Error, your event status is one of following(ready, cancelled, draft) Participants can only Join to Active Event ");
+    
+    public static readonly ErrorMessage   EventMustBeActive =
+        new(0, "Error Your Event is not active, it must be active");
+    
     
     public static readonly ErrorMessage DescriptionMustBeSetBeforeMakingAnEventReady =
         new(0, "Description must be set before making an event ready");
@@ -74,8 +91,9 @@ public class ErrorMessage : Enumeration
     
     public static readonly ErrorMessage EventcannotEndTimeAfter1AM =
         new(0, "Event cannot End After 1 AM");
-    
-    
+    public static readonly ErrorMessage EventIsPrivate =
+        new(0, "The event is private and cannot be joined, without a valid reason.");
+ 
 
     public static readonly ErrorMessage EventStartTimeCannotBeInPast =
         new(0, "Event start time must not be on past");

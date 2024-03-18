@@ -27,7 +27,20 @@ public class ViaEventTestFactory
         return ViaEvent.Create(id, title, description, startDate, endDate, maxNumberOfGuests, eventVisibility,
             eventStatus).Payload;
     }
+    public static ViaEvent PrivateEvent()
+    {
+        var id = EventId.Create().Payload;
+        var title = EventTitle.Create("Event sport title").Payload;
+        var description = EventDescription.Create("Training event description").Payload;
+        var startDate = StartDateTime.Create(DateTime.Now).Payload;
+        var endDate = EndDateTime.Create(DateTime.Now.AddHours(3)).Payload;
+        var maxNumberOfGuests = MaxNumberOfGuests.Create(40).Payload;
+        var eventVisibility = EventVisibility.Private;
+        var eventStatus = EventStatus.Ready;
 
+        return ViaEvent.Create(id, title, description, startDate, endDate, maxNumberOfGuests, eventVisibility,
+            eventStatus).Payload;
+    }
 
     public static ViaEvent DraftEvent()
     {

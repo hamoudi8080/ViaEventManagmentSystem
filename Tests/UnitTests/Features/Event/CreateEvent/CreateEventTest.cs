@@ -9,20 +9,20 @@ public class CreateEventTest
     [Fact]
     public void Create_ValidEvent_ReturnsViaEvent()
     {
-        
         // Arrange
         Result<EventTitle> titleResult = EventTitle.Create("Via Event");
         Result<EventDescription> descriptionResult = EventDescription.Create("Test Description");
         Result<MaxNumberOfGuests> maxNumberOfGuestsResult = MaxNumberOfGuests.Create(100);
         Result<EventVisibility> eventVisibilityResult = Result<EventVisibility>.Success(EventVisibility.Public);
         EventStatus eventStatus = EventStatus.Draft;
-        
+
 
 // Act
         var startDateTime = StartDateTime.Create(DateTime.Now).Payload;
         var endDateTime = EndDateTime.Create(startDateTime.Value.AddHours(2)).Payload;
         var id = EventId.Create();
-        var result = ViaEvent.Create(id.Payload, titleResult.Payload, descriptionResult.Payload, startDateTime, endDateTime, maxNumberOfGuestsResult.Payload, eventVisibilityResult.Payload, eventStatus);
+        var result = ViaEvent.Create(id.Payload, titleResult.Payload, descriptionResult.Payload, startDateTime,
+            endDateTime, maxNumberOfGuestsResult.Payload, eventVisibilityResult.Payload, eventStatus);
 
 // Assert
         Assert.True(result.IsSuccess);
@@ -34,14 +34,6 @@ public class CreateEventTest
         Assert.Equal(maxNumberOfGuestsResult.Payload, result.Payload._MaxNumberOfGuests);
         Assert.Equal(eventVisibilityResult.Payload, result.Payload._EventVisibility);
         Assert.Equal(eventStatus, result.Payload._EventStatus);
-
-        
-        
-        
-        
-        
-
-      
     }
 
 
@@ -49,7 +41,7 @@ public class CreateEventTest
     public void Create_Event_ReturnsViaEvent2()
     {
         // Arrange
-      
+
         // Act
         var id = EventId.Create();
         var result2 = ViaEvent.Create(id.Payload);
@@ -57,7 +49,7 @@ public class CreateEventTest
         // Assert
         Assert.True(result2.IsSuccess);
         var viaEvent = result2.Payload;
-       
+
         Assert.Equal(EventStatus.Draft, viaEvent._EventStatus);
         Assert.Equal(5, viaEvent._MaxNumberOfGuests.Value);
         Assert.Equal("Working Title", viaEvent._EventTitle?.Value);

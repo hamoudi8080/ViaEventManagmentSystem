@@ -1,5 +1,7 @@
 ﻿using System.Text;
+
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Common.Bases;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
@@ -16,6 +18,11 @@ public class ViaEvent : Aggregate<EventId>
     internal MaxNumberOfGuests? _MaxNumberOfGuests { get; private set; }
     internal EventVisibility? _EventVisibility { get; private set; }
     internal EventStatus _EventStatus { get; private set; }
+    internal List<GuestId> _GuestsParticipants { get; private set; }
+   
+    
+
+ 
 
     internal ViaEvent(EventId id) : base(id)
     {
@@ -41,6 +48,7 @@ public class ViaEvent : Aggregate<EventId>
         _EndDateTime = endDateTime;
         _EventVisibility = eventVisibility ?? EventVisibility.Public;
         _EventStatus = eventStatus ?? EventStatus.Draft;
+        _GuestsParticipants = new List<GuestId>();
     }
 
     public static Result<ViaEvent> Create(EventId eventId, EventTitle? title = null,
@@ -210,6 +218,7 @@ public class ViaEvent : Aggregate<EventId>
         {
             errorMessage.Append("\n- Start date and time are missing");
         }
+
         var fiveMinutesAgo = DateTime.Now.AddMinutes(-5);
         if (_StartDateTime.Value < fiveMinutesAgo)
         {
@@ -250,6 +259,12 @@ public class ViaEvent : Aggregate<EventId>
         // No errors found, make event ready
         _EventStatus = EventStatus.Ready;
         return Result<ViaEvent>.Success(this);
+    }
+    public Result AddEventStartTime(StartDateTime startDateTime)
+    {
+        _StartDateTime = startDateTime;
+
+        return Result.Success();
     }
 
     public Result MakeEventPublic()
@@ -328,17 +343,18 @@ public class ViaEvent : Aggregate<EventId>
         //The this keyword is passed as an argument to the Success method, which means we're passing the current instance of the ViaEvent class.
         return Result<ViaEvent>.Success(this);
     }
-    
-    
+
+
     public Result<ViaEvent> ActivateEvent()
     {
         if (_EventStatus == EventStatus.Cancelled)
         {
             return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBeActivated));
         }
+
         // Make the event ready first
         var makeReadyResult = MakeEventReady();
-        
+
         if (!makeReadyResult.IsSuccess)
         {
             return Result<ViaEvent>.Failure(makeReadyResult.Error);
@@ -349,4 +365,69 @@ public class ViaEvent : Aggregate<EventId>
         return Result<ViaEvent>.Success(this);
     }
 
+
+    // Method to get the current number of registered guests
+    private Result<int> GetCurrentNumberOfGuests()
+    {
+        return _GuestsParticipants.Count;
+    }
+    // Method to register a guest for participation
+
+    public Result AddIntendedGuestToEvent(GuestId guestId)
+    {
+        _GuestsParticipants.Add(guestId);
+        return Result.Success();
+    }
+
+
+    public Result AddGuestParticipation(GuestId guest)
+    {
+        // Check if the event is public
+        if (_EventVisibility != EventVisibility.Public)
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.OnlyPublicEventCanBeParticipated));
+        }
+        
+        if (_EventStatus == EventStatus.Draft || _EventStatus == EventStatus.Ready || _EventStatus == EventStatus.Cancelled )
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.OnlyActiveEventCanBeJoined));
+        }
+
+        if (_StartDateTime.Value < DateTime.Now)
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.CannotParticipatedInStartedEvent));
+        }
+        if (_GuestsParticipants.Count >= _MaxNumberOfGuests.Value)
+        {
+            Result.Failure(Error.BadRequest(ErrorMessage.EventIsFull));
+        } 
+        /*
+        // Check if the current number of registered guests is less than the maximum number of allowed guests
+        int currentNumberOfGuests = GetCurrentNumberOfGuests().Payload; // Assuming you have a method to get the current number of registered guests
+        if (currentNumberOfGuests >= _MaxNumberOfGuests.Value)
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.EventIsFull));
+        }
+ 
+*/
+        
+        if (IsParticipant(guest))
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.GuestAlreadyParticipantAtEvent));
+        }
+        _GuestsParticipants.Add(guest);
+        return Result.Success();
+    }
+   
+    public bool IsParticipant(GuestId guestId)
+    {
+        return _GuestsParticipants.Contains(guestId);
+    }
+  
+   
+
+    public bool isEventInPast()
+    {
+        return _StartDateTime.Value < DateTime.Now;
+    }
 }

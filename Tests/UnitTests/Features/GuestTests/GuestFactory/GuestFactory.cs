@@ -12,7 +12,7 @@ public abstract class GuestFactory
         return createGuest.Payload;
     }
     
-    /*
+    
     public static Guest CreateGuest()
     {
         var id = GuestId.Create();
@@ -20,8 +20,9 @@ public abstract class GuestFactory
         var lastname = LastName.Create("Resho").Payload;
         var email = Email.Create("John@via.dk").Payload;
         
-        var createGuest = Guest.Create(id,firstName,lastname,email);
+        var createGuest = Guest.Create(id,firstName.Value,lastname.Value,email.Value);
+       
         return createGuest.Payload;
     }
-    */
+    
 }

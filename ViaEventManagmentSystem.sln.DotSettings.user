@@ -6,7 +6,7 @@
     &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.EventTimeDurationTest.EventTimeDurationTest+F3&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=43a94f10_002D6a2e_002D4e5f_002Db624_002D0ac53669263b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GivenNameWithSymbols_InvalidFormatFailure" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=43a94f10_002D6a2e_002D4e5f_002Db624_002D0ac53669263b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenNameWithSymbols_InvalidFormatFailure" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=48e7760a_002D8eb3_002D4b54_002Da419_002Dfcc4aee2db71/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="F3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -50,7 +50,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2352682_002Ddb8d_002D4826_002D9bd9_002D54d7eb016198/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="OperationResulUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f387ac41_002Ddfc1_002D4e91_002Dbe77_002D442cc1a3f44f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Create_ValidFirstNames_Success" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f387ac41_002Ddfc1_002D4e91_002Dbe77_002D442cc1a3f44f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Create_ValidFirstNames_Success" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f5e88f55_002D4d73_002D495f_002D9dc1_002De3c535b8386c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ActivateEvent_WhenEventInActiveStatus_NothingChangesAndEventSetActive" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
