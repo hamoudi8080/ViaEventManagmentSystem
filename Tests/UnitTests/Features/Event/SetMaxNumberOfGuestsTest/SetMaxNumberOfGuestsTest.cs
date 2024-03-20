@@ -1,4 +1,4 @@
-﻿using UnitTests.Features.Event.EventFactory;
+﻿using UnitTests.Common.Factories.EventFactory;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 
 namespace UnitTests.Features.Event.SetMaxNumberOfGuestsTest;

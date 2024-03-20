@@ -1,8 +1,7 @@
 ﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 
-
-namespace UnitTests.Features.Event.EventFactory;
+namespace UnitTests.Common.Factories.EventFactory;
 
 public class ViaEventTestFactory
 {

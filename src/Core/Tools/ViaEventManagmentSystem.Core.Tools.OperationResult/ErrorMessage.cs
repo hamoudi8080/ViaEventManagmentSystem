@@ -7,6 +7,10 @@ public class ErrorMessage : Enumeration
 
     public static readonly ErrorMessage TitleMustBeSetBeforeMakingAnEventReady =
         new(0, "Title must be set before making an event ready");
+    public static readonly ErrorMessage CancelParticipationRejected =
+        new(0, "You cannot cancel your participation of past or ongoing events");
+    public static readonly ErrorMessage OnlyActiveOrReadyEventCanBeInvited =
+        new(0, "Only Active Or Ready Event Can Be Invited");
     
     public static readonly ErrorMessage InvalidEmailAddress =
         new(0, "Invalid Email Address");

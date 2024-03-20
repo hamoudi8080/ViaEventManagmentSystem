@@ -1,4 +1,6 @@
 ﻿ 
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Common.Bases;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
@@ -13,11 +15,13 @@ public class Guest : Aggregate<GuestId>
     internal Email _Email { get; private set; }
   
 
+    internal List<Invitation> _ReceivedInvitations { get; private set; }
     public Guest(GuestId Id) : base(Id)
     {
         _FirstName = null;
         _LastName = null;
         _Email = null;
+        _ReceivedInvitations = new List<Invitation>();
     }
 
     public Guest(GuestId Id,FirstName firstName, LastName lastName, Email email)
@@ -26,6 +30,7 @@ public class Guest : Aggregate<GuestId>
         _FirstName = firstName;
         _LastName = lastName;
         _Email = email;
+        _ReceivedInvitations = new List<Invitation>();
     }
 
   
@@ -80,7 +85,34 @@ public class Guest : Aggregate<GuestId>
 
  
     
- 
+    public void ReceiveInvitation(Invitation invitation)
+    {
+        _ReceivedInvitations.Add(invitation);
+    }
 
-   
+    public void AcceptInvitation(Invitation invitation, ViaEvent viaEvent)
+    {
+        if (_ReceivedInvitations.Contains(invitation))
+        {
+            invitation.Accept();
+            viaEvent.AddGuestParticipation(_Id);
+        }
+        else
+        {
+            throw new InvalidOperationException("Cannot accept an invitation that has not been received.");
+        }
+    }
+
+
+    public void RejectInvitation(Invitation invitation)
+    {
+        if (_ReceivedInvitations.Contains(invitation))
+        {
+            invitation.Decline();
+        }
+        else
+        {
+            throw new InvalidOperationException("Cannot reject an invitation that has not been received.");
+        }
+    }
 }

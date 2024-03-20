@@ -1,4 +1,4 @@
-﻿using UnitTests.Features.Event.EventFactory;
+﻿using UnitTests.Common.Factories.EventFactory;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;

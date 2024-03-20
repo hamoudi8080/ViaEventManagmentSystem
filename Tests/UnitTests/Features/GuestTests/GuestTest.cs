@@ -1,7 +1,7 @@
 ﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
-using static UnitTests.Features.GuestTests.GuestFactory.GuestFactory;
+using static UnitTests.Common.Factories.GuestFactory.GuestFactory;
 
 namespace UnitTests.Features.GuestTests;
  

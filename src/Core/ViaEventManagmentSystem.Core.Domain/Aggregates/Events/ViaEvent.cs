@@ -1,5 +1,6 @@
 ﻿using System.Text;
-
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
@@ -10,7 +11,7 @@ namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 
 public class ViaEvent : Aggregate<EventId>
 {
-    internal EventId _eventId { get; private set; }
+    internal static EventId _eventId { get; private set; }
     internal EventTitle? _EventTitle { get; private set; }
     internal EventDescription? _Description { get; private set; }
     internal StartDateTime? _StartDateTime { get; private set; }
@@ -19,10 +20,13 @@ public class ViaEvent : Aggregate<EventId>
     internal EventVisibility? _EventVisibility { get; private set; }
     internal EventStatus _EventStatus { get; private set; }
     internal List<GuestId> _GuestsParticipants { get; private set; }
-   
-    
 
- 
+    // internal Invitation _SendInvitations { get; private set; }
+
+    //private List<Invitation> _invitations = new List<Invitation>();
+
+    internal List<Invitation> _Invitations { get; private set; }
+    internal static List<InvitationRequest> _RequestInvitations { get; private set; }
 
     internal ViaEvent(EventId id) : base(id)
     {
@@ -49,6 +53,8 @@ public class ViaEvent : Aggregate<EventId>
         _EventVisibility = eventVisibility ?? EventVisibility.Public;
         _EventStatus = eventStatus ?? EventStatus.Draft;
         _GuestsParticipants = new List<GuestId>();
+        _Invitations = new List<Invitation>();
+        _RequestInvitations = new List<InvitationRequest>();
     }
 
     public static Result<ViaEvent> Create(EventId eventId, EventTitle? title = null,
@@ -260,9 +266,17 @@ public class ViaEvent : Aggregate<EventId>
         _EventStatus = EventStatus.Ready;
         return Result<ViaEvent>.Success(this);
     }
+
     public Result AddEventStartTime(StartDateTime startDateTime)
     {
         _StartDateTime = startDateTime;
+
+        return Result.Success();
+    }
+
+    public Result EventEndTime(EndDateTime endDateTime)
+    {
+        _EndDateTime = endDateTime;
 
         return Result.Success();
     }
@@ -387,8 +401,9 @@ public class ViaEvent : Aggregate<EventId>
         {
             return Result.Failure(Error.BadRequest(ErrorMessage.OnlyPublicEventCanBeParticipated));
         }
-        
-        if (_EventStatus == EventStatus.Draft || _EventStatus == EventStatus.Ready || _EventStatus == EventStatus.Cancelled )
+
+        if (_EventStatus == EventStatus.Draft || _EventStatus == EventStatus.Ready ||
+            _EventStatus == EventStatus.Cancelled)
         {
             return Result.Failure(Error.BadRequest(ErrorMessage.OnlyActiveEventCanBeJoined));
         }
@@ -397,37 +412,60 @@ public class ViaEvent : Aggregate<EventId>
         {
             return Result.Failure(Error.BadRequest(ErrorMessage.CannotParticipatedInStartedEvent));
         }
+
         if (_GuestsParticipants.Count >= _MaxNumberOfGuests.Value)
         {
             Result.Failure(Error.BadRequest(ErrorMessage.EventIsFull));
-        } 
-        /*
-        // Check if the current number of registered guests is less than the maximum number of allowed guests
-        int currentNumberOfGuests = GetCurrentNumberOfGuests().Payload; // Assuming you have a method to get the current number of registered guests
-        if (currentNumberOfGuests >= _MaxNumberOfGuests.Value)
-        {
-            return Result.Failure(Error.BadRequest(ErrorMessage.EventIsFull));
         }
- 
-*/
-        
+
         if (IsParticipant(guest))
         {
             return Result.Failure(Error.BadRequest(ErrorMessage.GuestAlreadyParticipantAtEvent));
         }
+
         _GuestsParticipants.Add(guest);
         return Result.Success();
     }
-   
+
     public bool IsParticipant(GuestId guestId)
     {
         return _GuestsParticipants.Contains(guestId);
     }
-  
-   
 
-    public bool isEventInPast()
+    public bool IsEventInPast()
     {
         return _StartDateTime.Value < DateTime.Now;
+    }
+
+    public Result CancelGuestParticipation(GuestId guestId)
+    {
+        if (IsEventInPast())
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.CancelParticipationRejected));
+        }
+
+        _GuestsParticipants.Remove(guestId);
+        return Result.Success();
+    }
+
+
+    public Result<Invitation> InviteGuest(GuestId guestId)
+    {
+        var invitation = Invitation.Create(_eventId, InvitationId.Create().Payload, guestId);
+        if (_EventStatus == EventStatus.Draft || _EventStatus == EventStatus.Cancelled)
+        {
+            return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.OnlyActiveOrReadyEventCanBeInvited));
+        }
+
+        _Invitations.Add(invitation.Payload);
+        return invitation;
+    }
+
+    public static Result<InvitationRequest> RequestInvitation(GuestId guestId)
+    {
+        var request = InvitationRequest.Create(RequestInvitationId.Create().Payload, _eventId, guestId);
+        //new InvitationRequest( RequestInvitationId.Create().Payload, _eventId, guestId);
+        _RequestInvitations.Add(request.Payload);
+        return request;
     }
 }

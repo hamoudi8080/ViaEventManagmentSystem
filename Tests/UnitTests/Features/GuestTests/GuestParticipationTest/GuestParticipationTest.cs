@@ -1,4 +1,5 @@
-﻿using UnitTests.Features.Event.EventFactory;
+﻿using UnitTests.Common.Factories.EventFactory;
+using UnitTests.Common.Factories.GuestFactory;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
@@ -19,7 +20,7 @@ public abstract class GuestParticipationTest
             var futureevent = DateTime.Now.AddMinutes(30);
             var s = StartDateTime.Create(futureevent);
             readyEvent.AddEventStartTime(s.Payload);
-            var guest = GuestFactory.GuestFactory.CreateGuest()._Id;
+            var guest = GuestFactory.CreateGuest()._Id;
 
 
             //act
@@ -44,7 +45,7 @@ public abstract class GuestParticipationTest
             // Arrange
             ViaEvent draftEvent = ViaEventTestFactory.DraftEvent();
             draftEvent.MakeEventPublic();
-            var guest = GuestFactory.GuestFactory.CreateGuest()._Id;
+            var guest = GuestFactory.CreateGuest()._Id;
 
             // Act
             var result = draftEvent.AddGuestParticipation(guest);
@@ -92,7 +93,7 @@ public abstract class GuestParticipationTest
             readyEvent.MakeEventPublic();
             readyEvent.AddEventStartTime(s.Payload);
             
-            var guest = GuestFactory.GuestFactory.CreateGuest()._Id;
+            var guest = GuestFactory.CreateGuest()._Id;
 
             // Act
             var result = readyEvent.AddGuestParticipation(guest);
@@ -110,7 +111,7 @@ public abstract class GuestParticipationTest
         {
             // Arrange
             ViaEvent privateEvent = ViaEventTestFactory.PrivateEvent();
-            var guest = GuestFactory.GuestFactory.CreateGuest()._Id;
+            var guest = GuestFactory.CreateGuest()._Id;
 
             // Act
             var result = privateEvent.AddGuestParticipation(guest);
@@ -129,7 +130,7 @@ public abstract class GuestParticipationTest
             // Arrange
             
             //arrange
-            var guest = GuestFactory.GuestFactory.CreateGuest()._Id;
+            var guest = GuestFactory.CreateGuest()._Id;
             ViaEvent readyEvent = ViaEventTestFactory.ReadyEvent();
             readyEvent.ActivateEvent();
             readyEvent.MakeEventPublic();
