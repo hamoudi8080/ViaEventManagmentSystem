@@ -80,7 +80,14 @@ public class ViaEventTestFactory
         return ViaEvent.Create(id.Payload, maxNumberOfGuests: maxNumberOfGuests.Payload,
             eventStatus: EventStatus.Active).Payload;
     }
-
+    public static ViaEvent CreateActiveEventFullGuest()
+    {
+      
+        var id = EventId.Create();
+        var maxNumberOfGuests = MaxNumberOfGuests.Create(5);
+        return ViaEvent.Create(id.Payload, maxNumberOfGuests: maxNumberOfGuests.Payload,
+            eventStatus: EventStatus.Active).Payload;
+    }
 
     public static ViaEvent CancelledEvent()
     {

@@ -13,15 +13,13 @@ public class Guest : Aggregate<GuestId>
     internal FirstName _FirstName { get; private set; }
     internal LastName _LastName { get; private set; }
     internal Email _Email { get; private set; }
-  
-
-    internal List<Invitation> _ReceivedInvitations { get; private set; }
+  //  internal List<Invitation> _ReceivedInvitations { get; private set; }
     public Guest(GuestId Id) : base(Id)
     {
         _FirstName = null;
         _LastName = null;
         _Email = null;
-        _ReceivedInvitations = new List<Invitation>();
+       // _ReceivedInvitations = new List<Invitation>();
     }
 
     public Guest(GuestId Id,FirstName firstName, LastName lastName, Email email)
@@ -30,7 +28,7 @@ public class Guest : Aggregate<GuestId>
         _FirstName = firstName;
         _LastName = lastName;
         _Email = email;
-        _ReceivedInvitations = new List<Invitation>();
+       // _ReceivedInvitations = new List<Invitation>();
     }
 
   
@@ -84,7 +82,7 @@ public class Guest : Aggregate<GuestId>
     }
 
  
-    
+    /*
     public void ReceiveInvitation(Invitation invitation)
     {
         _ReceivedInvitations.Add(invitation);
@@ -115,4 +113,5 @@ public class Guest : Aggregate<GuestId>
             throw new InvalidOperationException("Cannot reject an invitation that has not been received.");
         }
     }
+    */
 }

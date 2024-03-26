@@ -1,4 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=224fe6e5_002D3fd2_002D41a3_002Da681_002Dd0d19dd7b210/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GivenAnExistingEventWithIDAndGuestIDAndPendingInvitationAndMaxParticipantsReached_GuestAcceptsInvitation_ShouldRejectParticipant" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=31e8e9b3_002D4e09_002D45e1_002Db6ff_002D7c49551185ce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SetEventTimes_InvalidInput_StartDateAfterEndDate" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.EventTimeDurationTest.EventTimeDurationTest+F1.SetEventTimes_InvalidInput_StartDateAfterEndDate&lt;/TestId&gt;&#xD;
@@ -16,7 +19,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5c7bf424_002Df40c_002D41e9_002D8f0b_002D48886b042729/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SetEventTimes_InvalidInput_StartDateAfterEndDate #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5dd0bfa2_002Dbf0b_002D46c4_002D919a_002D1054dd396ae2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GivenGuestId_GuestCancels_EventRemovesGuestFromParticipation" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5dd0bfa2_002Dbf0b_002D46c4_002D919a_002D1054dd396ae2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenGuestId_GuestCancels_EventRemovesGuestFromParticipation" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6509f8ca_002D2091_002D4f79_002D8c69_002D8fc11bf6dc4b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="UpdateTitleTest_F2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

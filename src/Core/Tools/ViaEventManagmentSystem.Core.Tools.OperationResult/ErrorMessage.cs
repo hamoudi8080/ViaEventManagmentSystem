@@ -10,16 +10,24 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage CancelParticipationRejected =
         new(0, "You cannot cancel your participation of past or ongoing events");
     public static readonly ErrorMessage OnlyActiveOrReadyEventCanBeInvited =
+        
         new(0, "Only Active Or Ready Event Can Be Invited");
+    public static readonly ErrorMessage CancelledEventCannotBeCancelled =
+        
+        new(0, "Cancelled Event Cannot Be Cancelled");
     
+    public static readonly ErrorMessage CancelledEventCannotBeJoined =
+        new(0, "cancelled events cannot be joined");
     public static readonly ErrorMessage InvalidEmailAddress =
         new(0, "Invalid Email Address");
     public static readonly ErrorMessage InvalidInputError =
         new(0, "Invalid Input Error");
+    public static readonly ErrorMessage GuestNotInvited =
+        new(0, "the guest is not invited to the event");
     public static readonly ErrorMessage   GuestAlreadyParticipating =
         new(0, "Error Guest Already Participating");
     public static readonly ErrorMessage   EventIsFull =
-        new(0, "Error Event Is Full");
+        new(0, "Error you cannot invite guests if the event is full");
     public static readonly ErrorMessage   CannotParticipatedInStartedEvent =
         new(0, "Only future events can be participated");
     public static readonly ErrorMessage   OnlyPublicEventCanBeParticipated =
