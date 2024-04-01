@@ -129,7 +129,7 @@
   * [] F4
 
 
-* [X] UC15 - Guest accepts invitation
+* [X] UC15 - Guest Declines invitation
   * [X] S1
   * [X] S2
   * [X] F1
