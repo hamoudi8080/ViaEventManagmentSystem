@@ -33,9 +33,21 @@ public class Result
         return new Result(false, error);
     }
 
+    public static Result CombineFromOthers(params Result[] results)
+    {
+        foreach (var result in results)
+        {
+            if (!result.IsSuccess)
+            {
+                return result;
+            }
+        }
+
+        return Success();
+    }
     public static implicit operator Result(Error error) => new Result { Error = error };
 }
-
+ 
 public class Result<T> : Result
 {
     public T Payload { get; }
@@ -66,7 +78,19 @@ public class Result<T> : Result
         return new Result<T>(false, default, error);
     }
 
+  
+    public static Result<T> CombineFromOthers(params Result<T>[] results)
+    {
+        foreach (var result in results)
+        {
+            if (!result.IsSuccess)
+            {
+                return result;
+            }
+        }
 
+        return Success(default(T));
+    }
    
 
     public static implicit operator Result<T>(T value)

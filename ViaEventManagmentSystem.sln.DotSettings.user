@@ -1,5 +1,5 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=224fe6e5_002D3fd2_002D41a3_002Da681_002Dd0d19dd7b210/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GivenAnExistingEventWithIDAndGuestIDAndPendingInvitationAndMaxParticipantsReached_GuestAcceptsInvitation_ShouldRejectParticipant" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=224fe6e5_002D3fd2_002D41a3_002Da681_002Dd0d19dd7b210/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenAnExistingEventWithIDAndGuestIDAndPendingInvitationAndMaxParticipantsReached_GuestAcceptsInvitation_ShouldRejectParticipant" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=31e8e9b3_002D4e09_002D45e1_002Db6ff_002D7c49551185ce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SetEventTimes_InvalidInput_StartDateAfterEndDate" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -45,6 +45,9 @@
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=67918803_002D03a7_002D4829_002Da1c1_002D644470e5ebf1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="UpdateEventTimes_ValidInput_Success" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6fe668b0_002D1277_002D4b59_002D84fb_002D2357733938cc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateParticipateGuestCommand_WithInvalidEventId_ShouldReturnFailure" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2352682_002Ddb8d_002D4826_002D9bd9_002D54d7eb016198/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="OperationResulUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

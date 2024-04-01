@@ -20,7 +20,9 @@ public class ViaEvent : Aggregate<EventId>
     internal EventVisibility? _EventVisibility { get; private set; }
     internal EventStatus _EventStatus { get; private set; }
     internal List<GuestId> _GuestsParticipants { get; private set; }
-
+    
+    internal List<Invitation> _RejectedInvitations { get; private set; }
+    
     // internal Invitation _SendInvitations { get; private set; }
 
     
@@ -54,6 +56,7 @@ public class ViaEvent : Aggregate<EventId>
         _EventStatus = eventStatus ?? EventStatus.Draft;
         _GuestsParticipants = new List<GuestId>();
         _Invitations = new List<Invitation>();
+        _RejectedInvitations = new List<Invitation>();
         _RequestInvitations = new List<InvitationRequest>();
     }
 
@@ -518,6 +521,41 @@ public class ViaEvent : Aggregate<EventId>
             return Result.Success();
         }
 
+        return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
+    }
+    
+    public Result RejectGuestInvitation(GuestId guestId)
+    {
+        var invitation = _Invitations.FirstOrDefault(i => i._GuestId == guestId && i._EventId == _eventId);
+        
+        if (_EventStatus == EventStatus.Cancelled)
+        {
+            return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBeJoined));
+        }
+        if (invitation == null)
+        {
+            return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.GuestNotInvited));
+        }
+        if (_EventStatus == EventStatus.Ready)
+        {
+            return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.EventIsNotActive));
+        }
+
+        var rejectResult = invitation.Decline();
+
+     
+        if (rejectResult.IsSuccess)
+        {
+            // If the guest is a participant, remove them from the participants list
+            if (_GuestsParticipants.Contains(guestId))
+            {
+                _GuestsParticipants.Remove(guestId);
+            }
+
+            // Add the rejected invitation to the list
+            _RejectedInvitations.Add(invitation);
+            return Result.Success();
+        }
         return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
     }
 

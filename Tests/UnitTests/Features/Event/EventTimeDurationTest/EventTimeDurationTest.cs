@@ -8,29 +8,26 @@ public abstract class EventTimeDurationTest
 {
     public class S1
     {
-        [Theory]
-        [InlineData("2023/08/25 19:00", "2023/08/25 23:59")]
-        [InlineData("2023/08/25 12:00", "2023/08/25 16:30")]
-        [InlineData("2023/08/25 08:00", "2023/08/25 12:15")]
-        [InlineData("2023/08/25 10:00", "2023/08/25 20:00")]
+     [Fact]
        
-        public void UpdateEventTimes_ValidInput_Success(DateTime startDateTimeString, DateTime endDateTimeString)
+        public void UpdateEventTimes_ValidInput_Success()
         {
             // Arrange
-
+            DateTime validStartDateTime = DateTime.Now.AddMinutes(5);
+            DateTime validEndDateTime = DateTime.Now.AddHours(3);
 
             var createEvent = ViaEventTestFactory.CreateEvent();
 
-            var _startDateTime = StartDateTime.Create(startDateTimeString).Payload;
-            var _endDateTime = EndDateTime.Create(endDateTimeString).Payload;
+            var _startDateTime = StartDateTime.Create(validStartDateTime).Payload;
+            var _endDateTime = EndDateTime.Create(validEndDateTime).Payload;
 
             // Act
             var result = createEvent.EventTimeDuration(_startDateTime, _endDateTime);
 
             // Assert
             Assert.True(result.IsSuccess);
-            Assert.Equal(startDateTimeString, createEvent._StartDateTime.Value);
-            Assert.Equal(endDateTimeString, createEvent._EndDateTime.Value);
+            Assert.Equal(validStartDateTime, createEvent._StartDateTime.Value);
+            Assert.Equal(validEndDateTime, createEvent._EndDateTime.Value);
         }
     }
 

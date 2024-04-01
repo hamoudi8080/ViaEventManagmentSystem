@@ -13,8 +13,10 @@ public class ErrorMessage : Enumeration
         
         new(0, "Only Active Or Ready Event Can Be Invited");
     public static readonly ErrorMessage CancelledEventCannotBeCancelled =
-        
         new(0, "Cancelled Event Cannot Be Cancelled");
+    
+    public static readonly ErrorMessage EventIsNotActive =
+        new(0, "the event cannot yet be declined.");
     
     public static readonly ErrorMessage CancelledEventCannotBeJoined =
         new(0, "cancelled events cannot be joined");

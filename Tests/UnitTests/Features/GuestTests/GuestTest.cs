@@ -20,7 +20,7 @@ public abstract class GuestTest
             var lastname = "resho";
             
             // Act
-            var createGuest = Guest.Create(id,firstName,lastname,email);
+            var createGuest = Guest.Create(id.Payload,firstName,lastname,email);
             
             //Assert
             Assert.True(createGuest.IsSuccess);
@@ -42,7 +42,7 @@ public abstract class GuestTest
             var lastname = "resho";
             
             // Act
-            var result = Guest.Create(id,firstName,lastname,email);
+            var result = Guest.Create(id.Payload,firstName,lastname,email);
             
             //Assert
             Assert.False(result.IsSuccess);
@@ -64,7 +64,7 @@ public abstract class GuestTest
             var lastname = "resho";
         
             // Act
-            var result = Guest.Create(id, firstName, lastname, email);
+            var result = Guest.Create(id.Payload, firstName, lastname, email);
         
             // Assert
             Assert.False(result.IsSuccess);
@@ -85,7 +85,7 @@ public abstract class GuestTest
             var lastName = "resho";
         
             // Act
-            var result = Guest.Create(id, invalidFirstName, lastName, email);
+            var result = Guest.Create(id.Payload, invalidFirstName, lastName, email);
         
             // Assert
             Assert.False(result.IsSuccess);
@@ -105,7 +105,7 @@ public abstract class GuestTest
             var invalidLastName = ""; // Invalid last name format
        
             // Act
-            var result = Guest.Create(id, firstName, invalidLastName, email);
+            var result = Guest.Create(id.Payload, firstName, invalidLastName, email);
         
             // Assert
             Assert.False(result.IsSuccess);
@@ -125,7 +125,7 @@ public abstract class GuestTest
             var lastName = "resho";
         
             // Register the email first
-            var registrationResult = Guest.Create(id, firstName, lastName, registeredEmail);
+            var registrationResult = Guest.Create(id.Payload, firstName, lastName, registeredEmail);
             Assert.True(registrationResult.IsSuccess); // Ensure registration succeeds
         
             /*
@@ -153,7 +153,7 @@ public abstract class GuestTest
             var lastName = "resho";
         
             // Act
-            var result = Guest.Create(id, invalidName, invalidName, email); // Providing a generic last name
+            var result = Guest.Create(id.Payload, invalidName, invalidName, email); // Providing a generic last name
         
             // Assert
             Assert.False(result.IsSuccess);
@@ -172,7 +172,7 @@ public abstract class GuestTest
             var email = "john@via.dk";
         
             // Act
-            var result = Guest.Create(id, invalidName, invalidName, email); // Providing a generic last name
+            var result = Guest.Create(id.Payload, invalidName, invalidName, email); // Providing a generic last name
         
             // Assert
             Assert.False(result.IsSuccess);

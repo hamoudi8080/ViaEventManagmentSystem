@@ -5,6 +5,12 @@ namespace UnitTests.Common.Factories.EventFactory;
 
 public class ViaEventTestFactory
 {
+    
+    public static EventId ValidEventId()
+    {
+        var id = EventId.Create();
+        return id.Payload;
+    }
     public static ViaEvent CreateEvent()
     {
         var id = EventId.Create();

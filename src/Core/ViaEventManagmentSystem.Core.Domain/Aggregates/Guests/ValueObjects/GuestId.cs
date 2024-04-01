@@ -13,7 +13,7 @@ public class GuestId : ValueObject
         Value = id;
     }
 
-    public static GuestId Create()
+    public static Result< GuestId> Create()
     {
         return new GuestId(Guid.NewGuid());
     }

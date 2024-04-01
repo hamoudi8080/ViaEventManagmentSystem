@@ -5,10 +5,16 @@ namespace UnitTests.Common.Factories.GuestFactory;
 
 public abstract class GuestFactory
 {
+    
+    public static GuestId ValidGuestId()
+    {
+        var id = GuestId.Create();
+        return id.Payload;
+    }
     public static Guest CreateEmptyGuest()
     {
         var id = GuestId.Create();
-        var createGuest = Guest.Create(id);
+        var createGuest = Guest.Create(id.Payload);
         return createGuest.Payload;
     }
     
@@ -20,7 +26,7 @@ public abstract class GuestFactory
         var lastname = LastName.Create("Resho").Payload;
         var email = Email.Create("John@via.dk").Payload;
         
-        var createGuest = Guest.Create(id,firstName.Value,lastname.Value,email.Value);
+        var createGuest = Guest.Create(id.Payload,firstName.Value,lastname.Value,email.Value);
        
         return createGuest.Payload;
     }
