@@ -2,25 +2,23 @@
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 
-namespace UnitTests.Features.GuestTests.GuestAcceptInvitationTest;
+namespace UnitTests.Features.GuestTests.GuestCancelsParticipationTest;
 
-public class AcceptInvitationCommandTest
+public class GuestCancelsParticipationCommandTest
 {
+    
     [Fact]
-    public void AcceptInvitationCommand_ValidData_ReturnsAcceptInvitationCommand()
+    public void GivenEventIdAndGuestId_GuestCancelsParticipationCommandIsCreated()
     {
-        // arrange 
+        //Arrange
         var guestId = GuestId.Create();
         var eventId = EventId.Create();
         
-        // act
-        var result = AcceptInvitationCommand.Create(eventId.Payload.Value.ToString(), guestId.Payload.Value.ToString());
+        //Act
+        var result = GuestCancelsParticipationCommand.Create(eventId.Payload.Value.ToString(), guestId.Payload.Value.ToString());
         
-        // assert
+        //Assert
         Assert.True(result.IsSuccess);
         Assert.NotNull(result.Payload);
-        
-
     }
-
 }

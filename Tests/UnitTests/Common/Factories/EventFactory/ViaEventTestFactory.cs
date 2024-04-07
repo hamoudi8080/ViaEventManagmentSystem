@@ -82,7 +82,7 @@ public class ViaEventTestFactory
     {
       
         var id = EventId.Create();
-        var maxNumberOfGuests = MaxNumberOfGuests.Create(10);
+        var maxNumberOfGuests = MaxNumberOfGuests.Create(5);
         return ViaEvent.Create(id.Payload, maxNumberOfGuests: maxNumberOfGuests.Payload,
             eventStatus: EventStatus.Active).Payload;
     }

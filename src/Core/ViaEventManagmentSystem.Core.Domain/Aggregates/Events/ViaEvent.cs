@@ -11,7 +11,7 @@ namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 
 public class ViaEvent : Aggregate<EventId>
 {
-    internal static EventId _eventId { get; private set; }
+    internal  EventId _eventId { get; private set; }
     internal EventTitle? _EventTitle { get; private set; }
     internal EventDescription? _Description { get; private set; }
     internal StartDateTime? _StartDateTime { get; private set; }
@@ -20,12 +20,11 @@ public class ViaEvent : Aggregate<EventId>
     internal EventVisibility? _EventVisibility { get; private set; }
     internal EventStatus _EventStatus { get; private set; }
     internal List<GuestId> _GuestsParticipants { get; private set; }
-    
+
     internal List<Invitation> _RejectedInvitations { get; private set; }
-    
+
     // internal Invitation _SendInvitations { get; private set; }
 
-    
 
     internal List<Invitation> _Invitations { get; private set; }
     internal static List<InvitationRequest> _RequestInvitations { get; private set; }
@@ -76,9 +75,21 @@ public class ViaEvent : Aggregate<EventId>
         return Result<ViaEvent>.Success(new ViaEvent(id));
     }
 
-    public Result UpdateTitle(string newTitle)
+    public Result UpdateTitle(EventTitle newTitle)
     {
-        if (newTitle == null || newTitle.Length < 3 || newTitle.Length > 75)
+        // if (newTitle == null || newTitle.Value.Length < 3 || newTitle.Value.Length > 75)
+        // {
+        //     return Result.Failure(Error.BadRequest(ErrorMessage.TitleMustBeBetween3And75Chars));
+        // }
+
+        var titleResult = EventTitle.Create(newTitle.Value);
+        
+        if (!titleResult.IsSuccess)
+        {
+            return titleResult;
+        }
+
+        if (!titleResult.IsSuccess)
         {
             return Result.Failure(Error.BadRequest(ErrorMessage.TitleMustBeBetween3And75Chars));
         }
@@ -93,7 +104,8 @@ public class ViaEvent : Aggregate<EventId>
             return Result.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBemodified));
         }
 
-        _EventTitle = EventTitle.Create(newTitle).Payload;
+
+        _EventTitle = EventTitle.Create(newTitle.Value).Payload;
 
         if (_EventStatus == EventStatus.Ready)
         {
@@ -103,16 +115,12 @@ public class ViaEvent : Aggregate<EventId>
         return Result.Success();
     }
 
-    public Result UpdateDescription(string newDescription)
+    public Result UpdateDescription(EventDescription newDescription)
     {
-        if (newDescription.Length < 0 || newDescription.Length > 250)
-        {
-            return Result.Failure(Error.BadRequest(ErrorMessage.DescriptionMustBeBetween0And250Chars));
-        }
-
+    
         if (_EventStatus == EventStatus.Ready)
         {
-            _Description = EventDescription.Create(newDescription).Payload;
+            _Description = EventDescription.Create(newDescription.Value).Payload;
 
             _EventStatus = EventStatus.Draft;
         }
@@ -127,7 +135,7 @@ public class ViaEvent : Aggregate<EventId>
             return Result.Failure(Error.BadRequest(ErrorMessage.ActiveEventCanotBeModified));
         }
 
-        _Description = EventDescription.Create(newDescription).Payload;
+        _Description = EventDescription.Create(newDescription.Value).Payload;
 
 
         return Result.Success();
@@ -338,9 +346,7 @@ public class ViaEvent : Aggregate<EventId>
 
     public Result<ViaEvent> SetMaxNumberOfGuests(MaxNumberOfGuests maxGuests)
     {
-        if (_EventStatus == EventStatus.Active &&
-            maxGuests.Value <
-            _MaxNumberOfGuests.Value) // Check if the new max number of guests is less than the current value
+        if (_EventStatus == EventStatus.Active &&  maxGuests.Value < _MaxNumberOfGuests.Value) // Check if the new max number of guests is less than the current value
         {
             return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.ActiveEventCannotReduceMaxGuests));
         }
@@ -350,11 +356,12 @@ public class ViaEvent : Aggregate<EventId>
             return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBemodified));
         }
 
+        /*
         if (maxGuests.Value < 5 || maxGuests.Value > 50)
         {
             return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.MaxGuestsNoMustBeWithin5and50));
         }
-
+*/
         _MaxNumberOfGuests = maxGuests;
 
         //The this keyword is passed as an argument to the Success method, which means we're passing the current instance of the ViaEvent class.
@@ -464,45 +471,45 @@ public class ViaEvent : Aggregate<EventId>
 
     public Result<Invitation> InviteGuest(GuestId guestId)
     {
-        if (_GuestsParticipants.Count >= _MaxNumberOfGuests.Value )
+        if (_GuestsParticipants.Count >= _MaxNumberOfGuests.Value)
         {
             return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.EventIsFull));
         }
-        
+
         var invitation = Invitation.Create(_eventId, InvitationId.Create().Payload, guestId);
         if (_EventStatus == EventStatus.Draft || _EventStatus == EventStatus.Cancelled)
         {
             return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.OnlyActiveOrReadyEventCanBeInvited));
         }
 
-       
+
         _Invitations.Add(invitation.Payload);
         return invitation;
     }
 
-    public static Result<InvitationRequest> RequestInvitation(GuestId guestId)
+    public  Result<InvitationRequest> RequestInvitation(GuestId guestId)
     {
         var request = InvitationRequest.Create(RequestInvitationId.Create().Payload, _eventId, guestId);
         //new InvitationRequest( RequestInvitationId.Create().Payload, _eventId, guestId);
         _RequestInvitations.Add(request.Payload);
         return request;
     }
-    
-    
+
+
     public Result AcceptGuestInvitation(GuestId guestId)
     {
-        var invitation = _Invitations.FirstOrDefault(i => i._GuestId == guestId && i._EventId == _eventId);
+        var invitation = _Invitations.FirstOrDefault(i => i._GuestId.Value == guestId.Value && i._EventId.Value == _eventId.Value);
         if (_EventStatus == EventStatus.Cancelled)
         {
             return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBeJoined));
         }
+
         if (invitation == null)
         {
             return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.GuestNotInvited));
         }
 
 
-     
         if (_EventStatus != EventStatus.Active)
         {
             return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
@@ -514,7 +521,7 @@ public class ViaEvent : Aggregate<EventId>
         }
 
         var acceptResult = invitation.Accept();
-        
+
         if (acceptResult.IsSuccess)
         {
             _GuestsParticipants.Add(guestId);
@@ -523,19 +530,21 @@ public class ViaEvent : Aggregate<EventId>
 
         return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
     }
-    
+
     public Result RejectGuestInvitation(GuestId guestId)
     {
-        var invitation = _Invitations.FirstOrDefault(i => i._GuestId == guestId && i._EventId == _eventId);
-        
+        var invitation = _Invitations.FirstOrDefault(i => i._GuestId.Value == guestId.Value && i._EventId.Value == _eventId.Value);
+
         if (_EventStatus == EventStatus.Cancelled)
         {
             return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBeJoined));
         }
+
         if (invitation == null)
         {
             return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.GuestNotInvited));
         }
+
         if (_EventStatus == EventStatus.Ready)
         {
             return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.EventIsNotActive));
@@ -543,7 +552,7 @@ public class ViaEvent : Aggregate<EventId>
 
         var rejectResult = invitation.Decline();
 
-     
+
         if (rejectResult.IsSuccess)
         {
             // If the guest is a participant, remove them from the participants list
@@ -556,8 +565,7 @@ public class ViaEvent : Aggregate<EventId>
             _RejectedInvitations.Add(invitation);
             return Result.Success();
         }
+
         return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
     }
-
-    
 }

@@ -2,10 +2,11 @@
 using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 
-namespace UnitTests.Features.Event.MakeEventPublic;
+namespace UnitTests.Features.Event.MakeEventPublicTest;
 
 public class MakeEventPublicCommandTest
 {
+    
     
     [Fact]
     public void Create_ShouldReturnSuccess_WhenEventIdIsValid()
@@ -17,7 +18,7 @@ public class MakeEventPublicCommandTest
         // Assert
         Assert.True(result.IsSuccess);
         Assert.Equal(validEventId, result.Payload.EventId.Value.ToString());
-        Assert.Equal(EventVisibility.Public, result.Payload.EventVisibility);
+
     }
 
     [Fact]

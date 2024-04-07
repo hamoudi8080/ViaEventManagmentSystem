@@ -6,28 +6,26 @@ using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace ViaEventManagmentSystem.Core.Application.CommandHandlers.Features.Event;
 
-public class UpdateEventTitleHandler : ICommandHandler<UpdateEventTitleCommand>
+public class UpdateEventMaxNoOfGuestsHandler : ICommandHandler<UpdateEventMaxNoOfGuestsCommand>
 {
-    
-    /*
-     * This class is responsible for handling the UpdateEventTitleCommand.
-     * It will update the title of the event with the given id.
-     * It will return a Result object with the success or failure message.
-     */
-
     private readonly IViaEventRepository _eventRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public UpdateEventTitleHandler(IViaEventRepository eventRepository, IUnitOfWork unitOfWork)
+    public UpdateEventMaxNoOfGuestsHandler(IViaEventRepository eventRepository, IUnitOfWork unitOfWork)
         => (_eventRepository, _unitOfWork) = (eventRepository, unitOfWork);
 
-    public async Task<Result> Handle(UpdateEventTitleCommand command)
+    public async Task<Result> Handle(UpdateEventMaxNoOfGuestsCommand command)
     {
+        if (command == null)
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
+        }
+
         var _ViaEvent = await _eventRepository.GetById(command.EventId);
-        Result eventTitleResult = _ViaEvent.UpdateTitle(command.EventTitle);
+        Result eventMaxNoOfGuestsResult = _ViaEvent.SetMaxNumberOfGuests(command.MaxNoOfGuests);
+
         
-       
-        if (eventTitleResult.IsSuccess)
+        if (eventMaxNoOfGuestsResult.IsSuccess)
         {
             await _unitOfWork.SaveChangesAsync();
         }

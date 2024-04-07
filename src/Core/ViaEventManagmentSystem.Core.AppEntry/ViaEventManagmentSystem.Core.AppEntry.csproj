@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Commands\Guest\" />
       <Folder Include="Features\" />
     </ItemGroup>
 

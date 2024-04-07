@@ -7,11 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="CommandHandlers\Features\Guest\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\ViaEventManagmentSystem.Core.AppEntry\ViaEventManagmentSystem.Core.AppEntry.csproj" />
     </ItemGroup>
+
+  
 
 </Project>

@@ -18,9 +18,11 @@ namespace UnitTests.Features.Event.UpdateTitleTest
             {
                 // Arrange
                 var viaEvent = ViaEventTestFactory.CreateEvent();
+                var eventTitle = EventTitle.Create(newTitle);
 
                 // Act
-                var result = viaEvent.UpdateTitle(newTitle);
+                
+                var result = viaEvent.UpdateTitle(eventTitle.Payload);
 
                 // Assert
                 Assert.True(result.IsSuccess);
@@ -40,9 +42,11 @@ namespace UnitTests.Features.Event.UpdateTitleTest
                 // Arrange
                 var viaEvent = ViaEventTestFactory.ReadyEvent(); // Create an event with Ready status
                 var originalStatus = viaEvent._EventStatus;
+                
+                var eventTitle = EventTitle.Create(newTitle);
 
                 // Act
-                var result = viaEvent.UpdateTitle(newTitle);
+                var result = viaEvent.UpdateTitle(eventTitle.Payload);
 
                 // Assert
                 Assert.True(result.IsSuccess); // Ensure the operation succeeded
@@ -60,15 +64,14 @@ namespace UnitTests.Features.Event.UpdateTitleTest
             [InlineData("")]
             public void UpdateTitle_Failure_EmptyTitle(string newTitle)
             {
-                // Arrange
-                var viaEvent = ViaEventTestFactory.ReadyEvent();
 
+                
                 // Act
-                var result = viaEvent.UpdateTitle(newTitle);
+                Result<EventTitle> eventTitle = EventTitle.Create(newTitle);
 
                 // Assert
-                Assert.False(result.IsSuccess);
-                Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+                Assert.False(eventTitle.IsSuccess);
+                Assert.Equal(ErrorMessage.TitleMustBeBetween3And75Chars.ToString(), eventTitle.Error.Messages[0].ToString());
             }
         }
 
@@ -79,15 +82,13 @@ namespace UnitTests.Features.Event.UpdateTitleTest
             [InlineData("A")]
             public void UpdateTitle_Failure_EmptyTitle(string newTitle)
             {
-                // Arrange
-                var viaEvent = ViaEventTestFactory.CreateEvent();
-
+                
                 // Act
-                var result = viaEvent.UpdateTitle(newTitle);
+                Result eventTitle = EventTitle.Create(newTitle);
 
                 // Assert
-                Assert.False(result.IsSuccess);
-                Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+                Assert.False(eventTitle.IsSuccess);
+                Assert.Equal("Event title must be between 3 and 75 characters", eventTitle.Error.Messages[0].ToString());
             }
         }
 
@@ -98,15 +99,14 @@ namespace UnitTests.Features.Event.UpdateTitleTest
                 "This is a very long title that exceeds the maximum character limit of 75 characters. This title is definitely too long.")]
             public void UpdateTitle_Failure_EmptyTitle(string newTitle)
             {
-                // Arrange
-                var viaEvent = ViaEventTestFactory.CreateEvent();
+
 
                 // Act
-                var result = viaEvent.UpdateTitle(newTitle);
+                Result eventTitle = EventTitle.Create(newTitle);
 
                 // Assert
-                Assert.False(result.IsSuccess);
-                Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+                Assert.False(eventTitle.IsSuccess);
+                Assert.Equal("Event title must be between 3 and 75 characters", eventTitle.Error.Messages[0].ToString());
             }
         }
 
@@ -115,15 +115,14 @@ namespace UnitTests.Features.Event.UpdateTitleTest
             [Fact]
             public void UpdateTitle_Failure_NullTitle()
             {
-                // Arrange
-                var viaEvent = ViaEventTestFactory.CreateEvent();
+    
 
                 // Act
-                var result = viaEvent.UpdateTitle(null);
+                Result eventTitle = EventTitle.Create(null);
 
                 // Assert
-                Assert.False(result.IsSuccess);
-                Assert.Equal("Event title must be between 3 and 75 characters", result.Error.Messages[0].ToString());
+                Assert.False(eventTitle.IsSuccess);
+                Assert.Equal("Event title must be between 3 and 75 characters", eventTitle.Error.Messages[0].ToString());
             }
         }
 
@@ -137,11 +136,11 @@ namespace UnitTests.Features.Event.UpdateTitleTest
             {
                 // Arrange
                 var viaEvent = ViaEventTestFactory.CreateActiveEvent();
-                ;
+                var eventTitle = EventTitle.Create(title);
 
 
                 // Act
-                var result = viaEvent.UpdateTitle(title);
+                var result = viaEvent.UpdateTitle(eventTitle.Payload);
 
                 // Assert
                 Assert.False(result.IsSuccess);
@@ -160,10 +159,11 @@ namespace UnitTests.Features.Event.UpdateTitleTest
             {
                 // Arrange
                 var viaEvent = ViaEventTestFactory.CancelledEvent(); // Create a cancelled event
+                var eventTitle = EventTitle.Create(title);
 
 
                 // Act
-                var result = viaEvent.UpdateTitle(title);
+                var result = viaEvent.UpdateTitle(eventTitle.Payload);
 
                 // Assert
                 Assert.False(result.IsSuccess); // Ensure the operation failed

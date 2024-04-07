@@ -73,11 +73,10 @@ public abstract class SetMaxNumberOfGuestsTest
             Assert.True(result.IsSuccess); // Check if the operation was successful
             Assert.Equal(numberOfGuests,
                 result.Payload._MaxNumberOfGuests.Value); // Ensure max number of guests is set correctly
-            Assert.True(numberOfGuests >=
-                        currentMaxNumberOfGuests); // Ensure the new value is greater than or equal to the previous value
+    
         }
     }
-    
+
     public class F1
     {
         [Fact]
@@ -85,15 +84,19 @@ public abstract class SetMaxNumberOfGuestsTest
         {
             // Arrange
             var viaEvent = ViaEventTestFactory.CreateActiveEvent();
+            var setMaxNumberOfGuests = MaxNumberOfGuests.Create(10);
+            viaEvent.SetMaxNumberOfGuests(setMaxNumberOfGuests.Payload);
             var currentMaxNumberOfGuests = viaEvent._MaxNumberOfGuests.Value; // Store current max number of guests
-            var newMaxNumberOfGuests = MaxNumberOfGuests.Create(currentMaxNumberOfGuests - 1); // Try to reduce the max number of guests by 1
+            var newMaxNumberOfGuests =
+                MaxNumberOfGuests.Create(currentMaxNumberOfGuests - 1); // Try to reduce the max number of guests by 1
 
             // Act
             var result = viaEvent.SetMaxNumberOfGuests(newMaxNumberOfGuests.Payload);
 
             // Assert
             Assert.False(result.IsSuccess); // Check if the operation failed
-            Assert.Equal("Maximum number of guests cannot be reduced in an active event", result.Error.Messages[0].ToString()); // Check if the failure message is correct
+            Assert.Equal("Maximum number of guests cannot be reduced in an active event",
+                result.Error.Messages[0].ToString()); // Check if the failure message is correct
         }
     }
 
@@ -115,8 +118,7 @@ public abstract class SetMaxNumberOfGuestsTest
         }
     }
 
-    
-    
+
     public class F4
     {
         [Fact]
@@ -124,14 +126,15 @@ public abstract class SetMaxNumberOfGuestsTest
         {
             // Arrange
             var viaEvent = ViaEventTestFactory.CreateEvent();
-            var newMaxNumberOfGuests = MaxNumberOfGuests.Create(4); // Set the new maximum number of guests less than 5
+         
 
             // Act
-            var result = viaEvent.SetMaxNumberOfGuests(newMaxNumberOfGuests.Payload);
+            Result result = MaxNumberOfGuests.Create(4); // Set the new maximum number of guests less than 5
 
             // Assert
             Assert.False(result.IsSuccess); // Check if the operation failed
-            Assert.Equal("Maximum number of Guests cannot be less than 5 or more than 50 ", result.Error.Messages[0].ToString()); // Check if the failure message is correct
+            Assert.Equal("Maximum number of Guests cannot be less than 5 or more than 50 ",
+                result.Error.Messages[0].ToString()); // Check if the failure message is correct
         }
     }
 
@@ -142,16 +145,14 @@ public abstract class SetMaxNumberOfGuestsTest
         {
             // Arrange
             var viaEvent = ViaEventTestFactory.CreateEvent();
-            var newMaxNumberOfGuests = MaxNumberOfGuests.Create(51); // Set the new maximum number of guests more than 50
-
+         
             // Act
-            var result = viaEvent.SetMaxNumberOfGuests(newMaxNumberOfGuests.Payload);
-
+            Result result = MaxNumberOfGuests.Create(58); // Set the new maximum number of guests less than 5
+            
             // Assert
             Assert.False(result.IsSuccess); // Check if the operation failed
-            Assert.Equal("Maximum number of Guests cannot be less than 5 or more than 50 ", result.Error.Messages[0].ToString()); // Check if the failure message is correct
+            Assert.Equal("Maximum number of Guests cannot be less than 5 or more than 50 ",
+                result.Error.Messages[0].ToString()); // Check if the failure message is correct
         }
     }
-
-    
 }

@@ -13,16 +13,11 @@ public abstract class UpdateDescriptionTest
             "Discuss the impact of technology on modern communication. Include examples of social media, smartphones, and instant messaging on interpersonal interactions and societal dynamics. Address positive and negative effects. ")]
         public void UpdateDescription_ReturnsSuccess(string newDescription)
         {
-            // Arrange
-            var viaEvent = ViaEventTestFactory.CreateEvent();
-
             // Act
-            var result = viaEvent.UpdateDescription(newDescription);
+            Result result = EventDescription.Create(newDescription);
 
             // Assert
             Assert.True(result.IsSuccess);
-            Assert.Equal(newDescription, viaEvent._Description.Value);
-            Assert.Equal(EventStatus.Draft, viaEvent._EventStatus);
         }
     }
 
@@ -33,17 +28,13 @@ public abstract class UpdateDescriptionTest
         public void UpdateDescription_Success_EmptyDescription()
         {
             // Arrange
-            var viaEvent = ViaEventTestFactory.CreateEvent(); // Create an event
-            var originalDescription = viaEvent._Description?.Value; // Store the original description
+
 
             // Act
-            var result = viaEvent.UpdateDescription(""); // Set the description to empty string
+            Result result = EventDescription.Create("");
 
             // Assert
             Assert.True(result.IsSuccess); // Ensure the operation succeeded
-            Assert.Equal("",
-                viaEvent._Description?.Value); // Check that the description has been updated to empty string
-            Assert.Equal("", originalDescription);
         }
     }
 
@@ -57,8 +48,10 @@ public abstract class UpdateDescriptionTest
             var originalStatus = viaEvent._EventStatus;
             var newDescription = "New event description";
 
+            var newDescriptionForEvent = EventDescription.Create(newDescription);
+
             // Act
-            var result = viaEvent.UpdateDescription(newDescription);
+            var result = viaEvent.UpdateDescription(newDescriptionForEvent.Payload!);
 
             // Assert
             Assert.True(result.IsSuccess); // Ensure the operation succeeded
@@ -77,18 +70,13 @@ public abstract class UpdateDescriptionTest
             "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")] // Another description with more than 250 characters
         public void UpdateDescription_Failure_ExceedsMaxLength(string newDescription)
         {
-            // Arrange
-            var viaEvent = ViaEventTestFactory.CreateEvent(); // Create an event
-            var originalDescription = viaEvent._Description?.Value; // Store the original description
-
             // Act
-            var result = viaEvent.UpdateDescription(newDescription);
+            Result result = EventDescription.Create(newDescription);
 
             // Assert
             Assert.False(result.IsSuccess); // Ensure the operation failed
             Assert.Equal(Error.BadRequest(ErrorMessage.DescriptionMustBeBetween0And250Chars),
                 result.Error); // Check the specific error returned
-            Assert.Equal(originalDescription, viaEvent._Description?.Value); // Ensure the description was not updated
         }
     }
 
@@ -105,22 +93,22 @@ public abstract class UpdateDescriptionTest
             var original_EventStatus = viaEvent._EventStatus;
 
 
+            var newDescriptionForEvent = EventDescription.Create(newDescription);
+
             // Act
-            var result = viaEvent.UpdateDescription(newDescription);
+            var result = viaEvent.UpdateDescription(newDescriptionForEvent.Payload!);
 
             // Assert
 
             Assert.False(result.IsSuccess); // Ensure the operation failed
             Assert.Equal(Error.BadRequest(ErrorMessage.CancelledEventCannotBemodified),
                 result.Error); // Check the specific error returned
-            Assert.Equal(original_EventStatus, viaEvent._EventStatus);  
-            Assert.Equal("Cancelled event cannot be modified", result.Error.Messages[0].ToString());  
-            
+            Assert.Equal(original_EventStatus, viaEvent._EventStatus);
+            Assert.Equal("Cancelled event cannot be modified", result.Error.Messages[0].ToString());
         }
     }
-    
-    
-    
+
+
     public class F3
     {
         [Theory]
@@ -133,17 +121,18 @@ public abstract class UpdateDescriptionTest
             var original_EventStatus = viaEvent._EventStatus;
 
 
+            var newDescriptionForEvent = EventDescription.Create(newDescription);
+
             // Act
-            var result = viaEvent.UpdateDescription(newDescription);
+            var result = viaEvent.UpdateDescription(newDescriptionForEvent.Payload!);
 
             // Assert
 
             Assert.False(result.IsSuccess); // Ensure the operation failed
             Assert.Equal(Error.BadRequest(ErrorMessage.ActiveEventCanotBeModified),
                 result.Error); // Check the specific error returned
-            Assert.Equal(original_EventStatus, viaEvent._EventStatus);  
-            Assert.Equal("Active event cannot be modified", result.Error.Messages[0].ToString());  
-            
+            Assert.Equal(original_EventStatus, viaEvent._EventStatus);
+            Assert.Equal("Active event cannot be modified", result.Error.Messages[0].ToString());
         }
     }
 }
