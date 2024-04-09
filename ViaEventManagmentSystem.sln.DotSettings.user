@@ -1,6 +1,95 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2352682_002Ddb8d_002D4826_002D9bd9_002D54d7eb016198/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="OperationResulUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=224fe6e5_002D3fd2_002D41a3_002Da681_002Dd0d19dd7b210/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenAnExistingEventWithIDAndGuestIDAndPendingInvitationAndMaxParticipantsReached_GuestAcceptsInvitation_ShouldRejectParticipant" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2b9760e6_002D49e6_002D4cae_002Dad0c_002Db667b91e41ce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MakeEventPublicHandler_WhenEventIsNotPublic_ShouldMakeEventPublic #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.OperationResult.OperationResulUnitTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.MakeEventPublicTest.MakeEventPublicHandlerTest.MakeEventPublicHandler_WhenEventIsNotPublic_ShouldMakeEventPublic&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.MakeEventPublicTest.MakeEventPublicHandlerTest.MakeEventPublicHandler_WhenEventIsPublic_ShouldReturnFailure&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.MakeEventPrivateTest.MakeEventPrivateHandlerTest.MakeEventPrivateHandler_WhenEventIsNotPrivate_ShouldMakeEventPrivate&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.InviteGuestTest.InviteGuestHandlerTest.CreateEvent_CreateGuest_InviteTheGuest_ReturnSuccess&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestParticipationTest.ParticipateGuestHandlerTest.CreateReadyEvent_AddGuestToParticipate_ReturnSuccess&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ReadiesEventTest.MakeEventReadyHandlerTest.GivenDraftEvent_WithValidData_WhenMakeEventReady_ThenEventIsMadeReady&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestAcceptInvitationTest.AcceptInvitationCommandTest.AcceptInvitationCommand_ValidData_ReturnsAcceptInvitationCommand&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestAcceptInvitationTest.AcceptInvitationHandlerTest.AcceptInvitationHandler_WhenGuestAcceptsInvitation_ShouldAcceptInvitationAndBeAddedToParticipationsList&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestAcceptInvitationTest.GuestAcceptInvitationTest+S1.GivenAnActiveEvent_RegisteredGuest_pendingInvitation&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestAcceptInvitationTest.AcceptInvitationHandlerTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=31e8e9b3_002D4e09_002D45e1_002Db6ff_002D7c49551185ce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SetEventTimes_InvalidInput_StartDateAfterEndDate" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.EventTimeDurationTest.EventTimeDurationTest+F1.SetEventTimes_InvalidInput_StartDateAfterEndDate&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.EventTimeDurationTest.EventTimeDurationTest+F2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.EventTimeDurationTest.EventTimeDurationTest+F3&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3b90ac4b_002D54da_002D4621_002D8602_002D4aa78a22d8fc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenReadyEvent_WhenGuestAttendPublic_EventRegisteredTheGuestSuccessfully" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestParticipationTest.GuestParticipationTest+S1.GivenReadyEvent_WhenGuestAttendPublic_EventRegisteredTheGuestSuccessfully&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestParticipationTest.ParticipateGuestHandlerTest.CreateReadyEvent_AddGuestToParticipate_ReturnSuccess&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ActivateEventTest.ActivateEventCommandTest.Create_ShouldReturnSuccess_WhenEventIdIsValid&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ActivateEventTest.ActivateEventHandlerTest.ActivateEvent_WhenEventIsAnyOtherStatus_ShouldMakeEventActive_RetrunSuccess&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ReadiesEventTest.MakeEventReadyCommandTest.GivenDraftEvent_WithValidData_WhenMakeEventReady_ThenEventIsMadeReady&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ReadiesEventTest.MakeEventReadyHandlerTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestAcceptInvitationTest.AcceptInvitationCommandTest.AcceptInvitationCommand_ValidData_ReturnsAcceptInvitationCommand&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestAcceptInvitationTest.AcceptInvitationCommandTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestAcceptInvitationTest.AcceptInvitationHandlerTest.AcceptInvitationHandler_WhenGuestAcceptsInvitation_ShouldAcceptInvitationAndBeAddedToParticipationsList&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.InviteGuestTest.InviteGuestHandlerTest.CreateEvent_CreateGuest_InviteTheGuest_ReturnSuccess&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestAcceptInvitationTest.GuestAcceptInvitationTest+S1.GivenAnActiveEvent_RegisteredGuest_pendingInvitation&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.GuestTests.GuestRejectInvitationTest.DeclineInvitationCommandTest.Create_WhenInvoked_ShouldReturnDeclineInvitationCommand&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=43a94f10_002D6a2e_002D4e5f_002Db624_002D0ac53669263b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenNameWithSymbols_InvalidFormatFailure" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=48e7760a_002D8eb3_002D4b54_002Da419_002Dfcc4aee2db71/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="F3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5c7bf424_002Df40c_002D41e9_002D8f0b_002D48886b042729/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SetEventTimes_InvalidInput_StartDateAfterEndDate #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5dd0bfa2_002Dbf0b_002D46c4_002D919a_002D1054dd396ae2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenGuestId_GuestCancels_EventRemovesGuestFromParticipation" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6509f8ca_002D2091_002D4f79_002D8c69_002D8fc11bf6dc4b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="UpdateTitleTest_F2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F3&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F4&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F5&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F6.UpdateTitle_Failure_ActiveEvent&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_F6&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.CreateEvent.CreateEventTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_S1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.EventDescriptionTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.ValueObjects.EventTitleTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.UpdateTitleTest_S2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateDescription.UpdateDescriptionTest+UpdateDescriptionTest_S1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateDescription.UpdateDescriptionTest+UpdateDescriptionTest_S2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateDescription.UpdateDescriptionTest+UpdateDescriptionTes_s3&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.S1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.S2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.F1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.UpdateTitleTest.F2&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=67918803_002D03a7_002D4829_002Da1c1_002D644470e5ebf1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="UpdateEventTimes_ValidInput_Success" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6fe668b0_002D1277_002D4b59_002D84fb_002D2357733938cc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateParticipateGuestCommand_WithInvalidEventId_ShouldReturnFailure" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9229dad3_002D4e4d_002D42df_002D9f7c_002D5bff29915380/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MakeEventPublicHandler_WhenEventIsNotPublic_ShouldMakeEventPublic" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.MakeEventPublicTest.MakeEventPublicHandlerTest.MakeEventPublicHandler_WhenEventIsNotPublic_ShouldMakeEventPublic&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2352682_002Ddb8d_002D4826_002D9bd9_002D54d7eb016198/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="OperationResulUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fe7f65ca_002Dc52f_002D4a61_002D83fd_002D4f6bac53b872/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Create_WhenInvoked_ShouldReturnDeclineInvitationCommand" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	
+	</wpf:ResourceDictionary>

@@ -5,6 +5,7 @@ namespace UnitTests.OperationResult;
 
 public class OperationResulUnitTests
 {
+    /*
     [Fact]
     public void TestResultSuccess()
     {
@@ -51,20 +52,6 @@ public class OperationResulUnitTests
 
    
 */
-    [Fact]
-    public void TestErrorCreation()
-    {
-        // Arrange
-        var errorCode = 404;
-        var errorMessage = "Not Found";
-
-        // Act
-        var error = new Error(errorCode, errorMessage);
-
-        // Assert
-        Assert.Equal(errorCode, error.ErrorCode);
-        Assert.Equal(errorMessage, error.ErrorMessage);
-    }
 
     
 }

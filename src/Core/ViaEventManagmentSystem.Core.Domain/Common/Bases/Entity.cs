@@ -11,7 +11,7 @@ public abstract class Entity<TId>
 
     protected Entity()
     {
-        throw new NotImplementedException();
+     
     }
 
 
@@ -19,7 +19,7 @@ public abstract class Entity<TId>
     // Override Equals and GetHashCode for entity comparison based on identity
     public override bool Equals(object obj)
     {
-        if (obj is null || !(obj is Entity<TId> otherEntity))
+        if (obj is null || !(obj is Entities<TId> otherEntity))
             return false;
 
         // Entities are considered equal if their types are the same and their IDs are equal
