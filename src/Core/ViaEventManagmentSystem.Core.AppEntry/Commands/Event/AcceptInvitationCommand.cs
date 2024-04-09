@@ -21,7 +21,7 @@ public class AcceptInvitationCommand : ICommand
 
     
     public static Result<AcceptInvitationCommand> Create(string eventId, string guestId) {
-        //Todo: ask about parameter type of eventId and guestId in this create method. they are string, does it have to be object of fx eventId AND guestId? if so how to make it?
+       
 
         Result<EventId> eventIdResult = EventId.Create(eventId);
         Result<GuestId> myguestId = GuestId.Create(guestId);

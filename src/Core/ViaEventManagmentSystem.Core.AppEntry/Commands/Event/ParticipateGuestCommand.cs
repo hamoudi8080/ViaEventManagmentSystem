@@ -14,6 +14,7 @@ public class ParticipateGuestCommand : ICommand
         GuestId = guestId;
     }
     
+ 
     public static Result<ParticipateGuestCommand> Create(string eventId, string guestId) {
         Result<EventId> idResult = EventId.Create(eventId);
         Result<GuestId> guestResult = GuestId.Create(guestId);

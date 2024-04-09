@@ -43,7 +43,7 @@ public class ViaEvent : Aggregate<EventId>
     public ViaEvent(EventId eventId, EventTitle? eventTitle, EventDescription? description,
         StartDateTime? startDateTime,
         EndDateTime? endDateTime, MaxNumberOfGuests? maxNumberOfGuests, EventVisibility? eventVisibility,
-        EventStatus? eventStatus)
+        EventStatus? eventStatus) : base(eventId)
     {
         _eventId = eventId;
         _MaxNumberOfGuests = maxNumberOfGuests;

@@ -5,16 +5,18 @@ namespace ViaEventManagmentSystem.Core.AppEntry.Dispatcher.Decorator;
 
 public class CommandExecutionTimer(ICommandDispatcher next) : ICommandDispatcher
 {
-    public Task<Result> DispatchAsync<TCommand>(TCommand command) where TCommand : ICommand
+    
+    public float Milliseconds { get; set; }
+    public async Task<Result> DispatchAsync<TCommand>(TCommand command) where TCommand : ICommand
     {
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
 
-        var result = next.DispatchAsync(command);
+        var result = await next.DispatchAsync(command);
 
-        TimeSpan timeSpan = stopwatch.Elapsed;
+        Milliseconds = stopwatch.ElapsedMilliseconds;
 
-        Console.WriteLine($"Command {typeof(TCommand).Name} executed in {timeSpan.TotalMilliseconds} ms");
+        Console.WriteLine($"Command {typeof(TCommand).Name} executed in {Milliseconds} ms");
         return result;
     }
 }
