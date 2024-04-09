@@ -8,7 +8,7 @@ public class EventRepository : IViaEventRepository
 {
     public List<ViaEvent> _Events { get; set; } = new();
 
-    //Todo: ask, how how to get _Events.FirstOrDefault(x => x.Id == id) instead what is below
+
     public Task<ViaEvent?> GetById(EventId id)
     {
         return Task.FromResult(_Events.FirstOrDefault(x => x._eventId.Value == id.Value));
