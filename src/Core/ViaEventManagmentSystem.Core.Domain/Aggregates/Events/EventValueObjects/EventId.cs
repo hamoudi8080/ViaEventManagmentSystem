@@ -8,7 +8,7 @@ public class EventId : ValueObject
     
     public Guid Value { get; }
 
-    public EventId(Guid id)
+    private EventId(Guid id)
     {
         Value = id;
     }

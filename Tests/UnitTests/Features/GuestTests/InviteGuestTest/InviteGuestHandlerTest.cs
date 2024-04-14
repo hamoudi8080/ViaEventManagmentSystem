@@ -20,7 +20,7 @@ public class InviteGuestHandlerTest
         var eventRepo = new EventRepository();
         eventRepo.Add(viaEvent);
         
-        InviteGuestCommand inviteGuestCommand = InviteGuestCommand.Create(viaEvent._eventId.Value.ToString(), guest._Id.Value.ToString()).Payload;
+        InviteGuestCommand inviteGuestCommand = InviteGuestCommand.Create(viaEvent._eventId.Value.ToString(), guest.Id.Value.ToString()).Payload;
         InviteGuestHandler handler = new(eventRepo, _unitOfWork);
         
         // Act
@@ -28,7 +28,7 @@ public class InviteGuestHandlerTest
 
         // Assert
         Assert.True(result.IsSuccess);
-        Assert.True(viaEvent._Invitations.Any(invitation => invitation._GuestId.Value == guest._Id.Value));
+        Assert.True(viaEvent._Invitations.Any(invitation => invitation._GuestId.Value == guest.Id.Value));
 
         
     }

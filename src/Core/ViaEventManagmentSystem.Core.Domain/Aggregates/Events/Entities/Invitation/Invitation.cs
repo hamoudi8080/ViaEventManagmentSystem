@@ -14,6 +14,10 @@ public class Invitation : Entity<InvitationId>
 
     internal InvitationId _Id { get; private set; }
 
+    // EF Core will use this constructor
+    private Invitation() 
+    {
+    }
     private Invitation(EventId eventId, InvitationId id, GuestId guestId)
     {
         _Id = id;

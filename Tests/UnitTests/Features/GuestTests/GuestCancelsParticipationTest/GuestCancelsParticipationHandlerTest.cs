@@ -25,13 +25,13 @@ public class GuestCancelsParticipationHandlerTest
 
         
         var guest = GuestFactory.CreateGuest();
-         viaEvent.InviteGuest(guest._Id);
-         viaEvent.AcceptGuestInvitation(guest._Id);
+         viaEvent.InviteGuest(guest.Id);
+         viaEvent.AcceptGuestInvitation(guest.Id);
         
         var eventRepo = new EventRepository ();
         eventRepo.Add(viaEvent);
         
-        GuestCancelsParticipationCommand guestCancels = GuestCancelsParticipationCommand.Create(viaEvent._eventId.Value.ToString(), guest._Id.Value.ToString()).Payload;
+        GuestCancelsParticipationCommand guestCancels = GuestCancelsParticipationCommand.Create(viaEvent._eventId.Value.ToString(), guest.Id.Value.ToString()).Payload;
         GuestCancelsParticipationHandler handler = new(eventRepo, _unitOfWork);
          
         // Act
@@ -40,6 +40,6 @@ public class GuestCancelsParticipationHandlerTest
         
         // Assert
         Assert.True(result.IsSuccess);
-        Assert.False(viaEvent._GuestsParticipants.Any(x => x.Value == guest._Id.Value));
+        Assert.False(viaEvent._GuestsParticipants.Any(x => x.Value == guest.Id.Value));
     }
 }

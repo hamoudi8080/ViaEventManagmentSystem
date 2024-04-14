@@ -1,6 +1,8 @@
 ﻿ 
+using System.ComponentModel.DataAnnotations;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Common.Bases;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
@@ -9,11 +11,21 @@ namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 
 public class Guest : Aggregate<GuestId>
 {
-    internal GuestId _Id { get; private set; }
+   // internal GuestId _Id { get; private set; }
+  
+    internal GuestId Id => base.Id;
     internal FirstName _FirstName { get; private set; }
     internal LastName _LastName { get; private set; }
     internal Email _Email { get; private set; }
+     
   //  internal List<Invitation> _ReceivedInvitations { get; private set; }
+  
+  
+  // EF Core will use this constructor
+  private Guest() 
+  {
+  }
+  
     public Guest(GuestId Id) : base(Id)
     {
         _FirstName = null;
@@ -22,9 +34,9 @@ public class Guest : Aggregate<GuestId>
        // _ReceivedInvitations = new List<Invitation>();
     }
 
-    public Guest(GuestId Id,FirstName firstName, LastName lastName, Email email)
+    public Guest(GuestId Id,FirstName firstName, LastName lastName, Email email) : base(Id)
     {
-        _Id = Id;
+        //_Id = Id;
         _FirstName = firstName;
         _LastName = lastName;
         _Email = email;

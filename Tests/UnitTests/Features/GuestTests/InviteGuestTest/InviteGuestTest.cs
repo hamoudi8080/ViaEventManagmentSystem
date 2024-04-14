@@ -22,12 +22,12 @@ public abstract class InviteGuestTest
             myEvent.ActivateEvent();
 
             // Act
-            var result = myEvent.InviteGuest(guestId._Id);
+            var result = myEvent.InviteGuest(guestId.Id);
 
             // Assert
             Assert.True(result.IsSuccess);
             Assert.Contains(myEvent._Invitations,
-                i => i._GuestId == guestId._Id && i._InvitationStatus == InvitationStatus.Pending);
+                i => i._GuestId == guestId.Id && i._InvitationStatus == InvitationStatus.Pending);
         }
     }
 
@@ -47,14 +47,14 @@ public abstract class InviteGuestTest
             var s = StartDateTime.Create(futureevent);
             myEvent.AddEventStartTime(s.Payload);
 
-            var inviteResult = myEvent.InviteGuest(guestId._Id);
+            var inviteResult = myEvent.InviteGuest(guestId.Id);
             Assert.True(inviteResult.IsSuccess);
 
             // Act
-            myEvent.AcceptGuestInvitation(guestId._Id);
+            myEvent.AcceptGuestInvitation(guestId.Id);
 
             // Assert
-            Assert.Contains(myEvent._GuestsParticipants, g => g == guestId._Id);
+            Assert.Contains(myEvent._GuestsParticipants, g => g == guestId.Id);
         }
     }
 
@@ -69,7 +69,7 @@ public abstract class InviteGuestTest
             var myEvent = ViaEventTestFactory.DraftEvent();
 
             // Act
-            var result = myEvent.InviteGuest(guestId._Id);
+            var result = myEvent.InviteGuest(guestId.Id);
 
             // Assert
             Assert.False(result.IsSuccess);
@@ -103,12 +103,12 @@ public abstract class InviteGuestTest
             myEvent.ActivateEvent();
 
 
-            myEvent.InviteGuest(guestId2._Id);
-            myEvent.InviteGuest(guestId3._Id);
-            myEvent.InviteGuest(guestId4._Id);
-            myEvent.InviteGuest(guestId5._Id);
-            myEvent.InviteGuest(guestId6._Id);
-            myEvent.InviteGuest(guestId7._Id);
+            myEvent.InviteGuest(guestId2.Id);
+            myEvent.InviteGuest(guestId3.Id);
+            myEvent.InviteGuest(guestId4.Id);
+            myEvent.InviteGuest(guestId5.Id);
+            myEvent.InviteGuest(guestId6.Id);
+            myEvent.InviteGuest(guestId7.Id);
 
             /*
             guestId2.ReceiveInvitation(inviteResult2.Payload);
@@ -126,16 +126,16 @@ public abstract class InviteGuestTest
             */
 
 
-            myEvent.AcceptGuestInvitation(guestId2._Id);
-            myEvent.AcceptGuestInvitation(guestId3._Id);
-            myEvent.AcceptGuestInvitation(guestId4._Id);
-            myEvent.AcceptGuestInvitation(guestId5._Id);
-            myEvent.AcceptGuestInvitation(guestId6._Id);
-            myEvent.AcceptGuestInvitation(guestId7._Id);
+            myEvent.AcceptGuestInvitation(guestId2.Id);
+            myEvent.AcceptGuestInvitation(guestId3.Id);
+            myEvent.AcceptGuestInvitation(guestId4.Id);
+            myEvent.AcceptGuestInvitation(guestId5.Id);
+            myEvent.AcceptGuestInvitation(guestId6.Id);
+            myEvent.AcceptGuestInvitation(guestId7.Id);
 
 
             // Act
-            var result = myEvent.InviteGuest(guestId._Id);
+            var result = myEvent.InviteGuest(guestId.Id);
 
             // Assert
             Assert.False(result.IsSuccess);

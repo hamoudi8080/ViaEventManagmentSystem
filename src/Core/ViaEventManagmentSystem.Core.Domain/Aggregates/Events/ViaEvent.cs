@@ -11,7 +11,8 @@ namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 
 public class ViaEvent : Aggregate<EventId>
 {
-    internal  EventId _eventId { get; private set; }
+  //  internal  EventId _eventId { get; private set; }
+   internal new EventId _eventId => base.Id;
     internal EventTitle? _EventTitle { get; private set; }
     internal EventDescription? _Description { get; private set; }
     internal StartDateTime? _StartDateTime { get; private set; }
@@ -28,7 +29,17 @@ public class ViaEvent : Aggregate<EventId>
 
     internal List<Invitation> _Invitations { get; private set; }
     internal static List<InvitationRequest> _RequestInvitations { get; private set; }
-
+    
+    // EF Core will use this constructor
+    
+    private ViaEvent() 
+    {
+    }
+    /*
+    private ViaEvent() : base(new EventId(Guid.NewGuid()))
+    {
+    }
+*/
     internal ViaEvent(EventId id) : base(id)
     {
         _StartDateTime = StartDateTime.Create(DateTime.Now).Payload;
@@ -45,7 +56,7 @@ public class ViaEvent : Aggregate<EventId>
         EndDateTime? endDateTime, MaxNumberOfGuests? maxNumberOfGuests, EventVisibility? eventVisibility,
         EventStatus? eventStatus) : base(eventId)
     {
-        _eventId = eventId;
+      //  _eventId = eventId;
         _MaxNumberOfGuests = maxNumberOfGuests;
         _EventTitle = eventTitle;
         _Description = description;
@@ -59,6 +70,8 @@ public class ViaEvent : Aggregate<EventId>
         _RequestInvitations = new List<InvitationRequest>();
     }
 
+    
+    
     public static Result<ViaEvent> Create(EventId eventId, EventTitle? title = null,
         EventDescription? description = null, StartDateTime? startDateTime = null,
         EndDateTime? endDateTime = null, MaxNumberOfGuests? maxNumberOfGuests = null,

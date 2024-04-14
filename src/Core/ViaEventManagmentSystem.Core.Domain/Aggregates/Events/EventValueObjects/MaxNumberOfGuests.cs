@@ -9,7 +9,7 @@ public class MaxNumberOfGuests : ValueObject
     public int Value { get; private init; }
 
 
-    public MaxNumberOfGuests(int maxNumber)
+    private MaxNumberOfGuests(int maxNumber)
     {
         Value = maxNumber;
     }

@@ -7,7 +7,7 @@ public class EventDescription : ValueObject
 {
     internal string Value { get; private init; }
 
-    public EventDescription(string eventDescription)
+    private EventDescription(string eventDescription)
     {
         Value = eventDescription;
     }

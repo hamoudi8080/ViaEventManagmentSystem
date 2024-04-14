@@ -11,7 +11,7 @@ public class GuestRepository : IGuestRepository
     //Todo: ask, how how to get _Events.FirstOrDefault(x => x.Id == id) instead what is below
     public Task<Guest?> GetById(GuestId id)
     {
-        return Task.FromResult(_Guests.FirstOrDefault(x => x._Id.Value == id.Value));
+        return Task.FromResult(_Guests.FirstOrDefault(x => x.Id.Value == id.Value));
     }
 
     public Task<Guest> Add(Guest entity)
