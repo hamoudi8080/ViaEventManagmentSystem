@@ -40,6 +40,6 @@ public class GuestCancelsParticipationHandlerTest
         
         // Assert
         Assert.True(result.IsSuccess);
-        Assert.False(viaEvent._GuestsParticipants.Any(x => x.Value == guest.Id.Value));
+        Assert.False(viaEvent._GuestsParticipants.Any(x => x.GuestId.Value == guest.Id.Value));
     }
 }

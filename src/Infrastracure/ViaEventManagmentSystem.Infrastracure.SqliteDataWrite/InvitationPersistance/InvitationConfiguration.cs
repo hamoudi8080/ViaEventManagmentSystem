@@ -25,14 +25,14 @@ public class InvitationConfiguration : IEntityTypeConfiguration<Invitation>
 */
 
 
-        builder.HasKey(i => i._Id);
+        builder.HasKey(i => i.Id);
 
         var invitationIdConverter = new ValueConverter<InvitationId, Guid>(
             v => v.Value,
             v => InvitationId.Create(v.ToString()).Payload);
 
         builder
-            .Property(i => i._Id)
+            .Property(i => i.Id)
             .HasConversion(invitationIdConverter);
         
         
@@ -64,5 +64,6 @@ public class InvitationConfiguration : IEntityTypeConfiguration<Invitation>
             .HasColumnName("_InvitationStatus");
         
         // Other configuration...
+        // TODO configure relationship to guest. Guest Id must be foreign key to a guest
     }
 }

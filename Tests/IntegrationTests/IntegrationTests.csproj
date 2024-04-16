@@ -10,4 +10,12 @@
       <Folder Include="AppDbContextConfigrationTests\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="xunit.extensibility.core" Version="2.4.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Infrastracure\ViaEventManagmentSystem.Infrastracure.SqliteDataWrite\ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.csproj" />
+    </ItemGroup>
+
 </Project>

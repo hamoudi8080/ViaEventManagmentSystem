@@ -33,6 +33,6 @@ public class ParticipateGuestHandlerTest
 
         // Assert
         Assert.True(result.IsSuccess);
-        Assert.True(viaEvent._GuestsParticipants.Any(participation => participation.Value == guest.Id.Value));
+        Assert.True(viaEvent._GuestsParticipants.Any(participation => participation.GuestId.Value == guest.Id.Value));
     }
 }
