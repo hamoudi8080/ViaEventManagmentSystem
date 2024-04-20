@@ -2,6 +2,12 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=224fe6e5_002D3fd2_002D41a3_002Da681_002Dd0d19dd7b210/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenAnExistingEventWithIDAndGuestIDAndPendingInvitationAndMaxParticipantsReached_GuestAcceptsInvitation_ShouldRejectParticipant" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2b273571_002D1b97_002D4ea7_002Dbff9_002D340ca996bfac/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ViaEventConfigTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.AppDbContextConfigrationTests.ViaEventConfigTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.Repositories.ViaEventRepoTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2b9760e6_002D49e6_002D4cae_002Dad0c_002Db667b91e41ce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MakeEventPublicHandler_WhenEventIsNotPublic_ShouldMakeEventPublic #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.MakeEventPublicTest.MakeEventPublicHandlerTest.MakeEventPublicHandler_WhenEventIsNotPublic_ShouldMakeEventPublic&lt;/TestId&gt;&#xD;
@@ -24,7 +30,12 @@
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3b639a27_002D0674_002D40ee_002D825f_002D0d029d2ad4aa/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="UpdateEventTitleHandler_Success" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::DA028CD8-6E0F-418A-977D-F87650C9F750::net8.0::IntegrationTests.Repositories.ViaEventRepoTest&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3b90ac4b_002D54da_002D4621_002D8602_002D4aa78a22d8fc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenReadyEvent_WhenGuestAttendPublic_EventRegisteredTheGuestSuccessfully" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
@@ -84,13 +95,29 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6fe668b0_002D1277_002D4b59_002D84fb_002D2357733938cc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateParticipateGuestCommand_WithInvalidEventId_ShouldReturnFailure" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7b7a31bb_002D7f92_002D47ec_002D900c_002D6af34ee0e211/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="DispatchAsync_DispatchesCommandToHandler" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7b7a31bb_002D7f92_002D47ec_002D900c_002D6af34ee0e211/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DispatchAsync_DispatchesCommandToHandler" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::DA028CD8-6E0F-418A-977D-F87650C9F750::net8.0::IntegrationTests.Repositories.ViaEventRepoTest&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9229dad3_002D4e4d_002D42df_002D9f7c_002D5bff29915380/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MakeEventPublicHandler_WhenEventIsNotPublic_ShouldMakeEventPublic" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Features.Event.MakeEventPublicTest.MakeEventPublicHandlerTest.MakeEventPublicHandler_WhenEventIsNotPublic_ShouldMakeEventPublic&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e8566433_002D0ce4_002D49ff_002D9886_002D10f2cd250b23/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Add_ShouldAddViaEventToDatabase" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\IntegrationTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;IntegrationTests&amp;gt;" /&gt;&#xD;
+    &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.AppDbContextConfigrationTests.ViaEventConfigTest&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.Repositories.ViaEventRepoTest&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.AppDbContextConfigrationTests.GuestConfigTest.TestGuestCreationAndRetrievalByGuid&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2352682_002Ddb8d_002D4826_002D9bd9_002D54d7eb016198/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="OperationResulUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;

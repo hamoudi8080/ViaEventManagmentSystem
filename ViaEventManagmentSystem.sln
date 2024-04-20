@@ -26,7 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastracture", "Infrastra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViaEventManagmentSystem.Infrastracure.SqliteDataWrite", "src\Infrastracure\ViaEventManagmentSystem.Infrastracure.SqliteDataWrite\ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.csproj", "{AD724731-D46D-4DB0-959B-B4D90EB01FFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "Tests\IntegrationTests\IntegrationTests.csproj", "{DA028CD8-6E0F-418A-977D-F87650C9F750}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest", "Tests\IntegrationTest\IntegrationTest.csproj", "{92D2ACCF-3C74-4EFE-8E14-891E4D542F5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,7 +44,7 @@ Global
 		{C4665CBD-E6A9-41BD-9532-8F57FC3DA165} = {D06EE814-6100-4D1F-B574-D864D55445F8}
 		{01679CF6-C1FC-40ED-A426-05ACC97337A7} = {8D2981BA-4C30-42F8-A2E4-2933F4E46681}
 		{AD724731-D46D-4DB0-959B-B4D90EB01FFB} = {01679CF6-C1FC-40ED-A426-05ACC97337A7}
-		{DA028CD8-6E0F-418A-977D-F87650C9F750} = {4F5EA84C-364A-4055-8ED5-377F8C68AB1F}
+		{92D2ACCF-3C74-4EFE-8E14-891E4D542F5A} = {4F5EA84C-364A-4055-8ED5-377F8C68AB1F}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CF491341-E031-40C6-BA92-E5E76E10C7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -75,9 +75,9 @@ Global
 		{AD724731-D46D-4DB0-959B-B4D90EB01FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD724731-D46D-4DB0-959B-B4D90EB01FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD724731-D46D-4DB0-959B-B4D90EB01FFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA028CD8-6E0F-418A-977D-F87650C9F750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA028CD8-6E0F-418A-977D-F87650C9F750}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA028CD8-6E0F-418A-977D-F87650C9F750}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA028CD8-6E0F-418A-977D-F87650C9F750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D2ACCF-3C74-4EFE-8E14-891E4D542F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D2ACCF-3C74-4EFE-8E14-891E4D542F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D2ACCF-3C74-4EFE-8E14-891E4D542F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D2ACCF-3C74-4EFE-8E14-891E4D542F5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

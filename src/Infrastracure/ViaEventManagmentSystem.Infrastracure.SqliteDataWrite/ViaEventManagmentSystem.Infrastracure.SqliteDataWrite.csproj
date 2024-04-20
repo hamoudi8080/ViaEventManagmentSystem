@@ -19,8 +19,4 @@
       <ProjectReference Include="..\..\Core\ViaEventManagmentSystem.Core.Domain\ViaEventManagmentSystem.Core.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="UnitOfWork\" />
-    </ItemGroup>
-
 </Project>

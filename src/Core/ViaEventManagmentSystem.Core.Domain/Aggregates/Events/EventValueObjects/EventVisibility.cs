@@ -1,4 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.Tools.OperationResult;
+﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects.Util;
+using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 
@@ -13,4 +14,17 @@ public class EventVisibility : Enumeration {
 
     private EventVisibility(int value, string displayName): base(value, displayName){}
     
+    
+    public static EventVisibility From(EventVisibilityEnum visibilityEnum)
+    {
+        switch (visibilityEnum)
+        {
+            case EventVisibilityEnum.Private:
+                return Private;
+            case EventVisibilityEnum.Public:
+                return Public;
+            default:
+                throw new ArgumentException("Invalid visibility enum value", nameof(visibilityEnum));
+        }
+    }
 }

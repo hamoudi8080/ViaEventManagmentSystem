@@ -14,15 +14,15 @@ public class GuestRepository : IGuestRepository
         return Task.FromResult(_Guests.FirstOrDefault(x => x.Id.Value == id.Value));
     }
 
-    public Task<Guest> Add(Guest entity)
+    public Task Add(Guest entity)
     {
         _Guests.Add(entity);
         return Task.FromResult(entity);
     }
 
-    public Task<Guest> GetAll()
+    public async Task<IEnumerable<Guest>> GetAll()
     {
-        return Task.FromResult(_Guests.FirstOrDefault());
+        return null;
     }
 
     public Task<Guest> Find(GuestId id)

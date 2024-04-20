@@ -74,23 +74,30 @@ public class Guest : Aggregate<GuestId>
 
     public Result<Guest> UpdateEmail(Email email)
     {
-        if (email == null)
-            return Result<Guest>.Failure(Error.AddCustomError("Email is null"));
+        if (email == null  )
+            return Result<Guest>.Failure(Error.AddCustomError("Email is null or invalid"));
+        
+        _Email = email;
 
         return Result<Guest>.Success(this);
     }
 
 
-    public void UpdateFirstName(string newFirstName)
+    public Result<Guest> UpdateFirstName(FirstName newFirstName)
     {
-        if (string.IsNullOrWhiteSpace(newFirstName))
-            throw new ArgumentException("First name cannot be null or empty.");
+        if (newFirstName == null)
+            return Result<Guest>.Failure(Error.AddCustomError("FirstName is null"));
+        _FirstName = newFirstName;
+
+        return Result<Guest>.Success(this);
     }
 
-    public void UpdateLastName(string newLastName)
+    public Result<Guest> UpdateLastName(LastName newLastName)
     {
-        if (string.IsNullOrWhiteSpace(newLastName))
-            throw new ArgumentException("Last name cannot be null or empty.");
+        if (newLastName == null)
+            return Result<Guest>.Failure(Error.AddCustomError("LastName is null"));
+        _LastName = newLastName;
+        return Result<Guest>.Success(this);
     }
 
  

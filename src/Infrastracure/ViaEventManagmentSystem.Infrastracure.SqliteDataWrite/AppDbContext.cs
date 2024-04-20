@@ -12,11 +12,17 @@ namespace ViaEventManagmentSystem.Infrastracure.SqliteDataWrite;
 public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
  
+  
+    /*
+    public DbSet<Guest> Guests => Set<Guest>();
+     // It means that ViaEvents can only be read from, not written to. This is not a common way to define DbSets,
+    public DbSet<Invitation> Invitations => Set<Invitation>();
+    public DbSet<ViaEvent> ViaEvents => Set<ViaEvent>();
+
+  */
     public DbSet<Guest> Guests { get; set; }
     public DbSet<Invitation> Invitations { get; set; }
     public DbSet<ViaEvent> ViaEvents { get; set; }
-
-  
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         

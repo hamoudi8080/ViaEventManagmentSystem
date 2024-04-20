@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects.Util;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.ViaGuest;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
@@ -80,7 +81,9 @@ public class ViaEventConfiguration : IEntityTypeConfiguration<ViaEvent>
         builder
             .Property(e => e._MaxNumberOfGuests)
             .HasConversion(maxNumberOfGuestsConverter);
-
+ 
+        
+        /*
         // Conversion for EventVisibility
         var eventVisibilityConverter = new ValueConverter<EventVisibility, string>(
             v => v.ToString(),
@@ -88,8 +91,15 @@ public class ViaEventConfiguration : IEntityTypeConfiguration<ViaEvent>
         builder
             .Property(e => e._EventVisibility)
             .HasConversion(eventVisibilityConverter);
+            */
+        var eventVisibilityConverter = new ValueConverter<EventVisibility, string>(
+            v => v.Value.ToString(),
+            v => EventVisibility.From((EventVisibilityEnum)Enum.Parse(typeof(EventVisibilityEnum), v)));
+        builder
+            .Property(e => e._EventVisibility)
+            .HasConversion(eventVisibilityConverter);
 
-        // Conversion for EventStatus
+// Conversion for EventStatus
         var eventStatusConverter = new ValueConverter<EventStatus, string>(
             v => v.ToString(),
             v => (EventStatus)Enum.Parse(typeof(EventStatus), v));
