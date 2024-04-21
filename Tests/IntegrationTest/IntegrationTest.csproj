@@ -24,6 +24,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\Infrastracure\ViaEventManagmentSystem.Infrastracure.SqliteDataWrite\ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.csproj" />
+      <ProjectReference Include="..\..\src\Infrastructure\ViaEventManagmentSystem.Infrastructure.EfcQueries\ViaEventManagmentSystem.Infrastructure.EfcQueries.csproj" />
       <ProjectReference Include="..\UnitTests\UnitTests.csproj" />
     </ItemGroup>
 

@@ -69,7 +69,8 @@ public partial class VeadatabaseProductionContext : DbContext
                         j.HasIndex(new[] { "GuestId" }, "IX_GuestParticipation_GuestId");
                     });
         });
-
+        
+        
         OnModelCreatingPartial(modelBuilder);
     }
 
@@ -81,7 +82,7 @@ public partial class VeadatabaseProductionContext : DbContext
         context.Guests.AddRange(GuestSeedFactory.Seed());
         List<ViaEvent> veaEvents = EventSeedFactory.Seed();
         context.ViaEvents.AddRange(veaEvents);
-        context.SaveChangesAsync();
+       // context.SaveChangesAsync();
         //ParticipationSeedFactory.Seed(context);
         //context.SaveChangesAsync();
        // InvitationSeedFactory.Seed(context);
@@ -91,6 +92,9 @@ public partial class VeadatabaseProductionContext : DbContext
 
     public static VeadatabaseProductionContext SetupReadContext()
     {
+        //The SetupReadContext method is used to set up a new instance of the context for reading data.
+        //It creates a new SQLite database with a unique name, ensures it's created, and then returns the context. 
+        
         var optionsBuilder = new DbContextOptionsBuilder<VeadatabaseProductionContext>();
 
         string testDbName = "Test" + Guid.NewGuid() + ".db";

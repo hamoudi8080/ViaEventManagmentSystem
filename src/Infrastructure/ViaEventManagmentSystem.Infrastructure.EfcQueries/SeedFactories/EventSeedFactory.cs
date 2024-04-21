@@ -7,7 +7,8 @@ public class EventSeedFactory
 {
     public static  List<ViaEvent> Seed()
     {
-        var path = Path.Combine(Directory.GetCurrentDirectory(), @"JsonFiles\Events.json");
+        var projectRoot = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.Parent.FullName;
+        var path = Path.Combine(projectRoot, @"src\Infrastructure\ViaEventManagmentSystem.Infrastructure.EfcQueries\JsonFiles\Events.json");
         var jsonData = File.ReadAllText(path);
         var eventsData = JsonSerializer.Deserialize<List<TmpEvent>>(jsonData);
 
