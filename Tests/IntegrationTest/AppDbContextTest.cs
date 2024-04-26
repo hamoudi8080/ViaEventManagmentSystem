@@ -29,6 +29,12 @@ return dbContext;
     public static async Task AddEntityAndSaveChangesAsync<T>(Result<T> result, AppDbContext dbContext)
         where T : class
     {
+        
+        /*
+         * When you define a DbSet<T> property in your DbContext class,
+         * you're telling Entity Framework Core that you have a table in your database that corresponds to the entity type T.
+         * When you call Set<T>(), Entity Framework Core provides you with a DbSet<T> that you can use to query and save instances of T.
+         */
         if (result.IsSuccess)
         {
             await dbContext.Set<T>().AddAsync(result.Payload);

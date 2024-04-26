@@ -112,6 +112,9 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ddf0fa56_002D5fc3_002D43c7_002Da3fd_002Dca87eaedda1e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="VeadatabaseProductionTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.EfcQueriesTests.VeadatabaseProductionTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.EfcQueriesTests.UpcomingEventQueryTest.FetchUpcomingEvents&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.EfcQueriesTests.UpcomingEventQueryTest.GetUpcomingEvents&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.EfcQueriesTests.EventHasStatusDraftTest.GetUpcomingEvents&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e8566433_002D0ce4_002D49ff_002D9886_002D10f2cd250b23/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Add_ShouldAddViaEventToDatabase" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -133,6 +136,8 @@
     &lt;Project Location="C:\Users\hamod\Desktop\New folder (2)\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
     &lt;TestAncestor&gt;&#xD;
       &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.EfcQueriesTests.VeadatabaseProductionTests.SeedMethodTest&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.EfcQueriesTests.UpcomingEventQueryTest.FetchUpcomingEvents&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::92D2ACCF-3C74-4EFE-8E14-891E4D542F5A::net8.0::IntegrationTest.EfcQueriesTests.UpcomingEventQueryTest&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>

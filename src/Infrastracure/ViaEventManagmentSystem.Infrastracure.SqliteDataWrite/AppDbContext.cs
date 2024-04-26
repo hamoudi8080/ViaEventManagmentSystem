@@ -38,9 +38,6 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
                 id => id.Value, // how to convert ID type to simple value, EFC can understand
                 value => GuestId.Create(value.ToString()).Payload); // how to convert simple EFC value to strong ID.
         
-        //modelBuilder.Entity<ViaEvent>().HasKey(x => x.Id);
-        //modelBuilder.Entity<Guest>().HasKey(x => x.Id);
-        
         modelBuilder.Entity<GuestParticipation>(x =>
         {
             x.Property<EventId>("EventId");
