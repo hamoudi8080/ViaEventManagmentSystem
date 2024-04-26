@@ -8,11 +8,15 @@ public class GuestId : ValueObject
 {
     public Guid Value { get; }
 
-    public GuestId(Guid id)
+    private GuestId(Guid id)
     {
         Value = id;
     }
 
+    // EF Core will use this constructor
+    private GuestId()
+    {
+    }
     public static Result< GuestId> Create()
     {
         return new GuestId(Guid.NewGuid());

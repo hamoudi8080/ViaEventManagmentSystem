@@ -5,5 +5,5 @@ namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 
 public interface IGuestRepository : IRepository<Guest, GuestId>
 {
-    
+    public Task Remove(GuestId id);
 }

@@ -27,11 +27,11 @@ public abstract class GuestCancelsParticipationTest
             myEvent.ActivateEvent();
             myEvent.AddEventStartTime(eventstartTime.Payload);
             myEvent.EventEndTime(eventEndTime.Payload);
-            myEvent.AddGuestParticipation(guest1Id._Id);
-            myEvent.AddGuestParticipation(guest2Id._Id);
+            myEvent.AddGuestParticipation(guest1Id.Id);
+            myEvent.AddGuestParticipation(guest2Id.Id);
             
             //Act
-            var result = myEvent.CancelGuestParticipation(guest2Id._Id);
+            var result = myEvent.CancelGuestParticipation(guest2Id.Id);
             
             
             
@@ -62,7 +62,7 @@ public abstract class GuestCancelsParticipationTest
             myEvent.EventEndTime(eventEndTime.Payload);
             
             //Act
-            var result = myEvent.CancelGuestParticipation(guest2Id._Id);
+            var result = myEvent.CancelGuestParticipation(guest2Id.Id);
             
             //Assert
             Assert.True(result.IsSuccess);
@@ -84,12 +84,12 @@ public abstract class GuestCancelsParticipationTest
             
            
             var myEvent = ViaEventTestFactory.ReadyEvent();
-            myEvent.AddGuestParticipation(guest2Id._Id);
+            myEvent.AddGuestParticipation(guest2Id.Id);
             myEvent.AddEventStartTime(eventstartTime.Payload);
             myEvent.EventEndTime(eventEndTime.Payload);
             
             //Act
-            var result = myEvent.CancelGuestParticipation(guest2Id._Id);
+            var result = myEvent.CancelGuestParticipation(guest2Id.Id);
             
             //Assert
             Assert.False(result.IsSuccess);

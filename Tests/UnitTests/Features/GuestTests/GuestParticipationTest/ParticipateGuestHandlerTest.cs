@@ -25,7 +25,7 @@ public class ParticipateGuestHandlerTest
         var eventRepo = new EventRepository();
         eventRepo.Add(viaEvent);
         
-        ParticipateGuestCommand participateGuestCommand = ParticipateGuestCommand.Create(viaEvent._eventId.Value.ToString(), guest._Id.Value.ToString()).Payload;
+        ParticipateGuestCommand participateGuestCommand = ParticipateGuestCommand.Create(viaEvent._eventId.Value.ToString(), guest.Id.Value.ToString()).Payload;
         ParticipateGuestHandler handler = new(eventRepo, _unitOfWork);
         
         // Act
@@ -33,6 +33,6 @@ public class ParticipateGuestHandlerTest
 
         // Assert
         Assert.True(result.IsSuccess);
-        Assert.True(viaEvent._GuestsParticipants.Any(participation => participation.Value == guest._Id.Value));
+        Assert.True(viaEvent._GuestsParticipants.Any(participation => participation.GuestId.Value == guest.Id.Value));
     }
 }

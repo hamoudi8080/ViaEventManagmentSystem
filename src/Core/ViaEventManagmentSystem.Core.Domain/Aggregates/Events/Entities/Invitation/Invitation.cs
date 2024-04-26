@@ -12,11 +12,15 @@ public class Invitation : Entity<InvitationId>
     internal EventId _EventId { get; private set; }
     internal GuestId _GuestId { get; private set; }
 
-    internal InvitationId _Id { get; private set; }
+    //internal InvitationId _Id { get; private set; }
 
-    private Invitation(EventId eventId, InvitationId id, GuestId guestId)
+    // EF Core will use this constructor
+    private Invitation() 
     {
-        _Id = id;
+    }
+    private Invitation(EventId eventId, InvitationId id, GuestId guestId) :base(id)
+    {
+        //Id = id;
         _EventId = eventId;
         _GuestId = guestId;
         _InvitationStatus = InvitationStatus.Pending;

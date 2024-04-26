@@ -26,12 +26,12 @@ public class DeclineInvitationHandlerTest
 
         
         var guest = GuestFactory.CreateGuest();
-        var invitation = viaEvent.InviteGuest(guest._Id);
+        var invitation = viaEvent.InviteGuest(guest.Id);
         
         var eventRepo = new EventRepository ();
         eventRepo.Add(viaEvent);
         
-        DeclineInvitationCommand acceptInvitationCommand = DeclineInvitationCommand.Create(viaEvent._eventId.Value.ToString(), guest._Id.Value.ToString()).Payload;
+        DeclineInvitationCommand acceptInvitationCommand = DeclineInvitationCommand.Create(viaEvent._eventId.Value.ToString(), guest.Id.Value.ToString()).Payload;
         DeclineInvitationHandler handler = new(eventRepo, _unitOfWork);
          
         // Act
@@ -40,7 +40,7 @@ public class DeclineInvitationHandlerTest
         
         // Assert
         Assert.True(result.IsSuccess);
-        Assert.False(viaEvent._Invitations.Any(x => x._GuestId.Value == guest._Id.Value && x._InvitationStatus == InvitationStatus.Accepted));
+        Assert.False(viaEvent._Invitations.Any(x => x._GuestId.Value == guest.Id.Value && x._InvitationStatus == InvitationStatus.Accepted));
      
     }
 }

@@ -16,11 +16,11 @@ public abstract class GuestAcceptInvitationTest
             // Arrange
             var activeEvent = ViaEventTestFactory.CreateActiveEvent();
             var guest = GuestFactory.CreateGuest();
-            var invitation = activeEvent.InviteGuest(guest._Id);
+            var invitation = activeEvent.InviteGuest(guest.Id);
 
 
             // Act
-            var result = activeEvent.AcceptGuestInvitation(guest._Id);
+            var result = activeEvent.AcceptGuestInvitation(guest.Id);
 
             // Assert
             Assert.True(result.IsSuccess);
@@ -38,7 +38,7 @@ public abstract class GuestAcceptInvitationTest
             var guest = GuestFactory.CreateGuest();
 
             // Act
-            var result = activeEvent.AcceptGuestInvitation(guest._Id);
+            var result = activeEvent.AcceptGuestInvitation(guest.Id);
 
             // Assert
             Assert.False(result.IsSuccess);
@@ -56,30 +56,30 @@ public abstract class GuestAcceptInvitationTest
             // Arrange
             var activeEvent = ViaEventTestFactory.CreateActiveEventFullGuest();
             var guest = GuestFactory.CreateGuest();
-            var invitation = activeEvent.InviteGuest(guest._Id);
-            activeEvent.AcceptGuestInvitation(guest._Id);
+            var invitation = activeEvent.InviteGuest(guest.Id);
+            activeEvent.AcceptGuestInvitation(guest.Id);
             //create 5 guests and accept them to reach the max participants
             var guest2 = GuestFactory.CreateGuest();
             var guest3 = GuestFactory.CreateGuest();
             var guest4 = GuestFactory.CreateGuest();
             var guest5 = GuestFactory.CreateGuest();
             var guest6 = GuestFactory.CreateGuest();
-            activeEvent.InviteGuest(guest2._Id);
-            activeEvent.InviteGuest(guest3._Id);
-            activeEvent.InviteGuest(guest4._Id);
-            activeEvent.InviteGuest(guest5._Id);
-            activeEvent.InviteGuest(guest6._Id);
-            activeEvent.AcceptGuestInvitation(guest2._Id);
-            activeEvent.AcceptGuestInvitation(guest3._Id);
-            activeEvent.AcceptGuestInvitation(guest4._Id);
-            activeEvent.AcceptGuestInvitation(guest5._Id);
-            activeEvent.AcceptGuestInvitation(guest6._Id);
+            activeEvent.InviteGuest(guest2.Id);
+            activeEvent.InviteGuest(guest3.Id);
+            activeEvent.InviteGuest(guest4.Id);
+            activeEvent.InviteGuest(guest5.Id);
+            activeEvent.InviteGuest(guest6.Id);
+            activeEvent.AcceptGuestInvitation(guest2.Id);
+            activeEvent.AcceptGuestInvitation(guest3.Id);
+            activeEvent.AcceptGuestInvitation(guest4.Id);
+            activeEvent.AcceptGuestInvitation(guest5.Id);
+            activeEvent.AcceptGuestInvitation(guest6.Id);
             
             
             
             
             // Act  
-            var result = activeEvent.AcceptGuestInvitation(guest._Id);
+            var result = activeEvent.AcceptGuestInvitation(guest.Id);
 
             // Assert
             Assert.False(result.IsSuccess);
@@ -99,12 +99,12 @@ public abstract class GuestAcceptInvitationTest
             var guest = GuestFactory.CreateGuest();
             activeEvent.CancelEvent();
         
-            var invitation = activeEvent.InviteGuest(guest._Id);
+            var invitation = activeEvent.InviteGuest(guest.Id);
          
             
             
             // Act
-            var result = activeEvent.AcceptGuestInvitation(guest._Id);
+            var result = activeEvent.AcceptGuestInvitation(guest.Id);
 
             // Assert
             Assert.False(result.IsSuccess);

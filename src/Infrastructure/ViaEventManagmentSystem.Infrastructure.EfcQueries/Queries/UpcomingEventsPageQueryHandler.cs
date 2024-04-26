@@ -1,0 +1,50 @@
+﻿using ViaEventManagmentSytem.Core.QueryContracts.Contracts;
+using ViaEventManagmentSytem.Core.QueryContracts.Queries;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+namespace ViaEventManagmentSystem.Infrastructure.EfcQueries.Queries
+{
+    public class UpcomingEventsPageQueryHandler : IQueryHandler<UpcomingEventsPage.Query, UpcomingEventsPage.Answer>
+    {
+        private readonly VeadatabaseProductionContext _context;
+
+        public UpcomingEventsPageQueryHandler(VeadatabaseProductionContext context)
+        {
+            _context = context;
+        }
+
+        
+       
+        public async Task<UpcomingEventsPage.Answer> HandleAsync(UpcomingEventsPage.Query query)
+        {
+            var upcomingEvents = await _context.ViaEvents
+                .Where(e => e.EventTitle.Contains(query.SearchedText))
+                .ToListAsync();
+
+            var filteredEvents = upcomingEvents
+                .Where(e => DateTime.Parse(e.StartDateTime) > DateTime.Now || DateTime.Parse(e.EndDateTime) > DateTime.Now);
+
+            var upcomingEventsWith = filteredEvents.Select(e => new UpcomingEventsPage.Event(
+                e.Id,
+                e.EventTitle,
+                e.Description,
+                DateTime.Parse(e.StartDateTime),
+                DateTime.Parse(e.EndDateTime),
+                e.MaxNumberOfGuests.ToString(),
+                e.EventVisibility,
+                e.EventStatus,
+                e.Guests.Count().ToString())).ToList();
+            //calculate max page number
+            var maxPageNum = upcomingEvents.Count() / query.PageSize;
+            if (upcomingEvents.Count() % query.PageSize > 0)
+            {
+                maxPageNum++;
+            }
+            
+            var upcomingEvent =  new UpcomingEventsPage.Answer(upcomingEventsWith, maxPageNum);
+            return upcomingEvent;
+        }
+    }
+}

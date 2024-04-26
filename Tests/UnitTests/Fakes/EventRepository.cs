@@ -14,15 +14,20 @@ public class EventRepository : IViaEventRepository
         return Task.FromResult(_Events.FirstOrDefault(x => x._eventId.Value == id.Value));
     }
 
-    public Task<ViaEvent> Add(ViaEvent entity)
+    public Task Add(ViaEvent entity)
     {
         _Events.Add(entity);
         return Task.FromResult(entity);
     }
 
-    public Task<ViaEvent> GetAll()
+    public async Task<IEnumerable<ViaEvent>> GetAll()
     {
-        return Task.FromResult(_Events.FirstOrDefault());
+        return null;
+    }
+
+    public Task Remove(EventId id)
+    {
+        return Task.CompletedTask;
     }
 
     public Task<ViaEvent> Find(ViaId id)
@@ -30,11 +35,12 @@ public class EventRepository : IViaEventRepository
         return null;
     }
 
-    public Task Remove(ViaId id)
+    public Task<ViaEvent> Get(ViaId id)
     {
-        return Task.CompletedTask;
+        throw new NotImplementedException();
     }
 
+   
     public Task<ViaEvent> Update(ViaEvent entity)
     {
         return Task.FromResult(entity);

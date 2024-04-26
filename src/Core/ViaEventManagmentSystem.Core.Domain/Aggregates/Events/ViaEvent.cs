@@ -2,6 +2,7 @@
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.ViaGuest;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Common.Bases;
@@ -11,7 +12,8 @@ namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 
 public class ViaEvent : Aggregate<EventId>
 {
-    internal  EventId _eventId { get; private set; }
+  //  internal  EventId _eventId { get; private set; }
+   internal new EventId _eventId => base.Id;
     internal EventTitle? _EventTitle { get; private set; }
     internal EventDescription? _Description { get; private set; }
     internal StartDateTime? _StartDateTime { get; private set; }
@@ -19,16 +21,15 @@ public class ViaEvent : Aggregate<EventId>
     internal MaxNumberOfGuests? _MaxNumberOfGuests { get; private set; }
     internal EventVisibility? _EventVisibility { get; private set; }
     internal EventStatus _EventStatus { get; private set; }
-    internal List<GuestId> _GuestsParticipants { get; private set; }
-
-    internal List<Invitation> _RejectedInvitations { get; private set; }
-
-    // internal Invitation _SendInvitations { get; private set; }
-
-
+    internal List<GuestParticipation> _GuestsParticipants { get; private set; }
     internal List<Invitation> _Invitations { get; private set; }
     internal static List<InvitationRequest> _RequestInvitations { get; private set; }
-
+    
+    // EF Core will use this constructor
+    
+    private ViaEvent() 
+    {
+    }
     internal ViaEvent(EventId id) : base(id)
     {
         _StartDateTime = StartDateTime.Create(DateTime.Now).Payload;
@@ -45,7 +46,7 @@ public class ViaEvent : Aggregate<EventId>
         EndDateTime? endDateTime, MaxNumberOfGuests? maxNumberOfGuests, EventVisibility? eventVisibility,
         EventStatus? eventStatus) : base(eventId)
     {
-        _eventId = eventId;
+      //  _eventId = eventId;
         _MaxNumberOfGuests = maxNumberOfGuests;
         _EventTitle = eventTitle;
         _Description = description;
@@ -53,12 +54,15 @@ public class ViaEvent : Aggregate<EventId>
         _EndDateTime = endDateTime;
         _EventVisibility = eventVisibility ?? EventVisibility.Public;
         _EventStatus = eventStatus ?? EventStatus.Draft;
-        _GuestsParticipants = new List<GuestId>();
+     //   _GuestsParticipants = new List<GuestId>();
+     _GuestsParticipants = new List<GuestParticipation>();
         _Invitations = new List<Invitation>();
-        _RejectedInvitations = new List<Invitation>();
+       // _RejectedInvitations = new List<Invitation>();
         _RequestInvitations = new List<InvitationRequest>();
     }
 
+    
+    
     public static Result<ViaEvent> Create(EventId eventId, EventTitle? title = null,
         EventDescription? description = null, StartDateTime? startDateTime = null,
         EndDateTime? endDateTime = null, MaxNumberOfGuests? maxNumberOfGuests = null,
@@ -555,14 +559,16 @@ public class ViaEvent : Aggregate<EventId>
 
         if (rejectResult.IsSuccess)
         {
-            // If the guest is a participant, remove them from the participants list
+/*            // If the guest is a participant, remove them from the participants list
             if (_GuestsParticipants.Contains(guestId))
             {
                 _GuestsParticipants.Remove(guestId);
             }
 
             // Add the rejected invitation to the list
+            
             _RejectedInvitations.Add(invitation);
+            */
             return Result.Success();
         }
 
