@@ -5,26 +5,6 @@ namespace ViaEventManagmentSystem.Core.AppEntry.Commands.Guest;
 
 public class CreateGuestCommand : ICommand
 {
-    /*
-    public GuestId id { get; init; }
-    public FirstName FirstName { get; init; }
-    public LastName LastName { get; init; }
-    public Email Email { get; init; }
-
-    public Guest Guest { get; private set; }
-    */
-   
-    /*
-    private CreateGuestCommand(GuestId gid , FirstName firstName, LastName lastName, Email email )
-    {
-
-        id = gid;
-        FirstName = firstName;
-        LastName = lastName;
-        Email = email;
-
-    }
-    */
     
     public Domain.Aggregates.Guests.Guest Guest { get; init; }
     private CreateGuestCommand(Domain.Aggregates.Guests.Guest guest)
@@ -44,7 +24,8 @@ public class CreateGuestCommand : ICommand
 
         if (guestIdResult.IsSuccess && firstNameResult.IsSuccess && lastNameResult.IsSuccess && emailResult.IsSuccess  )
         {
-            Result<Domain.Aggregates.Guests.Guest> guest = Domain.Aggregates.Guests.Guest.Create(guestIdResult.Payload, firstNameResult.Payload.Value, lastNameResult.Payload.Value, emailResult.Payload.Value);
+            Result<Domain.Aggregates.Guests.Guest> guest = Domain.Aggregates.Guests.Guest.Create(guestIdResult.Payload, 
+                firstNameResult.Payload.Value, lastNameResult.Payload.Value, emailResult.Payload.Value);
             
             return Result<CreateGuestCommand>.Success( new CreateGuestCommand(guest.Payload));
         }
