@@ -15,4 +15,12 @@
       <ProjectReference Include="..\ViaEventManagmentSystem.Core.Domain\ViaEventManagmentSystem.Core.Domain.csproj" />
     </ItemGroup>
 
+    
+
+    
+<!--    <ItemGroup>-->
+<!--        <ProjectReference Include="..\ViaEventManagmentSystem.Core.Application\ViaEventManagmentSystem.Core.Application.csproj" />-->
+<!--    </ItemGroup>-->
+<!--   -->
+
 </Project>
