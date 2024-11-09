@@ -12,6 +12,7 @@ namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 
 public class ViaEvent : Aggregate<EventId>
 {
+    
   //  internal  EventId _eventId { get; private set; }
    internal new EventId _eventId => base.Id;
     internal EventTitle? _EventTitle { get; private set; }
@@ -26,7 +27,7 @@ public class ViaEvent : Aggregate<EventId>
     internal static List<InvitationRequest> _RequestInvitations { get; private set; }
     
     // EF Core will use this constructor
-    
+   
     private ViaEvent() 
     {
     }
