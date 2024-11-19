@@ -50,15 +50,15 @@ public class ViaEventTestFactory
     public static ViaEvent DraftEvent()
     {
         var id = EventId.Create().Payload;
-        var title = EventTitle.Create("Event sport title").Payload;
-        var description = EventDescription.Create("Training event description").Payload;
-        var startDate = StartDateTime.Create(DateTime.Now.AddHours(1)).Payload;
-        var endDate = EndDateTime.Create(DateTime.Now.AddHours(3)).Payload;
-        var maxNumberOfGuests = MaxNumberOfGuests.Create(40).Payload;
+        var title = EventTitle.Create("Sport");
+        var description = EventDescription.Create("Training event description");
+        var startDate = StartDateTime.Create(DateTime.Now.AddHours(1));
+        var endDate = EndDateTime.Create(DateTime.Now.AddHours(3));
+        var maxNumberOfGuests = MaxNumberOfGuests.Create(40);
         var eventVisibility = EventVisibility.Public;
         var eventStatus = EventStatus.Draft;
 
-        return ViaEvent.Create(id, title, description, startDate, endDate, maxNumberOfGuests, eventVisibility,
+        return ViaEvent.Create(id, title.Payload, description.Payload, startDate.Payload, endDate.Payload, maxNumberOfGuests.Payload, eventVisibility,
             eventStatus).Payload;
     }
 

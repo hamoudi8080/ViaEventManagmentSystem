@@ -2,9 +2,15 @@
 
 public class ErrorMessage : Enumeration
 {
-   
-
-
+    public static ErrorMessage StartTimeMustBeBetween8amAnd2359PM=
+        new(0, "Start Time Must Be Between 8:00 AM And 23:59 PM");
+    public static ErrorMessage TimeIsNotVaild=
+        new(0, "Pls add the valid Time");
+    public static ErrorMessage EventVisbilityIsNotSet=
+            new(0, "Visibility is missing");
+    
+    public static ErrorMessage TitleMustbeChangedFromDefault=
+        new(0, "Title Must be Changed From Default");
     public static readonly ErrorMessage TitleMustBeSetBeforeMakingAnEventReady =
         new(0, "Title must be set before making an event ready");
     public static readonly ErrorMessage CancelParticipationRejected =
@@ -125,7 +131,7 @@ public class ErrorMessage : Enumeration
         new(0, "Maximum number of Guests cannot be less than 5 or more than 50 ");
 
     public static readonly ErrorMessage ActiveEventCanotBeModified =
-        new(0, "Active event cannot be modified");
+        new(0, "The times of an active event cannot be modified when the event is active");
 
     public static readonly ErrorMessage ActiveEventCannotBePrivate =
         new(0, "Active event cannot be made private");
@@ -162,6 +168,12 @@ public class ErrorMessage : Enumeration
     public static readonly ErrorMessage FirstNameCannotBeNull =
         new(0, "FirstName Cannot be null, please provide a name");
     
+    public static readonly ErrorMessage EventMustBeDraft =
+        new(0, "Event Status Must be in draft status");
+
+    
+    public static ErrorMessage EventCannotEndAfter1159Pm =
+        new(0, "Event Cannot End After 11:59 Pm");
     private ErrorMessage()
     {
     }
@@ -169,4 +181,34 @@ public class ErrorMessage : Enumeration
     private ErrorMessage(int value, string displayName) : base(value, displayName)
     {
     }
+    
+    
+    //Note in future make this way, it is simpler
+    /*
+     * public class ErrorMessage
+{
+    // Static properties for each error message
+    public static readonly string TheEventMustBeActive = "The event must be active.";
+    public static readonly string InvalidUserCredentials = "Invalid user credentials.";
+    public static readonly string AccessDenied = "Access denied. You do not have permission.";
+    public static readonly string ItemNotFound = "The requested item was not found.";
+    
+    // Other messages can be added here...
+    
+    // Optional: Create a property to hold the message (if you need instances)
+    public string Message { get; private set; }
+
+    // Constructor for creating an instance of ErrorMessage with a custom message
+    private ErrorMessage(string message)
+    {
+        Message = message;
+    }
+
+    // Factory methods to create instances if needed (optional)
+    public static ErrorMessage CreateTheEventMustBeActive() => new ErrorMessage(TheEventMustBeActive);
+    public static ErrorMessage CreateInvalidUserCredentials() => new ErrorMessage(InvalidUserCredentials);
+    // Additional factory methods can be added for other messages...
+}
+     */
+   
 }

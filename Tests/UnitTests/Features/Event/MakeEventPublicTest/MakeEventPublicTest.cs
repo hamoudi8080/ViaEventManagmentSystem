@@ -20,11 +20,7 @@ public abstract class MakeEventPublicTest
 
             // Assert
             Assert.True(result.IsSuccess); // Check if the operation was successful
-
-            // Check if the event is public
             Assert.Equal(EventVisibility.Public, viaEvent._EventVisibility);
-
-            // Check if the status is unchanged (assuming it's set to Draft initially)
             Assert.Equal(EventStatus.Draft, viaEvent._EventStatus);
         }
     }
@@ -42,10 +38,8 @@ public abstract class MakeEventPublicTest
             var result = viaEvent.MakeEventPublic();
 
             // Assert
-            Assert.False(result.IsSuccess); // Check if the operation failed
-
-            // Check if the failure message is provided as expected
-            Assert.Contains(ErrorMessage.CancelledEventCannotBePublic.ToString(), result.Error.Messages[0].ToString());
+            Assert.False(result.IsSuccess);  
+            Assert.Contains(ErrorMessage.CancelledEventCannotBePublic.DisplayName, result.Error.Messages[0].DisplayName);
         }
     }
 }

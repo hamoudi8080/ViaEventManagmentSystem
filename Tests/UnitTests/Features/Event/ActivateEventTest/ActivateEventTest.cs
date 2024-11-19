@@ -109,8 +109,8 @@ public abstract class ActivateEventTest
 
             // Assert
             Assert.False(activationResult.IsSuccess);
-            Assert.Contains(activationResult.Error.CustomMessage,
-                activationResult.Error.CustomMessage); 
+            Assert.Contains(activationResult.ErrorCollection!, error => 
+                error.Messages.Any(message => message.DisplayName == ErrorMessage.MaxGuestsNoMustBeWithin5and50.DisplayName));
              
         }
     }
@@ -140,8 +140,9 @@ public abstract class ActivateEventTest
 
             // Assert
             Assert.False(activationResult.IsSuccess);
-            Assert.Contains(ErrorMessage.CancelledEventCannotBeActivated.ToString(),
-                activationResult.Error.Messages[0].ToString()); 
+            Assert.Contains(ErrorMessage.CancelledEventCannotBeActivated.DisplayName,
+                activationResult.Error.Messages[0].DisplayName); 
+            
              
         }
     }

@@ -3,16 +3,17 @@
 public class Result
 {
     public bool IsSuccess { get; }
-    public Error? Error { get; init; }
+    public Error? Error { get; private init; }
 
     public string ErrorMessage => Error?.CustomMessage; 
+    public List<Error>? ErrorCollection { get; private init; }
 
     protected Result(bool isSuccess)
     {
         IsSuccess = isSuccess;
     }
 
-    protected Result()
+    public Result()
     {
     }
 
@@ -22,7 +23,13 @@ public class Result
         IsSuccess = isSuccess;
         Error = error;
     }
-
+    
+    protected Result(bool isSuccess, List<Error> error)
+    {
+         
+        IsSuccess = isSuccess;
+        ErrorCollection = error;
+    }
     public static Result Success()
     {
         return new Result(true);
@@ -32,7 +39,10 @@ public class Result
     {
         return new Result(false, error);
     }
-
+    public static Result Failure(List<Error> errors)
+    {
+        return new Result(false, errors.ToList());
+    }
     public static Result CombineFromOthers(params Result[] results)
     {
         foreach (var result in results)
@@ -50,35 +60,38 @@ public class Result
  
 public class Result<T> : Result
 {
-    public T Payload { get; }
+    public T Payload { get; private set; }
    
 
     protected Result(bool isSuccess, T value, Error error) : base(isSuccess, error)
     {
         Payload = value;
     }
-
-    private Result() : base()
+    protected Result(bool isSuccess, T value, List<Error> error) : base(isSuccess, error)
     {
+        Payload = value;
     }
-
     private Result(bool isSuccess, T value) : base(isSuccess)
     {
         Payload = value;
     }
 
    
-    public static new Result<T> Success(T value)
+    public static Result<T> Success(T value)
     {
         return new Result<T>(true, value); // Corrected to pass true for isSuccess
     }
 
-    public static new Result<T> Failure(Error error)
+    public new static Result<T> Failure(Error error)
     {
         return new Result<T>(false, default, error);
     }
 
-  
+    public new static Result<T> Failure(List<Error> errors)
+    {
+        return new Result<T>(false, default, errors.ToList());
+    }
+
     public static Result<T> CombineFromOthers(params Result<T>[] results)
     {
         foreach (var result in results)
@@ -89,7 +102,7 @@ public class Result<T> : Result
             }
         }
 
-        return Success(default(T));
+        return Success(default(T) ?? throw new InvalidOperationException());
     }
    
 

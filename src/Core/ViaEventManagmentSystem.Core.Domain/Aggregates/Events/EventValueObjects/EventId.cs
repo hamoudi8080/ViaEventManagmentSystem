@@ -22,7 +22,7 @@ public class EventId : ValueObject
     public static Result<EventId> Create(string id)
     {
         bool canBeParsed = Guid.TryParse(id, out Guid guid);
-        return canBeParsed ? Result<EventId>.Success(new EventId(guid)) : Result<EventId>.Failure(Error.AddCustomError("Problems occured during create a guid id for gueest"));
+        return canBeParsed ? Result<EventId>.Success(new EventId(guid)) : Result<EventId>.Failure(Error.AddCustomError("Problems occured during create a guid id for guest"));
     }
     // Equality comparison logic
     protected override IEnumerable<object> GetEqualityComponents()

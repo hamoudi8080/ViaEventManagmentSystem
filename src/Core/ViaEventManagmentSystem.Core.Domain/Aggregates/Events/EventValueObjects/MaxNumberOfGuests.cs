@@ -16,15 +16,24 @@ public class MaxNumberOfGuests : ValueObject
 
     public static Result<MaxNumberOfGuests> Create(int maxNumber)
     {
-        
-        if (maxNumber <5 || maxNumber > 50)
+
+        if (!Validate(maxNumber))
         {
             return Result<MaxNumberOfGuests>.Failure(Error.BadRequest(ErrorMessage.MaxGuestsNoMustBeWithin5and50));
         }
- 
+        
         return Result<MaxNumberOfGuests>.Success(new MaxNumberOfGuests(maxNumber));
     }
 
+    private static bool Validate(int maxNumber)
+    {
+        if (maxNumber <5 || maxNumber > 50)
+        {
+            return false;
+        }
+
+        return true;
+    }
 
     protected override IEnumerable<object> GetEqualityComponents()
     {

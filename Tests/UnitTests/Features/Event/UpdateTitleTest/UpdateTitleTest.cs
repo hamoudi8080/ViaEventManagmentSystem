@@ -21,13 +21,13 @@ namespace UnitTests.Features.Event.UpdateTitleTest
                 var eventTitle = EventTitle.Create(newTitle);
 
                 // Act
-                
                 var result = viaEvent.UpdateTitle(eventTitle.Payload);
 
                 // Assert
                 Assert.True(result.IsSuccess);
                 Assert.Equal(newTitle, viaEvent._EventTitle.Value);
                 Assert.Equal(EventStatus.Draft, viaEvent._EventStatus);
+                
             }
         }
 
@@ -40,21 +40,18 @@ namespace UnitTests.Features.Event.UpdateTitleTest
             public void UpdateTitle_Success_ReadyStatus(string newTitle)
             {
                 // Arrange
-                var viaEvent = ViaEventTestFactory.ReadyEvent(); // Create an event with Ready status
+                var viaEvent = ViaEventTestFactory.ReadyEvent(); 
                 var originalStatus = viaEvent._EventStatus;
-                
                 var eventTitle = EventTitle.Create(newTitle);
 
                 // Act
                 var result = viaEvent.UpdateTitle(eventTitle.Payload);
 
                 // Assert
-                Assert.True(result.IsSuccess); // Ensure the operation succeeded
-                Assert.Equal(newTitle, viaEvent._EventTitle.Value); // Check that the title has been updated
-                // Check that the title has been updated
-                Assert.Equal(EventStatus.Draft, viaEvent._EventStatus); // Check that the event status is now Draft
-                Assert.NotEqual(originalStatus,
-                    viaEvent._EventStatus); // Ensure that the event status was actually changed
+                Assert.True(result.IsSuccess);
+                Assert.Equal(newTitle, viaEvent._EventTitle.Value); 
+                Assert.Equal(EventStatus.Draft, viaEvent._EventStatus); 
+                Assert.NotEqual(originalStatus, viaEvent._EventStatus); 
             }
         }
 
@@ -71,10 +68,11 @@ namespace UnitTests.Features.Event.UpdateTitleTest
 
                 // Assert
                 Assert.False(eventTitle.IsSuccess);
-                Assert.Equal(ErrorMessage.TitleMustBeBetween3And75Chars.ToString(), eventTitle.Error.Messages[0].ToString());
+                Assert.Equal(ErrorMessage.TitleMustBeBetween3And75Chars.DisplayName, eventTitle.Error.Messages[0].ToString());
             }
         }
 
+        
         public class F2
         {
             [Theory]
@@ -88,7 +86,7 @@ namespace UnitTests.Features.Event.UpdateTitleTest
 
                 // Assert
                 Assert.False(eventTitle.IsSuccess);
-                Assert.Equal("Event title must be between 3 and 75 characters", eventTitle.Error.Messages[0].ToString());
+                Assert.Equal(ErrorMessage.TitleMustBeBetween3And75Chars.DisplayName, eventTitle.Error.Messages[0].ToString());
             }
         }
 
@@ -106,7 +104,7 @@ namespace UnitTests.Features.Event.UpdateTitleTest
 
                 // Assert
                 Assert.False(eventTitle.IsSuccess);
-                Assert.Equal("Event title must be between 3 and 75 characters", eventTitle.Error.Messages[0].ToString());
+                Assert.Equal(ErrorMessage.TitleMustBeBetween3And75Chars.DisplayName, eventTitle.Error.Messages[0].ToString());
             }
         }
 
@@ -122,7 +120,7 @@ namespace UnitTests.Features.Event.UpdateTitleTest
 
                 // Assert
                 Assert.False(eventTitle.IsSuccess);
-                Assert.Equal("Event title must be between 3 and 75 characters", eventTitle.Error.Messages[0].ToString());
+                Assert.Equal(ErrorMessage.TitleMustBeBetween3And75Chars.DisplayName, eventTitle.Error.Messages[0].ToString());
             }
         }
 
@@ -145,7 +143,7 @@ namespace UnitTests.Features.Event.UpdateTitleTest
                 // Assert
                 Assert.False(result.IsSuccess);
 
-                Assert.Equal("Active event cannot be modified", result.Error.Messages[0].ToString());
+                Assert.Equal(ErrorMessage.ActiveEventCanotBeModified.DisplayName, result.Error.Messages[0].ToString());
             }
         }
 
@@ -167,7 +165,7 @@ namespace UnitTests.Features.Event.UpdateTitleTest
 
                 // Assert
                 Assert.False(result.IsSuccess); // Ensure the operation failed
-                Assert.Equal("Cancelled event cannot be modified",
+                Assert.Equal(ErrorMessage.CancelledEventCannotBemodified.DisplayName,
                     result.Error.Messages[0].ToString()); // Check the error message
             }
         }

@@ -92,12 +92,14 @@ public class ViaEventConfiguration : IEntityTypeConfiguration<ViaEvent>
             .Property(e => e._EventVisibility)
             .HasConversion(eventVisibilityConverter);
             */
+        /*
         var eventVisibilityConverter = new ValueConverter<EventVisibility, string>(
             v => v.Value.ToString(),
             v => EventVisibility.From((EventVisibilityEnum)Enum.Parse(typeof(EventVisibilityEnum), v)));
         builder
             .Property(e => e._EventVisibility)
             .HasConversion(eventVisibilityConverter);
+            */
 
 // Conversion for EventStatus
         var eventStatusConverter = new ValueConverter<EventStatus, string>(

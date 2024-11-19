@@ -3,6 +3,7 @@ using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 
+/*
 public class EventVisibility : Enumeration {
 
 
@@ -27,4 +28,11 @@ public class EventVisibility : Enumeration {
                 throw new ArgumentException("Invalid visibility enum value", nameof(visibilityEnum));
         }
     }
+}
+*/
+
+public enum EventVisibility
+{
+    Private,
+    Public 
 }

@@ -13,7 +13,7 @@ public class StartDateTime : ValueObject
     {
         return Result<StartDateTime>.Success(new StartDateTime(dateTime));
     }
-
+    
     protected override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;

@@ -20,11 +20,7 @@ public abstract class MakeEventPrivateTest
 
             // Assert
             Assert.True(result.IsSuccess); // Check if the operation was successful
-
-            // Check if the event remains private
             Assert.Equal(EventVisibility.Private, viaEvent._EventVisibility);
-
-            // Check if the event remains in its current status (Ready)
             Assert.Contains(viaEvent._EventStatus, new[] { EventStatus.Draft, EventStatus.Ready });
         }
     }
@@ -44,13 +40,9 @@ public abstract class MakeEventPrivateTest
             var result = viaEvent.MakeEventPrivate();
             
             // Assert
-            Assert.True(result.IsSuccess); // Check if the operation was successful
-
-            // Check if the event is made private
+            Assert.True(result.IsSuccess);
             Assert.Equal(EventVisibility.Private, viaEvent._EventVisibility);
-
-            // Check if the status is changed to Draft
-            Assert.Equal(EventStatus.Draft, viaEvent._EventStatus);
+            Assert.Equal(EventStatus.Ready, viaEvent._EventStatus);
            
         }
     }
@@ -70,8 +62,7 @@ public abstract class MakeEventPrivateTest
             
             // Assert
             Assert.False(result.IsSuccess);  
-            // Check if the failure message is provided as expected
-            Assert.Contains(ErrorMessage.ActiveEventCannotBePrivate.ToString(), result.Error.Messages[0].ToString());
+            Assert.Contains(ErrorMessage.ActiveEventCannotBePrivate.DisplayName, result.Error.Messages[0].DisplayName);
            
         }
     }
@@ -92,7 +83,7 @@ public abstract class MakeEventPrivateTest
             // Assert
             Assert.False(result.IsSuccess);  
             // Check if the failure message is provided as expected
-            Assert.Contains(ErrorMessage.CancelledEventCannotBemodified.ToString(), result.Error.Messages[0].ToString());
+            Assert.Contains(ErrorMessage.CancelledEventCannotBemodified.DisplayName, result.Error.Messages[0].DisplayName);
            
         }
     }

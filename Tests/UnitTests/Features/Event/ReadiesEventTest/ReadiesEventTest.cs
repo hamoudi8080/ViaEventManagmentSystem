@@ -1,4 +1,5 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
@@ -18,8 +19,8 @@ public abstract class ReadiesEventTest
             var result = viaEvent.MakeEventReady();
 
             // Assert
-            Assert.True(result.IsSuccess); // Check if the result is successful
-            Assert.Equal(EventStatus.Ready, viaEvent._EventStatus); // Check if the event status is updated to Ready
+            Assert.True(result.IsSuccess); 
+            Assert.Equal(EventStatus.Ready, viaEvent._EventStatus);
         }
     }
 
@@ -30,18 +31,27 @@ public abstract class ReadiesEventTest
         public void GivenDraftEvent_WithMissingOrInvalidData_WhenMakeEventReady_ThenFailureMessageIsProvided()
         {
             // Arrange
-            var viaEvent = ViaEventTestFactory.CreateEvent();
+            var id = EventId.Create().Payload;
+            var title = EventTitle.Create("");
+            var description = EventDescription.Create("Training event description");
+            //var startDate = StartDateTime.Create(DateTime.Now.AddHours(1));
+            //var endDate = EndDateTime.Create(DateTime.Now.AddHours(3));
+            var maxNumberOfGuests = MaxNumberOfGuests.Create(2);
+            //var eventVisibility = EventVisibility.Public;
+            var eventStatus = EventStatus.Draft;
+
+            var viaEvent = ViaEvent.Create(id, title.Payload, description.Payload, null, null, maxNumberOfGuests.Payload, null,
+                eventStatus).Payload;
 
             // Act
             var result = viaEvent.MakeEventReady();
 
             // Assert
-            Assert.False(result.IsSuccess); // Check if the result is a failure
-            Assert.Equal(EventStatus.Draft, viaEvent._EventStatus); // Ensure event status remains as Draft
-
-            // Additional assertions to check for failure message
-            Assert.Contains(result.Error.CustomMessage,
-                result.Error.CustomMessage); // Check if error message for missing data is present
+            Assert.False(result.IsSuccess); 
+            Assert.Equal(EventStatus.Draft, viaEvent._EventStatus);
+            Assert.NotNull(result.ErrorCollection);
+            Assert.NotEmpty(result.ErrorCollection);
+            
         }
     }
 
@@ -57,9 +67,11 @@ public abstract class ReadiesEventTest
             var result = viaEvent.MakeEventReady();
 
             // Assert
-            Assert.False(result.IsSuccess); // Check if the result is a failure
-            Assert.Equal(ErrorMessage.CancelledEventCannotBeMadeReady.ToString(),
-                result.Error.Messages[0].ToString()); // Ensure event status remains as Draft
+            Assert.False(result.IsSuccess);
+            Assert.Contains(result.ErrorCollection!, error => 
+                error.Messages.Any(message => message.DisplayName == ErrorMessage.CancelledEventCannotBeMadeReady.DisplayName));
+           
+            
         }
     }
 
@@ -70,15 +82,28 @@ public abstract class ReadiesEventTest
         public void GivenEventWithPastStartDateTime_WhenMakeEventReady_ThenFailureMessageIsProvided()
         {
             // Arrange
-            var pastStartDateTime = DateTime.Now.AddHours(-1); // Set start time to 1 hour ago
-            var viaEvent = ViaEventTestFactory.DraftEvent(pastStartDateTime);
+            var id = EventId.Create().Payload;
+            var title = EventTitle.Create("Sport");
+            var description = EventDescription.Create("Training event description");
+            var startDate = StartDateTime.Create(DateTime.Now.AddHours(-1));
+           var endDate = EndDateTime.Create(DateTime.Now.AddHours(3));
+            var maxNumberOfGuests = MaxNumberOfGuests.Create(2);
+            var eventVisibility = EventVisibility.Public;
+            var eventStatus = EventStatus.Draft;
+
+            var viaEvent = ViaEvent.Create(id, title.Payload, description.Payload, startDate.Payload, endDate.Payload, maxNumberOfGuests.Payload, null,
+                eventStatus).Payload;
 
             // Act
             var result = viaEvent.MakeEventReady();
 
             // Assert
-            Assert.False(result.IsSuccess); // Check if the result is a failure
-            Assert.Equal(EventStatus.Draft, viaEvent._EventStatus); // Ensure event status remains as Draft
+            Assert.False(result.IsSuccess); 
+            Assert.Equal(EventStatus.Draft, viaEvent._EventStatus); 
+            Assert.Contains(result.ErrorCollection!, error => 
+                error.Messages.Any(message => message.DisplayName == ErrorMessage.EventInThePastCannotBeReady.DisplayName));
+
+            
         }
     }
 
@@ -94,8 +119,12 @@ public abstract class ReadiesEventTest
             var result = viaEvent.MakeEventReady();
 
             // Assert
-            Assert.False(result.IsSuccess); // Check if the result is a failure
-            Assert.Equal(EventStatus.Draft, viaEvent._EventStatus); // Ensure event status remains as Draft
+            Assert.False(result.IsSuccess); 
+            Assert.Equal(EventStatus.Draft, viaEvent._EventStatus); 
+            Assert.Contains(result.ErrorCollection!, error => 
+                error.Messages.Any(message => message.DisplayName == ErrorMessage.TitleMustbeChangedFromDefault.DisplayName));
+
+            
 
         }
     }

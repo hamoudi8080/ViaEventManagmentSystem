@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.InteropServices.JavaScript;
+using System.Text;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
@@ -12,9 +13,7 @@ namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 
 public class ViaEvent : Aggregate<EventId>
 {
-    
-  //  internal  EventId _eventId { get; private set; }
-   internal new EventId _eventId => base.Id;
+    internal EventId _eventId => base.Id;
     internal EventTitle? _EventTitle { get; private set; }
     internal EventDescription? _Description { get; private set; }
     internal StartDateTime? _StartDateTime { get; private set; }
@@ -25,12 +24,13 @@ public class ViaEvent : Aggregate<EventId>
     internal List<GuestParticipation> _GuestsParticipants { get; private set; }
     internal List<Invitation> _Invitations { get; private set; }
     internal static List<InvitationRequest> _RequestInvitations { get; private set; }
-    
+
     // EF Core will use this constructor
-   
-    private ViaEvent() 
+
+    private ViaEvent()
     {
     }
+
     internal ViaEvent(EventId id) : base(id)
     {
         _StartDateTime = StartDateTime.Create(DateTime.Now).Payload;
@@ -47,7 +47,6 @@ public class ViaEvent : Aggregate<EventId>
         EndDateTime? endDateTime, MaxNumberOfGuests? maxNumberOfGuests, EventVisibility? eventVisibility,
         EventStatus? eventStatus) : base(eventId)
     {
-      //  _eventId = eventId;
         _MaxNumberOfGuests = maxNumberOfGuests;
         _EventTitle = eventTitle;
         _Description = description;
@@ -55,15 +54,12 @@ public class ViaEvent : Aggregate<EventId>
         _EndDateTime = endDateTime;
         _EventVisibility = eventVisibility ?? EventVisibility.Public;
         _EventStatus = eventStatus ?? EventStatus.Draft;
-     //   _GuestsParticipants = new List<GuestId>();
-     _GuestsParticipants = new List<GuestParticipation>();
+        _GuestsParticipants = new List<GuestParticipation>();
         _Invitations = new List<Invitation>();
-       // _RejectedInvitations = new List<Invitation>();
         _RequestInvitations = new List<InvitationRequest>();
     }
 
-    
-    
+
     public static Result<ViaEvent> Create(EventId eventId, EventTitle? title = null,
         EventDescription? description = null, StartDateTime? startDateTime = null,
         EndDateTime? endDateTime = null, MaxNumberOfGuests? maxNumberOfGuests = null,
@@ -80,25 +76,8 @@ public class ViaEvent : Aggregate<EventId>
         return Result<ViaEvent>.Success(new ViaEvent(id));
     }
 
-    public Result UpdateTitle(EventTitle newTitle)
+    public Result UpdateTitle(EventTitle title)
     {
-        // if (newTitle == null || newTitle.Value.Length < 3 || newTitle.Value.Length > 75)
-        // {
-        //     return Result.Failure(Error.BadRequest(ErrorMessage.TitleMustBeBetween3And75Chars));
-        // }
-
-        var titleResult = EventTitle.Create(newTitle.Value);
-        
-        if (!titleResult.IsSuccess)
-        {
-            return titleResult;
-        }
-
-        if (!titleResult.IsSuccess)
-        {
-            return Result.Failure(Error.BadRequest(ErrorMessage.TitleMustBeBetween3And75Chars));
-        }
-
         if (_EventStatus == EventStatus.Active)
         {
             return Result.Failure(Error.BadRequest(ErrorMessage.ActiveEventCanotBeModified));
@@ -109,24 +88,20 @@ public class ViaEvent : Aggregate<EventId>
             return Result.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBemodified));
         }
 
-
-        _EventTitle = EventTitle.Create(newTitle.Value).Payload;
-
         if (_EventStatus == EventStatus.Ready)
         {
-            _EventStatus = EventStatus.Draft; // Update event status to Draft
+            _EventStatus = EventStatus.Draft;
         }
+
+        _EventTitle = title;
 
         return Result.Success();
     }
 
-    public Result UpdateDescription(EventDescription newDescription)
+    public Result UpdateDescription(EventDescription description)
     {
-    
         if (_EventStatus == EventStatus.Ready)
         {
-            _Description = EventDescription.Create(newDescription.Value).Payload;
-
             _EventStatus = EventStatus.Draft;
         }
 
@@ -140,7 +115,7 @@ public class ViaEvent : Aggregate<EventId>
             return Result.Failure(Error.BadRequest(ErrorMessage.ActiveEventCanotBeModified));
         }
 
-        _Description = EventDescription.Create(newDescription.Value).Payload;
+        _Description = description;
 
 
         return Result.Success();
@@ -148,7 +123,7 @@ public class ViaEvent : Aggregate<EventId>
 
     public Result EventTimeDuration(StartDateTime? startDateTime, EndDateTime? endDateTime)
     {
-        if (startDateTime == null)
+        if (startDateTime == null || endDateTime == null)
         {
             return Result.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
         }
@@ -172,10 +147,17 @@ public class ViaEvent : Aggregate<EventId>
             return Result.Failure(Error.BadRequest(ErrorMessage.StartTimeMustBeBeforeEndTime));
         }
 
-        // Check if the hour is before 08:00 or if it's after 24:00
-        if (startTime.Hour < 8)
+        // Check if the hour is before 08:00
+        if (startTime.TimeOfDay < new TimeSpan(8, 0, 0))
+        {
             return Result.Failure(Error.BadRequest(ErrorMessage.EventCannotStartBefore8Am));
+        }
 
+        // Check if the hour is after 23:59
+        if (endTime.TimeOfDay > new TimeSpan(23, 59, 0))
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.EventCannotEndAfter1159Pm));
+        }
 
         //duration of the event is less than 1
         if ((endTime - startTime).TotalHours < 1)
@@ -190,95 +172,140 @@ public class ViaEvent : Aggregate<EventId>
         }
 
 
-        _StartDateTime = startDateTime;
-        _EndDateTime = endDateTime;
-
-        // Update event status if necessary
         if (_EventStatus == EventStatus.Ready)
         {
             _EventStatus = EventStatus.Draft;
         }
 
+
         // Check if the start time is in the past
-        if (startTime < DateTime.Now)
+        if (DateTime.Now > startTime)
         {
             return Result.Failure(Error.BadRequest(ErrorMessage.EventStartTimeCannotBeInPast));
         }
 
+        _StartDateTime = startDateTime;
+        _EndDateTime = endDateTime;
+
+        return Result.Success();
+    }
+    
+    public Result MakeEventPublic()
+    {
+        if (_EventStatus == EventStatus.Cancelled)
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBePublic));
+        }
+
+        if (_EventVisibility == EventVisibility.Public)
+        {
+            return Result.Success();
+        }
+
+        _EventVisibility = EventVisibility.Public;
 
         return Result.Success();
     }
 
-    public Result<ViaEvent> MakeEventReady()
+    
+    public Result MakeEventPrivate()
     {
+        if (_EventStatus == EventStatus.Active)
+        {
+            return Result.Failure(Error.BadRequest(ErrorMessage.ActiveEventCannotBePrivate));
+        }
+
         if (_EventStatus == EventStatus.Cancelled)
         {
-            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBeMadeReady));
+            return Result.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBemodified));
         }
 
-        StringBuilder errorMessage = new StringBuilder("The following fields are missing or have default values:");
-
-        if (_EventTitle == null)
+        if (_EventVisibility == EventVisibility.Private)
         {
-            errorMessage.Append("\n- Title is missing");
-        }
-        else if (_EventTitle == EventTitle.Create("Working Title").Payload)
-        {
-            errorMessage.Append("\n- Title has default value");
+            return Result.Success();
         }
 
-        if (_Description == null)
+        if (_EventVisibility == EventVisibility.Public)
         {
-            errorMessage.Append("\n- Description is missing");
+            _EventVisibility = EventVisibility.Private;
+            return Result.Success();
         }
-        else if (_Description == EventDescription.Create(string.Empty).Payload)
+        
+        _EventStatus = EventStatus.Draft;
+
+        return Result.Success();
+    }
+    public Result<ViaEvent> SetMaxNumberOfGuests(MaxNumberOfGuests maxGuests)
+    {
+        if (_EventStatus == EventStatus.Active && maxGuests.Value < _MaxNumberOfGuests.Value) 
         {
-            errorMessage.Append("\n- Description has default value");
+            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.ActiveEventCannotReduceMaxGuests));
         }
 
-        if (_StartDateTime == null)
+        if (_EventStatus == EventStatus.Cancelled)
         {
-            errorMessage.Append("\n- Start date and time are missing");
+            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBemodified));
+        }
+        
+        _MaxNumberOfGuests = maxGuests;
+        return Result<ViaEvent>.Success(this);
+    }
+    
+    public Result<ViaEvent> MakeEventReady()
+    {
+        DateTime dateTimeNow = DateTime.Now;
+        var errors = new List<Error>();
+
+        if (_EventStatus == EventStatus.Cancelled)
+        {
+            errors.Add(Error.BadRequest(ErrorMessage.CancelledEventCannotBeMadeReady));
         }
 
-        var fiveMinutesAgo = DateTime.Now.AddMinutes(-5);
-        if (_StartDateTime.Value < fiveMinutesAgo)
+        if (_EventTitle == null || string.IsNullOrWhiteSpace(_EventTitle.Value))
         {
-            errorMessage.Append("\n- Start date and time cannot be in the past");
-        }
-        else if (_StartDateTime == StartDateTime.Create(DateTime.Now).Payload)
-        {
-            errorMessage.Append("\n- Start date and time have default value");
+            errors.Add(Error.BadRequest(ErrorMessage.TitleMustBeBetween3And75Chars));
+           
         }
 
-
-        if (_EndDateTime == null)
+        if (_EventTitle?.Value == "Working Title")
         {
-            errorMessage.Append("\n- End date and time are missing");
+            errors.Add(Error.BadRequest(ErrorMessage.TitleMustbeChangedFromDefault));
+        }
+
+        if (_Description == null || string.IsNullOrWhiteSpace(_Description.Value))
+        {
+            errors.Add(Error.BadRequest(ErrorMessage.DescriptionMustBeBetween0And250Chars));
+            //errors.Add(Error.BadRequest(new ErrorMessage("Description is not set or remains the default value.")));
+        }
+
+        if (_StartDateTime == null || _EndDateTime == null)
+        {
+            errors.Add(Error.BadRequest(ErrorMessage.TimeIsNotVaild));
+        }
+        else if (_StartDateTime.Value.AddSeconds(30) < dateTimeNow)
+        {
+            errors.Add(Error.BadRequest(ErrorMessage.EventInThePastCannotBeReady));
+        }
+        else if (_StartDateTime.Value >= _EndDateTime.Value)
+        {
+            errors.Add(Error.BadRequest(ErrorMessage.StartTimeMustBeBeforeEndTime));
+        }
+
+        if (_MaxNumberOfGuests == null || _MaxNumberOfGuests.Value < 5 || _MaxNumberOfGuests.Value > 50)
+        {
+            errors.Add(Error.BadRequest(ErrorMessage.MaxGuestsNoMustBeWithin5and50));
         }
 
         if (_EventVisibility == null)
         {
-            errorMessage.Append("\n- Visibility is missing");
+            errors.Add(Error.BadRequest(ErrorMessage.EventVisbilityIsNotSet));
         }
 
-        if (_MaxNumberOfGuests == null)
+        if (errors.Any())
         {
-            errorMessage.Append("\n- Maximum number of guests is missing");
-        }
-        else if (_MaxNumberOfGuests.Value < 5 || _MaxNumberOfGuests.Value > 50)
-        {
-            errorMessage.Append("\n- Maximum number of guests must be between 5 and 50");
+            return Result<ViaEvent>.Failure(errors);
         }
 
-        // Check if any error message is added
-        if (errorMessage.Length > "The following fields are missing or have default values:".Length)
-        {
-            Console.WriteLine(errorMessage.ToString());
-            return Result<ViaEvent>.Failure(Error.AddCustomError(errorMessage.ToString()));
-        }
-
-        // No errors found, make event ready
         _EventStatus = EventStatus.Ready;
         return Result<ViaEvent>.Success(this);
     }
@@ -297,81 +324,8 @@ public class ViaEvent : Aggregate<EventId>
         return Result.Success();
     }
 
-    public Result MakeEventPublic()
-    {
-        if (_EventStatus == EventStatus.Cancelled)
-        {
-            return Result.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBePublic));
-        }
 
-        if (_EventVisibility == EventVisibility.Public)
-        {
-            // Event is already public, no need to change anything
-            return Result.Success();
-        }
-
-        _EventVisibility = EventVisibility.Public;
-
-        return Result.Success();
-    }
-
-
-    public Result MakeEventPrivate()
-    {
-        if (_EventStatus == EventStatus.Active)
-        {
-            return Result.Failure(Error.BadRequest(ErrorMessage.ActiveEventCannotBePrivate));
-        }
-
-        if (_EventStatus == EventStatus.Cancelled)
-        {
-            return Result.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBemodified));
-        }
-
-        if (_EventVisibility == EventVisibility.Private)
-        {
-            // Event is already private, no need to change anything
-            return Result.Success();
-        }
-
-        _EventVisibility = EventVisibility.Private;
-        _EventStatus = EventStatus.Draft;
-/*
-        // If the event is public and the status is Draft or Ready, change the status to Draft
-        if (_EventVisibility == EventVisibility.Public &&
-            (_EventStatus == EventStatus.Draft || _EventStatus == EventStatus.Ready))
-        {
-            _EventVisibility = EventVisibility.Private;
-            _EventStatus = EventStatus.Draft;
-        }
-*/
-        return Result.Success();
-    }
-
-
-    public Result<ViaEvent> SetMaxNumberOfGuests(MaxNumberOfGuests maxGuests)
-    {
-        if (_EventStatus == EventStatus.Active &&  maxGuests.Value < _MaxNumberOfGuests.Value) // Check if the new max number of guests is less than the current value
-        {
-            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.ActiveEventCannotReduceMaxGuests));
-        }
-
-        if (_EventStatus == EventStatus.Cancelled)
-        {
-            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBemodified));
-        }
-
-        /*
-        if (maxGuests.Value < 5 || maxGuests.Value > 50)
-        {
-            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.MaxGuestsNoMustBeWithin5and50));
-        }
-*/
-        _MaxNumberOfGuests = maxGuests;
-
-        //The this keyword is passed as an argument to the Success method, which means we're passing the current instance of the ViaEvent class.
-        return Result<ViaEvent>.Success(this);
-    }
+   
 
     public Result<ViaEvent> CancelEvent()
     {
@@ -396,10 +350,9 @@ public class ViaEvent : Aggregate<EventId>
 
         if (!makeReadyResult.IsSuccess)
         {
-            return Result<ViaEvent>.Failure(makeReadyResult.Error);
+            return Result<ViaEvent>.Failure(makeReadyResult.ErrorCollection);
         }
-
-        // If making the event ready is successful, make it active
+        
         _EventStatus = EventStatus.Active;
         return Result<ViaEvent>.Success(this);
     }
@@ -492,7 +445,7 @@ public class ViaEvent : Aggregate<EventId>
         return invitation;
     }
 
-    public  Result<InvitationRequest> RequestInvitation(GuestId guestId)
+    public Result<InvitationRequest> RequestInvitation(GuestId guestId)
     {
         var request = InvitationRequest.Create(RequestInvitationId.Create().Payload, _eventId, guestId);
         //new InvitationRequest( RequestInvitationId.Create().Payload, _eventId, guestId);
@@ -503,7 +456,8 @@ public class ViaEvent : Aggregate<EventId>
 
     public Result AcceptGuestInvitation(GuestId guestId)
     {
-        var invitation = _Invitations.FirstOrDefault(i => i._GuestId.Value == guestId.Value && i._EventId.Value == _eventId.Value);
+        var invitation =
+            _Invitations.FirstOrDefault(i => i._GuestId.Value == guestId.Value && i._EventId.Value == _eventId.Value);
         if (_EventStatus == EventStatus.Cancelled)
         {
             return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBeJoined));
@@ -538,7 +492,8 @@ public class ViaEvent : Aggregate<EventId>
 
     public Result RejectGuestInvitation(GuestId guestId)
     {
-        var invitation = _Invitations.FirstOrDefault(i => i._GuestId.Value == guestId.Value && i._EventId.Value == _eventId.Value);
+        var invitation =
+            _Invitations.FirstOrDefault(i => i._GuestId.Value == guestId.Value && i._EventId.Value == _eventId.Value);
 
         if (_EventStatus == EventStatus.Cancelled)
         {
@@ -567,7 +522,7 @@ public class ViaEvent : Aggregate<EventId>
             }
 
             // Add the rejected invitation to the list
-            
+
             _RejectedInvitations.Add(invitation);
             */
             return Result.Success();
