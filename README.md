@@ -2,15 +2,16 @@
 
 Domain-Driven Design is a backend-focused approach, leveraging concepts and implementations from Clean Architecture and Hexagonal Architecture. The goal is to build a clean, long-term sustainable core for the application.
 
-## Tools and Patterns Involved in This Project
+## Architectures and Software Design
 
 - **Domain-Driven Design (DDD)**
 - **Clean Architecture**
 - **Hexagonal Architecture**
 - **Vertical Slice Architecture**
 
-
-- **Resulting Patterns**
+## Tools and Patterns
+- **SOLID Design Principles**
+- **ResultPatterns**
 - **Command Query Responsibility Segregation (CQRS)**
 
 ## Testing Practices
@@ -18,10 +19,6 @@ Domain-Driven Design is a backend-focused approach, leveraging concepts and impl
 - **Test-Driven Development (TDD)**
 - **Unit Tests**
 - **Integration Tests**
-
-## Design Principles
-
-- **SOLID Design Principles**
 
 
 
