@@ -1,17 +1,25 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.ValueObjects;
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+using ViaEventManagmentSystem.Core.Domain.Common.Bases;
 
 namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Events.ViaGuest;
 
-public class GuestParticipation
+public class GuestParticipation : Entity<EventId>
 {
-    public GuestId GuestId { get; set; }
-    public EventId EventId { get; set; }
+    internal GuestId GuestId { get; }
+    internal EventId EventId { get; }
 
-    public static implicit operator GuestParticipation(GuestId guestId) => new(guestId);
+    private GuestParticipation(GuestId guestId, EventId eventId)
+    {
+        GuestId = guestId ?? throw new ArgumentNullException(nameof(guestId));
+        EventId = eventId ?? throw new ArgumentNullException(nameof(eventId));
+    }
 
-    public static implicit operator GuestId(GuestParticipation reference) => reference.GuestId;
-    private GuestParticipation(GuestId guestId) => GuestId = guestId;
+    public static GuestParticipation Create(GuestId guestId, EventId eventId)
+    {
+        return new GuestParticipation(guestId, eventId);
+    }
 
     private GuestParticipation()
     {

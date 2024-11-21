@@ -8,9 +8,8 @@ public class FirstName : ValueObject
 {
     
     public string Value { get; }
-   
-    // ask teach about this. value-object must have only one property what if they have two?
-    public FirstName(string firstName)
+    
+    private FirstName(string firstName)
     {
        
         Value = firstName;
@@ -19,7 +18,7 @@ public class FirstName : ValueObject
 
     public static Result<FirstName> Create(string firstName)
     {
-        if (firstName == null)
+        if (firstName == "")
         {
             return Result<FirstName>.Failure(Error.BadRequest(ErrorMessage.FirstNameCannotBeNull));
         }
@@ -35,7 +34,6 @@ public class FirstName : ValueObject
         {
             return Result<FirstName>.Failure(Error.BadRequest(ErrorMessage.FirstNameCannotContainNumbers));
         }
-        
         if (ContainsSymbols(firstName))
         {
             return Result<FirstName>.Failure(Error.BadRequest(ErrorMessage.FirstNameCannotContainSymbols));
@@ -45,11 +43,8 @@ public class FirstName : ValueObject
     
     private static bool ValidateFirstName(string firstName)
     {
-        
-        
         if (firstName.Length < 2 || firstName.Length > 25)
             return false;
-
         return true;
     }
     

@@ -11,8 +11,6 @@ namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 
 public class Guest : Aggregate<GuestId>
 {
-   // internal GuestId _Id { get; private set; }
-  
     internal GuestId Id => base.Id;
     internal FirstName _FirstName { get; private set; }
     internal LastName _LastName { get; private set; }
@@ -22,9 +20,9 @@ public class Guest : Aggregate<GuestId>
   
   
   // EF Core will use this constructor
-  private Guest() 
-  {
-  }
+      private Guest() 
+      {
+      }
   
     public Guest(GuestId Id) : base(Id)
     {
@@ -45,26 +43,10 @@ public class Guest : Aggregate<GuestId>
 
   
 
-    public static Result<Guest> Create(GuestId Id, string firstName, string lastName, string email)
+    public static Result<Guest> Create(GuestId Id, FirstName firstName, LastName lastName, Email email)
     {
-        var _firstname = FirstName.Create(firstName);
-        var _email = Email.Create(email);
-        var _lastName = LastName.Create(lastName);
-        if (!_firstname.IsSuccess)
-        {
-            return Result<Guest>.Failure(_firstname.Error);
-        }  
-        
-        if (!_email.IsSuccess)
-        {
-            return Result<Guest>.Failure(_email.Error);
-        }  
-        
-        if (!_lastName.IsSuccess)
-        {
-            return Result<Guest>.Failure(_lastName.Error);
-        } 
-        return Result<Guest>.Success(new Guest(Id, _firstname.Payload, _lastName.Payload , _email.Payload));
+     
+        return Result<Guest>.Success(new Guest(Id, firstName, lastName , email));
     }
     
     public static Result<Guest> Create(GuestId Id)

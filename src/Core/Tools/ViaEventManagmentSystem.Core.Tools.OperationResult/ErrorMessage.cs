@@ -9,6 +9,8 @@ public class ErrorMessage : Enumeration
     public static ErrorMessage EventVisbilityIsNotSet=
             new(0, "Visibility is missing");
     
+    public static ErrorMessage GuestNotParticipant=
+        new(0, "Guest is Not Participant");
     public static ErrorMessage TitleMustbeChangedFromDefault=
         new(0, "Title Must be Changed From Default");
     public static readonly ErrorMessage TitleMustBeSetBeforeMakingAnEventReady =

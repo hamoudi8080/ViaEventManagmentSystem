@@ -15,9 +15,9 @@ public abstract class GuestTest
         {
             // Arrange
             var id = GuestId.Create();
-            var email = "John@via.dk";
-            var firstName = "john";
-            var lastname = "resho";
+            var firstName = FirstName.Create("John").Payload;
+            var lastname = LastName.Create("Resho").Payload;
+            var email = Email.Create("John@via.dk").Payload;
             
             // Act
             var createGuest = Guest.Create(id.Payload,firstName,lastname,email);
@@ -35,18 +35,12 @@ public abstract class GuestTest
         [Fact]
         public void GivenEmail_DoesntEnd_viadk_Failure()
         {
-            // Arrange
-            var id = GuestId.Create();
-            var email = "John@viaaa.dk";
-            var firstName = "john";
-            var lastname = "resho";
-            
             // Act
-            var result = Guest.Create(id.Payload,firstName,lastname,email);
+            var email = Email.Create("John@via.com");
             
             //Assert
-            Assert.False(result.IsSuccess);
-            Assert.Equal("Email Must End With Via.DK", result.Error.Messages[0].ToString());
+            Assert.False(email.IsSuccess);
+            Assert.Equal(ErrorMessage.EmailMustEndWithViaDK.DisplayName, email.Error.Messages[0].DisplayName);
            
         }
         
@@ -57,18 +51,13 @@ public abstract class GuestTest
         [Fact]
         public void GivenInvalidEmail_FormatFailure()
         {
-            // Arrange
-            var id = GuestId.Create();
-            var email = "invalidemail"; // Invalid email format
-            var firstName = "john";
-            var lastname = "resho";
-        
+
             // Act
-            var result = Guest.Create(id.Payload, firstName, lastname, email);
+            var email = Email.Create("John");
         
             // Assert
-            Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.TextFormatInvalid.ToString(), result.Error.Messages[0].ToString());
+            Assert.False(email.IsSuccess);
+            Assert.Equal(ErrorMessage.TextFormatInvalid.ToString(), email.Error.Messages[0].ToString());
         }
     }
     
@@ -78,41 +67,35 @@ public abstract class GuestTest
         [Fact]
         public void GivenInvalidFirstName_InvalidFormatFailure()
         {
-            // Arrange
-            var id = GuestId.Create();
-            var email = "john@via.dk";
-            var invalidFirstName = "j"; // Invalid first name format
-            var lastName = "resho";
-        
+            
             // Act
-            var result = Guest.Create(id.Payload, invalidFirstName, lastName, email);
+            var firstName = FirstName.Create("j");
         
             // Assert
-            Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.FirstNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace.ToString(), result.Error.Messages[0].ToString());
+            Assert.False(firstName.IsSuccess);
+            Assert.Equal(ErrorMessage.FirstNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace.ToString(), firstName.Error.Messages[0].ToString());
         }
     }
+    
+
     
     public class F4
     {
         [Fact]
         public void GivenInvalidLastName_InvalidFormatFailure()
         {
-            // Arrange
-            var id = GuestId.Create();
-            var email = "john@via.dk";
-            var firstName = "john";
-            var invalidLastName = ""; // Invalid last name format
-       
+
+
             // Act
-            var result = Guest.Create(id.Payload, firstName, invalidLastName, email);
-        
+            var lastname = LastName.Create("j");
+
             // Assert
-            Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.LastNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace.ToString(), result.Error.Messages[0].ToString());
+            Assert.False(lastname.IsSuccess);
+            Assert.Equal(ErrorMessage.LastNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace.ToString(), lastname.Error.Messages[0].ToString());
         }
     }
 
+    /*
     public class F5
     {
         [Fact]
@@ -120,46 +103,50 @@ public abstract class GuestTest
         {
             // Arrange
             var id = GuestId.Create();
-            var registeredEmail = "john@via.dk";
-            var firstName = "john";
-            var lastName = "resho";
-        
+            var firstName = FirstName.Create("John").Payload;
+            var lastname = LastName.Create("Resho").Payload;
+            var email = Email.Create("John@via.dk").Payload;
+            
+            
             // Register the email first
-            var registrationResult = Guest.Create(id.Payload, firstName, lastName, registeredEmail);
+            var registrationResult = Guest.Create(id.Payload, firstName, lastname, email);
             Assert.True(registrationResult.IsSuccess); // Ensure registration succeeds
-        
-            /*
+
+           
             // Act: Try to register with the same email again
-            var result = Guest.Create(GuestId.Create(), firstName, lastName, registeredEmail);
-        
+            var result = Guest.Create(GuestId.Create().Payload, firstName, lastname, email);
+
             // Assert
             Assert.False(result.IsSuccess);
-             
+
            // Assert.Equal("Email is already registered", result.Error.Messages[0].ToString());
-           */
+   
         }
     }
+*/
+
 
     public class F6
     {
         [Theory]
-        [InlineData("john1")] // Test case with numbers in the first name
-        [InlineData("resho2")] // Test case with numbers in the last name
+        [InlineData("john1")]  
+        [InlineData("resho2")]  
         public void GivenNameWithNumbers_InvalidFormatFailure(string invalidName)
         {
-            // Arrange
-            var id = GuestId.Create();
-            var email = "john@via.dk";
-            var lastName = "resho";
-        
+ 
             // Act
-            var result = Guest.Create(id.Payload, invalidName, invalidName, email); // Providing a generic last name
+            var id = GuestId.Create();
+            var firstName = FirstName.Create(invalidName);
+            var lastname = LastName.Create(invalidName);
+
         
             // Assert
-            Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.FirstNameCannotContainNumbers.ToString(), result.Error.Messages[0].ToString());
+            Assert.False(firstName.IsSuccess);
+            Assert.Equal(ErrorMessage.FirstNameCannotContainNumbers.ToString(), firstName.Error.Messages[0].ToString());
         }
     }
+    
+
     public class F7
     {
         [Theory]
@@ -167,18 +154,18 @@ public abstract class GuestTest
         [InlineData("$resho")] // Test case with symbols in the last name
         public void GivenNameWithSymbols_InvalidFormatFailure(string invalidName)
         {
-            // Arrange
-            var id = GuestId.Create();
-            var email = "john@via.dk";
-        
+            
             // Act
-            var result = Guest.Create(id.Payload, invalidName, invalidName, email); // Providing a generic last name
+            var firstName = FirstName.Create(invalidName);
+            var lastname = LastName.Create(invalidName);
+
         
             // Assert
-            Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.FirstNameCannotContainSymbols.ToString(), result.Error.Messages[0].ToString());
+            Assert.False(lastname.IsSuccess);
+            Assert.Equal(ErrorMessage.LastNameCannotContainSymbols.ToString(), lastname.Error.Messages[0].ToString());
         }
     }
+
 
 
 

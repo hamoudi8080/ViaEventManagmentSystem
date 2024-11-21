@@ -26,7 +26,7 @@ public abstract class GuestFactory
         var lastname = LastName.Create("Resho").Payload;
         var email = Email.Create("John@via.dk").Payload;
         
-        var createGuest = Guest.Create(id.Payload,firstName.Value,lastname.Value,email.Value);
+        var createGuest = Guest.Create(id.Payload,firstName,lastname,email);
        
         return createGuest.Payload;
     }

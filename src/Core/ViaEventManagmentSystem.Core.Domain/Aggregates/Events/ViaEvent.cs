@@ -21,12 +21,11 @@ public class ViaEvent : Aggregate<EventId>
     internal MaxNumberOfGuests? _MaxNumberOfGuests { get; private set; }
     internal EventVisibility? _EventVisibility { get; private set; }
     internal EventStatus _EventStatus { get; private set; }
-    internal List<GuestParticipation> _GuestsParticipants { get; private set; }
+    internal HashSet<GuestId> _GuestsParticipants { get; private set; }
     internal List<Invitation> _Invitations { get; private set; }
     internal static List<InvitationRequest> _RequestInvitations { get; private set; }
 
     // EF Core will use this constructor
-
     private ViaEvent()
     {
     }
@@ -54,7 +53,7 @@ public class ViaEvent : Aggregate<EventId>
         _EndDateTime = endDateTime;
         _EventVisibility = eventVisibility ?? EventVisibility.Public;
         _EventStatus = eventStatus ?? EventStatus.Draft;
-        _GuestsParticipants = new List<GuestParticipation>();
+        _GuestsParticipants = new HashSet<GuestId>();
         _Invitations = new List<Invitation>();
         _RequestInvitations = new List<InvitationRequest>();
     }
@@ -275,7 +274,7 @@ public class ViaEvent : Aggregate<EventId>
         if (_Description == null || string.IsNullOrWhiteSpace(_Description.Value))
         {
             errors.Add(Error.BadRequest(ErrorMessage.DescriptionMustBeBetween0And250Chars));
-            //errors.Add(Error.BadRequest(new ErrorMessage("Description is not set or remains the default value.")));
+            
         }
 
         if (_StartDateTime == null || _EndDateTime == null)
@@ -344,8 +343,6 @@ public class ViaEvent : Aggregate<EventId>
         {
             return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.CancelledEventCannotBeActivated));
         }
-
-        // Make the event ready first
         var makeReadyResult = MakeEventReady();
 
         if (!makeReadyResult.IsSuccess)
@@ -356,24 +353,12 @@ public class ViaEvent : Aggregate<EventId>
         _EventStatus = EventStatus.Active;
         return Result<ViaEvent>.Success(this);
     }
-
-
-    // Method to get the current number of registered guests
-    private Result<int> GetCurrentNumberOfGuests()
-    {
-        return _GuestsParticipants.Count;
-    }
-    // Method to register a guest for participation
-
-    public Result AddIntendedGuestToEvent(GuestId guestId)
-    {
-        _GuestsParticipants.Add(guestId);
-        return Result.Success();
-    }
+    
 
 
     public Result AddGuestParticipation(GuestId guest)
     {
+        DateTime dateTimeNow = DateTime.Now;
         // Check if the event is public
         if (_EventVisibility != EventVisibility.Public)
         {
@@ -386,14 +371,14 @@ public class ViaEvent : Aggregate<EventId>
             return Result.Failure(Error.BadRequest(ErrorMessage.OnlyActiveEventCanBeJoined));
         }
 
-        if (_StartDateTime.Value < DateTime.Now)
+        if (_StartDateTime.Value.AddSeconds(50) < dateTimeNow)
         {
             return Result.Failure(Error.BadRequest(ErrorMessage.CannotParticipatedInStartedEvent));
         }
 
         if (_GuestsParticipants.Count >= _MaxNumberOfGuests.Value)
         {
-            Result.Failure(Error.BadRequest(ErrorMessage.EventIsFull));
+            return  Result.Failure(Error.BadRequest(ErrorMessage.EventIsFull));
         }
 
         if (IsParticipant(guest))
@@ -401,6 +386,7 @@ public class ViaEvent : Aggregate<EventId>
             return Result.Failure(Error.BadRequest(ErrorMessage.GuestAlreadyParticipantAtEvent));
         }
 
+        // Add the guest to the participants
         _GuestsParticipants.Add(guest);
         return Result.Success();
     }
@@ -422,10 +408,13 @@ public class ViaEvent : Aggregate<EventId>
             return Result.Failure(Error.BadRequest(ErrorMessage.CancelParticipationRejected));
         }
 
+      
         _GuestsParticipants.Remove(guestId);
-        return Result.Success();
-    }
+            return Result.Success();
+        
 
+        return Result.Failure(Error.BadRequest(ErrorMessage.GuestNotParticipant));
+    }
 
     public Result<Invitation> InviteGuest(GuestId guestId)
     {
@@ -467,7 +456,6 @@ public class ViaEvent : Aggregate<EventId>
         {
             return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.GuestNotInvited));
         }
-
 
         if (_EventStatus != EventStatus.Active)
         {

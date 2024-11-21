@@ -21,7 +21,7 @@ public class CreateGuestCommand : ICommand
         Result<LastName> lastNameResult = LastName.Create(lastName);
         Result<Email> emailResult = Email.Create(email);
          
-
+/*
         if (guestIdResult.IsSuccess && firstNameResult.IsSuccess && lastNameResult.IsSuccess && emailResult.IsSuccess  )
         {
             Result<Domain.Aggregates.Guests.Guest> guest = Domain.Aggregates.Guests.Guest.Create(guestIdResult.Payload, 
@@ -29,7 +29,7 @@ public class CreateGuestCommand : ICommand
             
             return Result<CreateGuestCommand>.Success( new CreateGuestCommand(guest.Payload));
         }
-
+*/
         return Result<CreateGuestCommand>.Failure(Error.AddCustomError("Failed to create CreateGuestCommand due to invalid guestid, FirstName, LastName, Email or PhoneNumber"));
     }
     
