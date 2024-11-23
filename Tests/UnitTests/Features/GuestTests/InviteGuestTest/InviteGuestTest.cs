@@ -73,8 +73,8 @@ public abstract class InviteGuestTest
 
             // Assert
             Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.OnlyActiveOrReadyEventCanBeInvited.ToString(),
-                result.Error.Messages[0].ToString());
+            Assert.Equal(ErrorMessage.OnlyActiveOrReadyEventCanBeInvited.DisplayName,
+                result.Error.Messages[0].DisplayName);
         }
     }
 

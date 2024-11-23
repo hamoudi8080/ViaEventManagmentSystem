@@ -15,23 +15,13 @@ public abstract class GuestCancelsParticipationTest
         {
             //Arrange
             var guest1Id = GuestFactory.CreateGuest();
-            var guest2Id = GuestFactory.CreateGuest();
-            DateTime dateTime = DateTime.Now.AddHours(2);
-            DateTime enddateTime = DateTime.Now.AddHours(6);
-            var eventstartTime = StartDateTime.Create(dateTime);
-            var eventEndTime = EndDateTime.Create(enddateTime);
-            
-            
             var myEvent = ViaEventTestFactory.ReadyEvent();
-            myEvent.MakeEventPublic();
+            //myEvent.MakeEventPublic();
             myEvent.ActivateEvent();
-            myEvent.AddEventStartTime(eventstartTime.Payload);
-            myEvent.EventEndTime(eventEndTime.Payload);
-            myEvent.AddGuestParticipation(guest1Id.Id);
-            myEvent.AddGuestParticipation(guest2Id.Id);
+            myEvent.InviteGuest(guest1Id.Id);
             
             //Act
-            var result = myEvent.CancelGuestParticipation(guest2Id.Id);
+            var result = myEvent.CancelGuestParticipation(guest1Id.Id);
             
             
             

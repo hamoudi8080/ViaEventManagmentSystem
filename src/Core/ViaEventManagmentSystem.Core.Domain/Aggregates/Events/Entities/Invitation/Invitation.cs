@@ -26,7 +26,7 @@ public class Invitation : Entity<InvitationId>
         _InvitationStatus = InvitationStatus.Pending;
     }
 
-    public static Result<Invitation> Create(EventId eventId, InvitationId id, GuestId guestId)
+    public static Result<Invitation> Create(EventId eventId, GuestId guestId)
     {
         return new Invitation(eventId, InvitationId.Create().Payload, guestId);
     }

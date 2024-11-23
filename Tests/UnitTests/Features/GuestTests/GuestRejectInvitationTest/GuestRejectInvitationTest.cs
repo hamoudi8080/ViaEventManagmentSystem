@@ -16,14 +16,14 @@ public abstract class GuestRejectInvitationTest
             // Arrange
             var activeEvent = ViaEventTestFactory.CreateActiveEvent();
             var guest = GuestFactory.ValidGuestId();
-            var invitation = activeEvent.InviteGuest(guest).Payload;
+            activeEvent.InviteGuest(guest);
 
             // Act
             var result = activeEvent.RejectGuestInvitation(guest);
 
             // Assert
             Assert.True(result.IsSuccess);
-            //Assert.Contains(invitation, activeEvent._RejectedInvitations);
+        
         }
     }
 
@@ -35,7 +35,7 @@ public abstract class GuestRejectInvitationTest
             // Arrange
             var activeEvent = ViaEventTestFactory.CreateActiveEvent();
             var guest = GuestFactory.ValidGuestId();
-            var invitation = activeEvent.InviteGuest(guest).Payload;
+            activeEvent.InviteGuest(guest);
             activeEvent.AcceptGuestInvitation(guest);
 
             // Act
@@ -43,7 +43,7 @@ public abstract class GuestRejectInvitationTest
 
             // Assert
             Assert.True(result.IsSuccess);
-            //Assert.Contains(invitation, activeEvent._RejectedInvitations);
+      
         }
     }
 
@@ -61,7 +61,7 @@ public abstract class GuestRejectInvitationTest
 
             // Assert
             Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.GuestNotInvited.ToString(), result.Error.Messages[0].ToString());
+            Assert.Equal(ErrorMessage.GuestIsNotInvitedToEvent.DisplayName, result.Error.Messages[0].DisplayName);
         }
     }
     
@@ -74,16 +74,15 @@ public abstract class GuestRejectInvitationTest
             // Arrange
             var cancelledEvent = ViaEventTestFactory.CreateActiveEvent();
             var guest = GuestFactory.ValidGuestId();
-             
-            cancelledEvent.CancelEvent();
+       
             cancelledEvent.InviteGuest(guest);
-
+            cancelledEvent.CancelEvent();
             // Act
             var result = cancelledEvent.RejectGuestInvitation(guest);
 
             // Assert
             Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.CancelledEventCannotBeJoined.ToString(), result.Error.Messages[0].ToString());
+            Assert.Equal(ErrorMessage.CancelledEventCannotBeDeclined.DisplayName, result.Error.Messages[0].DisplayName);
         }
     }
     
@@ -96,6 +95,7 @@ public abstract class GuestRejectInvitationTest
             var readyEvent = ViaEventTestFactory.ReadyEvent();
             var guest = GuestFactory.ValidGuestId();
             readyEvent.InviteGuest(guest);
+            readyEvent.AcceptGuestInvitation(guest);
 
             // Act
             var result = readyEvent.RejectGuestInvitation(guest);

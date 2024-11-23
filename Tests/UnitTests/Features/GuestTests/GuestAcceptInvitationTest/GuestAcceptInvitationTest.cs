@@ -36,9 +36,11 @@ public abstract class GuestAcceptInvitationTest
             // Arrange
             var activeEvent = ViaEventTestFactory.CreateActiveEvent();
             var guest = GuestFactory.CreateGuest();
-
+            var guest2 = GuestFactory.CreateGuest();
+            activeEvent.InviteGuest(guest.Id);
+            
             // Act
-            var result = activeEvent.AcceptGuestInvitation(guest.Id);
+            var result = activeEvent.AcceptGuestInvitation(guest2.Id);
 
             // Assert
             Assert.False(result.IsSuccess);
@@ -83,7 +85,7 @@ public abstract class GuestAcceptInvitationTest
 
             // Assert
             Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.EventIsFull.ToString(), result.Error.Messages[0].ToString());
+            Assert.Equal(ErrorMessage.EventIsFull.DisplayName, result.Error.Messages[0].DisplayName);
         }
     }
     
@@ -98,8 +100,7 @@ public abstract class GuestAcceptInvitationTest
             var activeEvent = ViaEventTestFactory.CreateActiveEvent();
             var guest = GuestFactory.CreateGuest();
             activeEvent.CancelEvent();
-        
-            var invitation = activeEvent.InviteGuest(guest.Id);
+            activeEvent.InviteGuest(guest.Id);
          
             
             
@@ -108,9 +109,30 @@ public abstract class GuestAcceptInvitationTest
 
             // Assert
             Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.CancelledEventCannotBeJoined.ToString(), result.Error.Messages[0].ToString());
+            Assert.Equal(ErrorMessage.CancelledEventCannotBeJoined.DisplayName, result.Error.Messages[0].DisplayName);
         }
     }
     
+    
+    public class  F4
+    {
+        [Fact]
+        public void ReadyEvent_RegisteredGuest_PendingInvitation_ThenGuestAcceptInvitation_Failure()
+        {
+            // Arrange
+            var activeEvent = ViaEventTestFactory.ReadyEvent();
+            var guest = GuestFactory.CreateGuest();
+            activeEvent.InviteGuest(guest.Id);
+            
+            
+            // Act
+            var result = activeEvent.AcceptGuestInvitation(guest.Id);
 
+            // Assert
+            Assert.False(result.IsSuccess);
+            Assert.Equal(ErrorMessage.EventCannotYetBeJoined.DisplayName, result.Error.Messages[0].DisplayName);
+        }
+        
+        
+    }
 }

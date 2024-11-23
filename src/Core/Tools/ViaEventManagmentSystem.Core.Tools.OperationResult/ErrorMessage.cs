@@ -8,7 +8,13 @@ public class ErrorMessage : Enumeration
         new(0, "Pls add the valid Time");
     public static ErrorMessage EventVisbilityIsNotSet=
             new(0, "Visibility is missing");
+    public static ErrorMessage EventCannotYetBeJoined=
+        new(0, "Event Cannot Yet Be Joined");
     
+    public static ErrorMessage CancelledEventCannotBeDeclined=
+        new(0, "Cancelled Event Cannot Be Declined");
+    public static ErrorMessage GuestIsNotInvitedToEvent=
+        new(0, "The Guest Is Not Invited To The Event");
     public static ErrorMessage GuestNotParticipant=
         new(0, "Guest is Not Participant");
     public static ErrorMessage TitleMustbeChangedFromDefault=
