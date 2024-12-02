@@ -19,10 +19,11 @@ public class EventTimeDurationCommand : ICommand
         Result<EventId> idResult = EventId.Create(eventId);
         Result<StartDateTime> startDateTimeResult = StartDateTime.Create(startDateTime);
         Result<EndDateTime> endDateTimeResult = EndDateTime.Create(endDateTime);
-        if (idResult.IsSuccess && startDateTimeResult.IsSuccess && endDateTimeResult.IsSuccess) {
-            return Result<EventTimeDurationCommand>.Success(new EventTimeDurationCommand(idResult.Payload!, startDateTimeResult.Payload!, endDateTimeResult.Payload!));
-        }
-        return Result<EventTimeDurationCommand>.Failure(Error.AddCustomError("Failed to create EventTimeDurationCommand due to invalid EventId or EventTitle"));
+         
+        var result = Result.CombineFromOthers<EventTimeDurationCommand>(idResult, startDateTimeResult, endDateTimeResult);
+        
+        return Result<EventTimeDurationCommand>.WithPayloadIfSuccess(result,
+            () => new EventTimeDurationCommand(idResult.Payload!, startDateTimeResult.Payload!, endDateTimeResult.Payload!));
     }
     
     

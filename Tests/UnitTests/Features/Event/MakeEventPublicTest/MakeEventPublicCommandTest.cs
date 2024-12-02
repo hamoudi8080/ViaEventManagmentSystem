@@ -25,7 +25,7 @@ public class MakeEventPublicCommandTest
     public void Create_ShouldReturnFailure_WhenEventIdIsInvalid()
     {
         // Arrange
-        string invalidEventId = ""; // Assuming empty string is invalid
+        string invalidEventId = "";
 
         // Act
         var result = MakeEventPublicCommand.Create(invalidEventId);

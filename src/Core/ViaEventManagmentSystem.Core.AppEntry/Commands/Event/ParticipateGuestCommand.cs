@@ -19,11 +19,10 @@ public class ParticipateGuestCommand : ICommand
         Result<EventId> idResult = EventId.Create(eventId);
         Result<GuestId> guestResult = GuestId.Create(guestId);
         
-        if (idResult.IsSuccess && guestResult.IsSuccess) {
-            return Result<ParticipateGuestCommand>.Success(new ParticipateGuestCommand(idResult.Payload!, guestResult.Payload!));
-        }
-
-        return Result<ParticipateGuestCommand>.Failure(Error.AddCustomError("Failed to create ParticipateGuestCommand due to invalid EventId or GuestId"));
+        var result = Result.CombineFromOthers<ParticipateGuestCommand>(idResult, guestResult);
+        
+        return Result<ParticipateGuestCommand>.WithPayloadIfSuccess(result,
+            () => new ParticipateGuestCommand(idResult.Payload!, guestResult.Payload!));
     }   
     
 }

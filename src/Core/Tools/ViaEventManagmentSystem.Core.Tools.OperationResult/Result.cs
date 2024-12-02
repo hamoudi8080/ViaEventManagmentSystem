@@ -43,17 +43,25 @@ public class Result
     {
         return new Result(false, errors.ToList());
     }
-    public static Result CombineFromOthers(params Result[] results)
+  
+    public static Result CombineFromOthers<T>(params Result[] results)
     {
+        var errors = new List<Error>();
         foreach (var result in results)
         {
             if (!result.IsSuccess)
             {
-                return result;
+                if (result.ErrorCollection != null)
+                {
+                    errors.AddRange(result.ErrorCollection);
+                }
+                else if (result.Error != null)
+                {
+                    errors.Add(result.Error);
+                }
             }
         }
-
-        return Success();
+        return errors.Any() ? Result<T>.Failure(errors) : Result<T>.Success(default);
     }
     public static implicit operator Result(Error error) => new Result { Error = error };
 }
@@ -92,20 +100,34 @@ public class Result<T> : Result
         return new Result<T>(false, default, errors.ToList());
     }
 
-    public static Result<T> CombineFromOthers(params Result<T>[] results)
+    public static Result<T> CombineFromOthers(params Result[] results)
     {
+        var errors = new List<Error>();
         foreach (var result in results)
         {
             if (!result.IsSuccess)
             {
-                return result;
+                if (result.ErrorCollection != null)
+                {
+                    errors.AddRange(result.ErrorCollection);
+                }
+                else if (result.Error != null)
+                {
+                    errors.Add(result.Error);
+                }
             }
         }
-
-        return Success(default(T) ?? throw new InvalidOperationException());
+        return errors.Any() ? Result<T>.Failure(errors) : Result<T>.Success(default);
     }
-   
 
+    public static Result<T> WithPayloadIfSuccess(Result result, Func<T> payloadFactory)
+    {
+        if (result.IsSuccess)
+        {
+            return Result<T>.Success(payloadFactory());
+        }
+        return Result<T>.Failure(result.ErrorCollection);
+    }
     public static implicit operator Result<T>(T value)
     {
         return Success(value);

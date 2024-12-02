@@ -7,10 +7,10 @@ using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 
 namespace ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.GuestPersistance;
 
-public class GuestConfiguration : IEntityTypeConfiguration<Guest>
+public class GuestConfiguration : IEntityTypeConfiguration<ViaGuest>
 {
     
-    public void Configure(EntityTypeBuilder<Guest> builder)
+    public void Configure(EntityTypeBuilder<ViaGuest> builder)
     {
    
         /*

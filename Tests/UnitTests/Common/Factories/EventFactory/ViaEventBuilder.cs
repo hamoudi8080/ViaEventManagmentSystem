@@ -1,65 +1,142 @@
 ﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Common.Factories.EventFactory;
 
 public class ViaEventBuilder
-{
+{ 
     private EventId _eventId;
-    private EventTitle _eventTitle;
-    private EventDescription _eventDescription;
-    private StartDateTime _startDateTime;
-    private EndDateTime _endDateTime;
-    private MaxNumberOfGuests _maxNumberOfGuests;
-    private EventVisibility _eventVisibility;
-    private EventStatus _eventStatus;
+    private EventTitle? _eventTitle;
+    private EventDescription? _description;
+    private StartDateTime? _startDateTime;
+    private EndDateTime? _endDateTime;
+    private MaxNumberOfGuests? _maxNumberOfGuests;
+    private EventVisibility? _eventVisibility;
+    private EventStatus _eventStatus = EventStatus.Draft;
+    private HashSet<GuestId> _guestsParticipants = new();
+    private List<Invitation> _invitations = new();
 
-    public ViaEventBuilder Create(EventId eventId)
+    private ViaEventBuilder(EventId eventId)
     {
         _eventId = eventId;
-        return this;
     }
 
-    public ViaEventBuilder UpdateTitle(string title)
+    public static ViaEventBuilder Create(EventId eventId)
     {
-        _eventTitle = EventTitle.Create(title).Payload;
-        return this;
+        return new ViaEventBuilder(eventId);
     }
 
-    public ViaEventBuilder UpdateDescription(string description)
+    public ViaEventBuilder WithTitle(EventTitle title)
     {
-        _eventDescription = EventDescription.Create(description).Payload;
+        _eventTitle = title;
         return this;
     }
 
-    public ViaEventBuilder EventTimeDuration(StartDateTime startDateTime, EndDateTime endDateTime)
+    public ViaEventBuilder WithDescription(EventDescription description)
+    {
+        _description = description;
+        return this;
+    }
+
+    public ViaEventBuilder WithStartDateTime(StartDateTime startDateTime)
     {
         _startDateTime = startDateTime;
+        return this;
+    }
+
+    public ViaEventBuilder WithEndDateTime(EndDateTime endDateTime)
+    {
         _endDateTime = endDateTime;
         return this;
     }
 
-    public ViaEventBuilder MaxNumberOfGuests(MaxNumberOfGuests maxNumberOfGuests)
+    public ViaEventBuilder WithMaxNumberOfGuests(MaxNumberOfGuests maxGuests)
     {
-        _maxNumberOfGuests = maxNumberOfGuests;
+        _maxNumberOfGuests = maxGuests;
         return this;
     }
 
-    public ViaEventBuilder EventVisibility(EventVisibility eventVisibility)
+    public ViaEventBuilder WithVisibility(EventVisibility visibility)
     {
-        _eventVisibility = eventVisibility;
+        _eventVisibility = visibility;
         return this;
     }
 
-    public ViaEventBuilder EventStatus(EventStatus eventStatus)
+    public ViaEventBuilder WithStatus(EventStatus status)
     {
-        _eventStatus = eventStatus;
+        _eventStatus = status;
         return this;
     }
 
-    public ViaEvent Build()
+    public ViaEventBuilder AddParticipant(GuestId guest)
     {
-        return new ViaEvent(_eventId, _eventTitle, _eventDescription, _startDateTime, _endDateTime, _maxNumberOfGuests,
-            _eventVisibility, _eventStatus);
+        _guestsParticipants.Add(guest);
+        return this;
+    }
+
+    public ViaEventBuilder AddInvitation(Invitation invitation)
+    {
+        _invitations.Add(invitation);
+        return this;
+    }
+
+    public Result<ViaEvent> Build()
+    {
+        // Validate all required fields before building
+        if (_eventId == null)
+        {
+            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
+        }
+
+        if (_startDateTime == null)
+        {
+            _startDateTime = StartDateTime.Create(DateTime.Now).Payload;
+        }
+
+        if (_eventTitle == null)
+        {
+            _eventTitle = EventTitle.Create("Default Title").Payload;
+        }
+
+        if (_description == null)
+        {
+            _description = EventDescription.Create(string.Empty).Payload;
+        }
+
+        if (_maxNumberOfGuests == null)
+        {
+            _maxNumberOfGuests = MaxNumberOfGuests.Create(5).Payload;
+        }
+
+        if (_eventVisibility == null)
+        {
+            _eventVisibility = EventVisibility.Private;
+        }
+
+        var viaEvent = new ViaEvent(
+            _eventId,
+            _eventTitle,
+            _description,
+            _startDateTime,
+            _endDateTime,
+            _maxNumberOfGuests,
+            _eventVisibility,
+            _eventStatus
+        );
+
+        foreach (var guest in _guestsParticipants)
+        {
+            viaEvent.AddGuestParticipation(guest);
+        }
+
+        foreach (var invitation in _invitations)
+        {
+            viaEvent._Invitations.Add(invitation); // Add invitations directly
+        }
+
+        return Result<ViaEvent>.Success(viaEvent);
     }
 }

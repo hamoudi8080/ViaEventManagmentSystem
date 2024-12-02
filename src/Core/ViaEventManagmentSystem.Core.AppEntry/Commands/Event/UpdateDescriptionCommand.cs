@@ -7,22 +7,21 @@ public class UpdateDescriptionCommand : ICommand
 {
     public EventDescription Description;
     public EventId EventId;
-    
-    private UpdateDescriptionCommand(EventId eventId, EventDescription description) {
+
+    private UpdateDescriptionCommand(EventId eventId, EventDescription description)
+    {
         EventId = eventId;
         Description = description;
     }
-    
-    public static Result<UpdateDescriptionCommand> Create(string eventId, string description) {
+
+    public static Result<UpdateDescriptionCommand> Create(string eventId, string description)
+    {
         Result<EventId> idResult = EventId.Create(eventId);
         Result<EventDescription> descriptionResult = EventDescription.Create(description);
-        
-    
-        
-        if (idResult.IsSuccess && descriptionResult.IsSuccess) {
-            return Result<UpdateDescriptionCommand>.Success(new UpdateDescriptionCommand(idResult.Payload!, descriptionResult.Payload!));
-        }
 
-        return Result<UpdateDescriptionCommand>.Failure(Error.AddCustomError("Failed to create UpdateDescriptionCommand due to invalid EventId or EventTitle"));
+        var combinedResult = Result.CombineFromOthers<UpdateDescriptionCommand>(idResult, descriptionResult);
+
+        return Result<UpdateDescriptionCommand>.WithPayloadIfSuccess(combinedResult,
+            () => new UpdateDescriptionCommand(idResult.Payload, descriptionResult.Payload));
     }
 }

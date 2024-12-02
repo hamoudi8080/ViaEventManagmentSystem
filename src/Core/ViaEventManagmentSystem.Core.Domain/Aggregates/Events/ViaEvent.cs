@@ -1,10 +1,6 @@
-﻿using System.Runtime.InteropServices.JavaScript;
-using System.Text;
+﻿
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.ViaGuest;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Common.Bases;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
@@ -23,7 +19,7 @@ public class ViaEvent : Aggregate<EventId>
     internal EventStatus _EventStatus { get; private set; }
     internal HashSet<GuestId> _GuestsParticipants { get; private set; }
     internal List<Invitation> _Invitations { get; private set; }
-    internal static List<InvitationRequest> _RequestInvitations { get; private set; }
+ 
 
     // EF Core will use this constructor
     private ViaEvent()
@@ -55,7 +51,7 @@ public class ViaEvent : Aggregate<EventId>
         _EventStatus = eventStatus ?? EventStatus.Draft;
         _GuestsParticipants = new HashSet<GuestId>();
         _Invitations = new List<Invitation>();
-        _RequestInvitations = new List<InvitationRequest>();
+      
     }
 
 
@@ -453,7 +449,7 @@ public class ViaEvent : Aggregate<EventId>
 
         if (!_Invitations.Any(i => i._GuestId.Value == guestId.Value && i._EventId.Value == _eventId.Value))
         {
-            return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.GuestNotInvited));
+            return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.GuestIsNotInvitedToEvent));
         }
 
         if (_EventStatus != EventStatus.Active)
@@ -489,7 +485,7 @@ public class ViaEvent : Aggregate<EventId>
         
         if (invitation == null)
         {
-            return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.GuestNotInvited));
+            return Result<Invitation>.Failure(Error.BadRequest(ErrorMessage.GuestIsNotInvitedToEvent));
         }
 
         if (_EventStatus == EventStatus.Cancelled)

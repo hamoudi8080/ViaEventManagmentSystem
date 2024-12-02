@@ -20,12 +20,10 @@ public class GuestCancelsParticipationCommand : ICommand
         Result<EventId> eventIdResult = EventId.Create(eventId);
         Result<GuestId> myguestId = GuestId.Create(guestId);
 
-        if (eventIdResult.IsSuccess && myguestId.IsSuccess)
-        {
-            return Result<GuestCancelsParticipationCommand>.Success(new GuestCancelsParticipationCommand(eventIdResult.Payload!, myguestId.Payload!));
-        }
-       
-        return Result<GuestCancelsParticipationCommand>.Failure(Error.AddCustomError("Failed to create GuestCancelsParticipationCommand due to invalid EventId or guestId"));
+        var result = Result.CombineFromOthers<GuestCancelsParticipationCommand>(eventIdResult, myguestId);
+        
+        return Result<GuestCancelsParticipationCommand>.WithPayloadIfSuccess(result,
+            () => new GuestCancelsParticipationCommand(eventIdResult.Payload!, myguestId.Payload!));
         
          
     }

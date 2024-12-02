@@ -11,14 +11,10 @@ public class MakeEventReadyCommandTest
     {
         // Arrange
         var viaEvent = ViaEventTestFactory.DraftEvent();
-        
-        
-
         // Act
         var result = MakeEventReadyCommand.Create(viaEvent._eventId.Value.ToString());
-
         // Assert
-        Assert.True(result.IsSuccess); // Check if the result is successful
+        Assert.True(result.IsSuccess);
       
     }
 }

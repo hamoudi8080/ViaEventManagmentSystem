@@ -10,20 +10,20 @@ namespace ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.GuestPersistance
 
 public class GuestRepoEfc(AppDbContext context) : IGuestRepository
 {
-    public Task<Guest> GetById(GuestId id)
+    public Task<ViaGuest> GetById(GuestId id)
     {
-        return context.Set<Guest>().SingleAsync(e => e.Id == id);
+        return context.Set<ViaGuest>().SingleAsync(e => e.Id == id);
     }
 
-    public async Task Add(Guest entity)
+    public async Task Add(ViaGuest entity)
     {
-        await context.Set<Guest>().AddAsync(entity);
+        await context.Set<ViaGuest>().AddAsync(entity);
         await context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<Guest>> GetAll()
+    public async Task<IEnumerable<ViaGuest>> GetAll()
     {
-        return await context.Set<Guest>().ToListAsync();
+        return await context.Set<ViaGuest>().ToListAsync();
     }
 
     public async Task Remove(GuestId id)

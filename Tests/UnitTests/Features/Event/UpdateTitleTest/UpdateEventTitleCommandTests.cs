@@ -17,7 +17,6 @@ public class UpdateEventTitleCommandTests
 
         // Assert
         Assert.True(result.IsSuccess);
-        //Assert.Equal(validEventId, result.Payload.EventId.Value
         Assert.Equal(validEventTitle, result.Payload.EventTitle.Value);
     }
 
@@ -25,7 +24,7 @@ public class UpdateEventTitleCommandTests
     public void Create_ShouldReturnFailure_WhenEventIdIsInvalid()
     {
         // Arrange
-        string invalidEventId = ""; // Assuming empty string is invalid
+        string invalidEventId = ""; 
         string validEventTitle = "validEventTitle";
 
         // Act

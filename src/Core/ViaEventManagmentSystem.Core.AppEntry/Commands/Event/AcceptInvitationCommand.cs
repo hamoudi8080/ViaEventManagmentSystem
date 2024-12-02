@@ -26,26 +26,13 @@ public class AcceptInvitationCommand : ICommand
         Result<EventId> eventIdResult = EventId.Create(eventId);
         Result<GuestId> myguestId = GuestId.Create(guestId);
 
-        if (eventIdResult.IsSuccess && myguestId.IsSuccess) {
-            return Result<AcceptInvitationCommand>.Success(new AcceptInvitationCommand(eventIdResult.Payload!, myguestId.Payload!));
-        }
-
-        return Result<AcceptInvitationCommand>.Failure(Error.AddCustomError("Failed to create AcceptInvitationCommand due to invalid EventId or guestId"));
-    }
-    
-
-    
-    /*
-    public static Result<AcceptInvitationCommand> Create(EventId eventId, GuestId guestId)
-    {
-        //ToDO: otherwise i will do like this, because if any error happend in creating EventId or GuestId, it will be handled in their classes. and when i pass them into this method's parameter. it will be null. then i just check if not null then..... if null throw error.
-        if (eventId != null && guestId != null)
-        {
-            return Result<AcceptInvitationCommand>.Success(new AcceptInvitationCommand(eventId, guestId));
-        }
+        var result = Result.CombineFromOthers<AcceptInvitationCommand>(eventIdResult, myguestId);
         
-        return Result<AcceptInvitationCommand>.Failure(
-            Error.AddCustomError("Failed to create AcceptInvitationCommand due to invalid EventId or guestId"));
+        return Result<AcceptInvitationCommand>.WithPayloadIfSuccess(result,
+            () => new AcceptInvitationCommand(eventIdResult.Payload!, myguestId.Payload!));
     }
-    */
+    
+
+    
+     
 }

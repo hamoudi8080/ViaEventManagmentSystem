@@ -3,7 +3,7 @@ using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.ValueObject
 
 namespace ViaEventManagmentSystem.Core.Domain.Contracts;
 
-public interface IViaRequestRepository : IViaRepository<InvitationRequest, InvitationId>
+public interface IViaRequestRepository  
 {
     
 }

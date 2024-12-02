@@ -4,10 +4,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects.Util;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.ViaGuest;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+
+
+
 
 namespace ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.ViaEventPersistance;
 

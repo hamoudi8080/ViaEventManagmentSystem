@@ -23,5 +23,17 @@ public class MakeEventPrivateCommandTest
         Assert.NotEmpty(command.EventId.ToString());
     }
     
+    [Fact]
+    public void Create_FalingTest()
+    {
+        // Arrange
+        string invalidEventId = "";
+        
+        // Act
+        Result<MakeEventPrivateCommand> result = MakeEventPrivateCommand.Create(invalidEventId);
+        
+        // Assert
+        Assert.False(result.IsSuccess);
+    }
     
 }

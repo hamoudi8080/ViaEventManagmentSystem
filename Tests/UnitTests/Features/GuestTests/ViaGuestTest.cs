@@ -6,7 +6,7 @@ using static UnitTests.Common.Factories.GuestFactory.GuestFactory;
 namespace UnitTests.Features.GuestTests;
  
 
-public abstract class GuestTest
+public abstract class ViaGuestTest
 {
     public class S1()
     {
@@ -20,7 +20,7 @@ public abstract class GuestTest
             var email = Email.Create("John@via.dk").Payload;
             
             // Act
-            var createGuest = Guest.Create(id.Payload,firstName,lastname,email);
+            var createGuest = ViaGuest.Create(id.Payload,firstName,lastname,email);
             
             //Assert
             Assert.True(createGuest.IsSuccess);

@@ -15,10 +15,10 @@ public class MakeEventPrivateCommand : ICommand
     public static Result<MakeEventPrivateCommand> Create(string eventId) {
         Result<EventId> idResult = EventId.Create(eventId);
         
-        if (idResult.IsSuccess) {
-            return Result<MakeEventPrivateCommand>.Success(new MakeEventPrivateCommand(idResult.Payload!));
-        }
-        return Result<MakeEventPrivateCommand>.Failure(Error.AddCustomError(idResult.ErrorMessage.ToString()));
+        var result = Result.CombineFromOthers<MakeEventPrivateCommand>(idResult);
+        
+        return Result<MakeEventPrivateCommand>.WithPayloadIfSuccess(result,
+            () => new MakeEventPrivateCommand(idResult.Payload!));
     }
     
   

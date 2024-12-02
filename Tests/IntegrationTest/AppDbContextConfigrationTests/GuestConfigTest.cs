@@ -11,7 +11,7 @@ public class GuestConfigTest
     {
         await using var ctx = AppDbContextTest.InitializeDatabaseContext();
         var guestId = GuestFactory.ValidGuestId();
-        var guest = Guest.Create(guestId);
+        var guest = ViaGuest.Create(guestId);
         var firstName = FirstName.Create("Hamo");
         var lastName = LastName.Create("Resho");
         

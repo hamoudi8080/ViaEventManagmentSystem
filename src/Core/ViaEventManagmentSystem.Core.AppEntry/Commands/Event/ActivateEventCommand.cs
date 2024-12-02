@@ -14,11 +14,10 @@ public class ActivateEventCommand : ICommand
     public static Result<ActivateEventCommand> Create(string eventId) {
         Result<EventId> idResult = EventId.Create(eventId);
         
-        if (idResult.IsSuccess) {
-            return Result<ActivateEventCommand>.Success(new ActivateEventCommand(idResult.Payload!));
-        }
+        var result = Result.CombineFromOthers<ActivateEventCommand>(idResult);
         
-        return Result<ActivateEventCommand>.Failure(Error.AddCustomError("Failed to create ActivateEventCommand due to invalid EventId"));
+        return Result<ActivateEventCommand>.WithPayloadIfSuccess(result,
+            () => new ActivateEventCommand(idResult.Payload!));
     }
     
 }

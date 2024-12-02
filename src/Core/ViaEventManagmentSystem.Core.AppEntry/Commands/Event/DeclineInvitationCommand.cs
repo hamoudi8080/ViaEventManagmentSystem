@@ -19,11 +19,10 @@ public class DeclineInvitationCommand : ICommand
         Result<EventId> eventIdResult = EventId.Create(eventId);
         Result<GuestId> myguestId = GuestId.Create(guestId);
         
-        if (eventIdResult.IsSuccess && myguestId.IsSuccess) {
-            return Result<DeclineInvitationCommand>.Success(new DeclineInvitationCommand(eventIdResult.Payload!, myguestId.Payload!));
-        }
+        var result = Result.CombineFromOthers<DeclineInvitationCommand>(eventIdResult, myguestId);
         
-        return Result<DeclineInvitationCommand>.Failure(Error.AddCustomError("Failed to create DeclineInvitationCommand due to invalid EventId or guestId"));
+        return Result<DeclineInvitationCommand>.WithPayloadIfSuccess(result,
+            () => new DeclineInvitationCommand(eventIdResult.Payload!, myguestId.Payload!));
     }
     
     

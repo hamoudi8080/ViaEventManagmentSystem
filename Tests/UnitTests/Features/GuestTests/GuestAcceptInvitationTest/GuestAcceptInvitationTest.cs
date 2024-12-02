@@ -44,7 +44,7 @@ public abstract class GuestAcceptInvitationTest
 
             // Assert
             Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.GuestNotInvited.ToString(), result.Error.Messages[0].ToString());
+            Assert.Equal(ErrorMessage.GuestIsNotInvitedToEvent.ToString(), result.Error.Messages[0].ToString());
         }
     }
 
@@ -99,8 +99,9 @@ public abstract class GuestAcceptInvitationTest
             // Arrange
             var activeEvent = ViaEventTestFactory.CreateActiveEvent();
             var guest = GuestFactory.CreateGuest();
-            activeEvent.CancelEvent();
             activeEvent.InviteGuest(guest.Id);
+            activeEvent.CancelEvent();
+          
          
             
             

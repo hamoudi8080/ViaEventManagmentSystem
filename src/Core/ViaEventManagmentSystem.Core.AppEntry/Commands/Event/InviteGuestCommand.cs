@@ -18,11 +18,10 @@ public class InviteGuestCommand : ICommand
         Result<EventId> eventIdResult = EventId.Create(eventId);
         Result<GuestId> guestIdResult = GuestId.Create(guestId);
 
-        if(eventIdResult.IsSuccess && guestIdResult.IsSuccess) {
-            return Result<InviteGuestCommand>.Success(new InviteGuestCommand(eventIdResult.Payload!, guestIdResult.Payload!));
-        }
+        var result = Result.CombineFromOthers<InviteGuestCommand>(eventIdResult, guestIdResult);
         
-        return Result<InviteGuestCommand>.Failure(Error.AddCustomError("Failed to create InviteGuestCommand due to invalid EventId or GuestId"));
+        return Result<InviteGuestCommand>.WithPayloadIfSuccess(result,
+            () => new InviteGuestCommand(eventIdResult.Payload!, guestIdResult.Payload!));
     }
     
     

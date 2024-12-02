@@ -19,16 +19,10 @@ public class UpdateEventMaxNoOfGuestsCommand : ICommand
         Result<EventId> idResult = EventId.Create(eventId);
         Result<MaxNumberOfGuests> maxNoOfGuestsResult = MaxNumberOfGuests.Create(maxNoOfGuests);
         
-        if (idResult.IsSuccess && maxNoOfGuestsResult.IsSuccess) {
-            return Result<UpdateEventMaxNoOfGuestsCommand>.Success(new UpdateEventMaxNoOfGuestsCommand(idResult.Payload!, maxNoOfGuestsResult.Payload!));
-        }
-
-        if (!maxNoOfGuestsResult.IsSuccess)
-        {
-            return Result<UpdateEventMaxNoOfGuestsCommand>.Failure(Error.BadRequest(ErrorMessage.MaxGuestsNoMustBeWithin5and50)); 
-        }
+        var combinedResult = Result.CombineFromOthers<UpdateEventMaxNoOfGuestsCommand>(idResult, maxNoOfGuestsResult);
         
-        return Result<UpdateEventMaxNoOfGuestsCommand>.Failure(Error.AddCustomError("Failed to create UpdateEventMaxNoOfGuestsCommand due to invalid EventId or MaxNoOfGuests"));
+        return Result<UpdateEventMaxNoOfGuestsCommand>.WithPayloadIfSuccess(combinedResult,
+            () => new UpdateEventMaxNoOfGuestsCommand(idResult.Payload, maxNoOfGuestsResult.Payload));
     }
     
 }

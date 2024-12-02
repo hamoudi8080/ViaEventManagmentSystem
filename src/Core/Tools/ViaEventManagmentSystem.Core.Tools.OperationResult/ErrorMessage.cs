@@ -38,8 +38,7 @@ public class ErrorMessage : Enumeration
         new(0, "Invalid Email Address");
     public static readonly ErrorMessage InvalidInputError =
         new(0, "Invalid Input Error");
-    public static readonly ErrorMessage GuestNotInvited =
-        new(0, "the guest is not invited to the event");
+   
     public static readonly ErrorMessage   GuestAlreadyParticipating =
         new(0, "Error Guest Already Participating");
     public static readonly ErrorMessage   EventIsFull =

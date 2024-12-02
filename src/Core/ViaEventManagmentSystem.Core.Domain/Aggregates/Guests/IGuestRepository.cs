@@ -3,7 +3,7 @@ using ViaEventManagmentSystem.Core.Domain.Common.Repository;
 
 namespace ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
 
-public interface IGuestRepository : IRepository<Guest, GuestId>
+public interface IGuestRepository : IRepository<ViaGuest, GuestId>
 {
     public Task Remove(GuestId id);
 }

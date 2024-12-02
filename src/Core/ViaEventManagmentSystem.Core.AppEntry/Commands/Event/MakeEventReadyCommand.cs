@@ -5,7 +5,7 @@ namespace ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
 
 public class MakeEventReadyCommand : ICommand
 {
-    public EventId EventId { get; init; }
+    public EventId EventId { get;}
     
     private MakeEventReadyCommand(EventId eventId) {
         EventId = eventId;
@@ -14,10 +14,12 @@ public class MakeEventReadyCommand : ICommand
      
     public static Result<MakeEventReadyCommand> Create(string eventId) {
         Result<EventId> idResult = EventId.Create(eventId);
-
-        if (idResult.IsSuccess) {
-            return Result<MakeEventReadyCommand>.Success(new MakeEventReadyCommand(idResult.Payload!));
-        }
-        return Result<MakeEventReadyCommand>.Failure(idResult.Error);
+        
+        var result = Result.CombineFromOthers<MakeEventReadyCommand>(idResult);
+        
+        return Result<MakeEventReadyCommand>.WithPayloadIfSuccess(result,
+            () => new MakeEventReadyCommand(idResult.Payload!));
+        
+        
     }
 }
