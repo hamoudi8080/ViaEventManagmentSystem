@@ -18,13 +18,10 @@ public class UpdateEventTitleHandlerTest
     public async Task UpdateEventTitleHandler_Success()
     {
         // Arrange
-
-        //Todo: ask why in the root of viaEvent Id is always null??   and how do i fix it 
         var viaEvent = ViaEventTestFactory.ReadyEvent();
         var eventRepo = new EventRepository();
         eventRepo.Add(viaEvent);
-
-        var title = "New Title";
+        var title = "Sports Event";
         var eventtitle = EventTitle.Create(title);
 
         UpdateEventTitleCommand updateEventTitleCommand = UpdateEventTitleCommand

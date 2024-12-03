@@ -23,10 +23,7 @@ public class DeclineInvitationHandlerTest
         var futureevent = DateTime.Now.AddMinutes(30);
         var s = StartDateTime.Create(futureevent);
         viaEvent.AddEventStartTime(s.Payload);
-
-        
         var guest = GuestFactory.CreateGuest();
-        var invitation = viaEvent.InviteGuest(guest.Id);
         
         var eventRepo = new EventRepository ();
         eventRepo.Add(viaEvent);

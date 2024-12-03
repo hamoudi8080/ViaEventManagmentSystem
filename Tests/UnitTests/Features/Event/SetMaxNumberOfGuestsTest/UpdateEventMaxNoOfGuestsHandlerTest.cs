@@ -59,6 +59,6 @@ public class UpdateEventMaxNoOfGuestsHandlerTest
 
         // Assert
         Assert.False(result.IsSuccess);
-       // Assert.Contains(ErrorMessage.InvalidMaxNoOfGuests, result.Error!.Messages);
+     
     }
 }

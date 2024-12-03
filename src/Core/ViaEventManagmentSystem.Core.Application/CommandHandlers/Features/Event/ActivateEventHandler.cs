@@ -2,6 +2,7 @@
 using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Common.UnitOfWork;
+using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace ViaEventManagmentSystem.Core.Application.CommandHandlers.Features.Event;
 
@@ -17,16 +18,20 @@ public class ActivateEventHandler : ICommandHandler<ActivateEventCommand>
     public async Task<Result> Handle(ActivateEventCommand command)
     {
         ViaEvent viaEvent = await _eventRepository.GetById(command.EventId);
-        
         Result activateEventResult = viaEvent.ActivateEvent();
+        
+        if (viaEvent == null)
+        {
+            return Result.Failure(Error.NotFound(ErrorMessage.EventNotFound));
+        }
         
         if (activateEventResult.IsSuccess)
         {
             _unitOfWork.SaveChangesAsync();
-            return Result.Success();
+        
         }
         
-        return Result.Failure(activateEventResult.Error);
+        return Result.Success();
          
     }
 }

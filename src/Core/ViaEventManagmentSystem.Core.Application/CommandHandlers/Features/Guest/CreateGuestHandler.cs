@@ -18,12 +18,7 @@ public class CreateGuestHandler : ICommandHandler<CreateGuestCommand>
     public async Task<Result> Handle(CreateGuestCommand command)
     {
         var guest = _guestRepository.Add(command.Guest);
-
-        if (guest == null)
-        {
-            return Result.Failure(Error.AddCustomError("Failed to create guest"));
-        }
-
+        
         await _unitOfWork.SaveChangesAsync();
         return Result.Success();
     }

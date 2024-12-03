@@ -16,14 +16,13 @@ public class UpdateEventMaxNoOfGuestsHandler : ICommandHandler<UpdateEventMaxNoO
 
     public async Task<Result> Handle(UpdateEventMaxNoOfGuestsCommand command)
     {
-        if (command == null)
-        {
-            return Result.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
-        }
-
         var _ViaEvent = await _eventRepository.GetById(command.EventId);
         Result eventMaxNoOfGuestsResult = _ViaEvent.SetMaxNumberOfGuests(command.MaxNoOfGuests);
-
+        
+        if (_ViaEvent == null)
+        {
+            return Result.Failure(Error.NotFound(ErrorMessage.EventNotFound));
+        }
         
         if (eventMaxNoOfGuestsResult.IsSuccess)
         {

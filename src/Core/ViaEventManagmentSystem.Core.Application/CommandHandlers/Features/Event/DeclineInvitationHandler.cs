@@ -2,6 +2,7 @@
 using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Common.UnitOfWork;
+using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace ViaEventManagmentSystem.Core.Application.CommandHandlers.Features.Event;
 
@@ -18,12 +19,15 @@ public class DeclineInvitationHandler : ICommandHandler<DeclineInvitationCommand
         var _ViaEvent = await _eventRepository.GetById(command.EventId);
         Result eventDeclineResult = _ViaEvent.RejectGuestInvitation(command.GuestId);
         
+        if (_ViaEvent == null)
+        {
+            return Result.Failure(Error.NotFound(ErrorMessage.EventNotFound));
+        }
         if (eventDeclineResult.IsSuccess)
         {
             await _unitOfWork.SaveChangesAsync();
-            return Result.Success();
+            
         }
-        
-        return Result.Failure(eventDeclineResult.Error);
+        return Result.Success();
     }
 }

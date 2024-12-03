@@ -6,6 +6,11 @@ public class ErrorMessage : Enumeration
         new(0, "Start Time Must Be Between 8:00 AM And 23:59 PM");
     public static ErrorMessage TimeIsNotVaild=
         new(0, "Pls add the valid Time");
+    public static ErrorMessage EventCreationFailed=
+        new(0, "Event Creation Failed When Adding To Repository");
+    
+    public static ErrorMessage EventNotFound=
+        new(0, "Event Not Found");
     public static ErrorMessage EventVisbilityIsNotSet=
             new(0, "Visibility is missing");
     public static ErrorMessage EventCannotYetBeJoined=

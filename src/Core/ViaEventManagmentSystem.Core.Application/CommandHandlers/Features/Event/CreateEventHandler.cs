@@ -17,13 +17,8 @@ public class CreateEventHandler : ICommandHandler<CreateEventCommand>
 
     public Task<Result> Handle(CreateEventCommand tcommand)
     {
-       var  repoevent= _eventRepository.Add(tcommand.ViaEvent);
-
-       if ( repoevent == null)
-       {
-             Result.Failure(Error.AddCustomError("Failed to create guest"));
-          
-       }
+        _eventRepository.Add(tcommand.ViaEvent);
+       
        _unitOfWork.SaveChangesAsync();
        return Task.FromResult(Result.Success());
          
