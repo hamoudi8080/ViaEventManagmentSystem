@@ -14,8 +14,6 @@ public class CommandExecutionTimerTest
     public async Task DispatchAsync_ExecutesCommandAndLogsExecutionTime()
     {
         // Arrange
-        var readyevent = ViaEventTestFactory.ReadyEvent();
-
         string validEventTitle = "FootBallHall";
         var updateEventTitleCommand =
             UpdateEventTitleCommand.Create(ViaEventTestFactory.ValidEventId().Value.ToString(), validEventTitle);
@@ -33,12 +31,11 @@ public class CommandExecutionTimerTest
         // Create an instance of CommandExecutionTimer and pass the commandDispatcher to its constructor
         var timingCommandDispatcher = new CommandExecutionTimer(commandDispatcher);
 
-            // Act
+        // Act
         var result = await timingCommandDispatcher.DispatchAsync(updateEventTitleCommand.Payload!);
         
-        
-        Assert.True(result.IsSuccess);
         // Assert
+        Assert.True(result.IsSuccess);
         Assert.True(timingCommandDispatcher.Milliseconds > 0);
     }
 

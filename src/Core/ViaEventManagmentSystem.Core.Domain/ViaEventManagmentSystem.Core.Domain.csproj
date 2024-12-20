@@ -23,7 +23,7 @@
     <ItemGroup>
         <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
             <_Parameter1>
-                ViaEventManagmentSystem.Infrastracure.SqliteDataWrite
+                ViaEventManagmentSystem.Infrastructure.SqliteDataWrite
             </_Parameter1>
         </AssemblyAttribute>
     </ItemGroup>

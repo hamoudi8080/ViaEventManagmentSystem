@@ -5,6 +5,7 @@ namespace ViaEventManagmentSystem.Infrastructure.EfcQueries.SeedFactories;
 
 public class EventSeedFactory
 {
+  
     public static  List<ViaEvent> Seed()
     {
         var projectRoot = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.Parent.FullName;
@@ -36,4 +37,5 @@ public class EventSeedFactory
         string Start,
         string End,
         int MaxGuests);
+        
 }

@@ -10,14 +10,13 @@ public class UpcomingEventQueryTest
     [Fact]
     public async void GetUpcomingEvents()
     {
+        
         //Arrange
         var setupReadyContext = VeadatabaseProductionContext.SetupReadContext();
         
         var seededContext = VeadatabaseProductionContext.Seed(setupReadyContext);
         
         var query = new UpcomingEventsPage.Query(2,5,"");
-        var handler = new UpcomingEventsPageQueryHandler(seededContext);
-
         IQueryHandler<UpcomingEventsPage.Query, UpcomingEventsPage.Answer> handler1 = new UpcomingEventsPageQueryHandler(seededContext);
 
         //Act

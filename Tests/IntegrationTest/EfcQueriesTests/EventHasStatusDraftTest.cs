@@ -10,6 +10,7 @@ public class EventHasStatusDraftTest
     [Fact]
     public async void GetUpcomingEvents()
     {
+ 
         //Arrange
         var setupReadyContext = VeadatabaseProductionContext.SetupReadContext();
         
@@ -18,7 +19,7 @@ public class EventHasStatusDraftTest
         var query = new EventHasStatusDraftPage.Query(2,5,"");
         var handler = new EventHasStatusDraft(seededContext);
 
-     //   IQueryHandler<UpcomingEventsPage.Query, UpcomingEventsPage.Answer> handler1 = new UpcomingEventsPageQueryHandler(seededContext);
+     IQueryHandler<UpcomingEventsPage.Query, UpcomingEventsPage.Answer> handler1 = new UpcomingEventsPageQueryHandler(seededContext);
 
         //Act
         var answer = await handler.HandleAsync(query);
@@ -30,5 +31,6 @@ public class EventHasStatusDraftTest
         Assert.NotNull(answer.Events[0].EventTitle); // Check that the first event has a title
         Assert.True(answer.MaxPageNum >= 0); // Check that the maximum page number is not negative
         Assert.Equal("draft", answer.Events[0].Status);
-    }
-}
+    
+     
+}  }

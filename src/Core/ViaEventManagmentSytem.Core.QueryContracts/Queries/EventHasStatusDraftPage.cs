@@ -2,7 +2,7 @@
 
 namespace ViaEventManagmentSytem.Core.QueryContracts.Queries;
 
-public class EventHasStatusDraftPage
+public abstract class EventHasStatusDraftPage
 {
 
     public record Query(int PageNumber, int PageSize, string SearchedText) : IQuery<Answer>;

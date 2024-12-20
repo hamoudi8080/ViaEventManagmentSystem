@@ -6,7 +6,7 @@ using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Common.Values;
 using IGuestRepository = ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.IGuestRepository;
 
-namespace ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.GuestPersistance;
+namespace ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.GuestPersistance;
 
 public class GuestRepoEfc(AppDbContext context) : IGuestRepository
 {

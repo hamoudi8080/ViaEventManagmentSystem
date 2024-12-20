@@ -28,13 +28,13 @@ public class CommandDispatcherTest
         var serviceProvider = services.BuildServiceProvider();
 
         var commandDispatcher = serviceProvider.GetRequiredService<ICommandDispatcher>();
-
+        MockTitleHandler handler = (MockTitleHandler) serviceProvider.GetService<ICommandHandler<UpdateEventTitleCommand>>()!;
 
         // Act
         var result = await commandDispatcher.DispatchAsync(updateEventTitleCommand.Payload!);
 
         // Assert
-        MockTitleHandler handler = (MockTitleHandler) serviceProvider.GetService<ICommandHandler<UpdateEventTitleCommand>>()!;
+       
         Assert.True(result.IsSuccess);
         Assert.True(handler.WasCalled);
     }

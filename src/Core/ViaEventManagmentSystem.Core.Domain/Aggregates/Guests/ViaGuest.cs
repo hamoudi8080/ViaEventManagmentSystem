@@ -1,5 +1,4 @@
-﻿ 
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
@@ -15,39 +14,35 @@ public class ViaGuest : Aggregate<GuestId>
     internal FirstName _FirstName { get; private set; }
     internal LastName _LastName { get; private set; }
     internal Email _Email { get; private set; }
-     
-  //  internal List<Invitation> _ReceivedInvitations { get; private set; }
-  
-  
-  // EF Core will use this constructor
-      private ViaGuest() 
-      {
-      }
-  
+    internal ViaEvent _ViaEvent { get; private set; }
+
+
+    // EF Core will use this constructor
+    private ViaGuest()
+    {
+    }
+
     public ViaGuest(GuestId Id) : base(Id)
     {
         _FirstName = null;
         _LastName = null;
         _Email = null;
-       // _ReceivedInvitations = new List<Invitation>();
+        // _ReceivedInvitations = new List<Invitation>();
     }
 
-    public ViaGuest(GuestId Id,FirstName firstName, LastName lastName, Email email) : base(Id)
+    public ViaGuest(GuestId Id, FirstName firstName, LastName lastName, Email email) : base(Id)
     {
         _FirstName = firstName;
         _LastName = lastName;
         _Email = email;
-   
     }
 
-  
 
     public static Result<ViaGuest> Create(GuestId Id, FirstName firstName, LastName lastName, Email email)
     {
-     
-        return Result<ViaGuest>.Success(new ViaGuest(Id, firstName, lastName , email));
+        return Result<ViaGuest>.Success(new ViaGuest(Id, firstName, lastName, email));
     }
-    
+
     public static Result<ViaGuest> Create(GuestId Id)
     {
         return Result<ViaGuest>.Success(new ViaGuest(Id));
@@ -55,9 +50,9 @@ public class ViaGuest : Aggregate<GuestId>
 
     public Result<ViaGuest> UpdateEmail(Email email)
     {
-        if (email == null  )
+        if (email == null)
             return Result<ViaGuest>.Failure(Error.AddCustomError("Email is null or invalid"));
-        
+
         _Email = email;
 
         return Result<ViaGuest>.Success(this);
@@ -80,5 +75,4 @@ public class ViaGuest : Aggregate<GuestId>
         _LastName = newLastName;
         return Result<ViaGuest>.Success(this);
     }
-    
 }

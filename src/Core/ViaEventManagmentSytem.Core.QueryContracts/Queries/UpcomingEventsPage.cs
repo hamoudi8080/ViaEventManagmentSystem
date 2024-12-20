@@ -2,7 +2,7 @@
 
 namespace ViaEventManagmentSytem.Core.QueryContracts.Queries;
 
-public class UpcomingEventsPage
+public abstract class UpcomingEventsPage
 {
     public record Query(int PageNumber, int PageSize, string SearchedText) : IQuery<Answer>;
     public record Answer(List<Event> Events, int MaxPageNum);

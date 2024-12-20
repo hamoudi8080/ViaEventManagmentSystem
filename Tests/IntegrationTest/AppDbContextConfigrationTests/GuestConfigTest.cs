@@ -23,7 +23,7 @@ public class GuestConfigTest
         guest.Payload.UpdateFirstName(firstName.Payload);
         guest.Payload.UpdateLastName(lastName.Payload);
         guest.Payload.UpdateEmail(email.Payload);
-        await AppDbContextTest.AddEntityAndSaveChangesAsync(guest, ctx);
+       // await AppDbContextTest.SaveAndClearAsync(  ctx);
         var retrieved = ctx.Guests.SingleOrDefault(x => x.Id == guest.Payload.Id);
         Assert.NotNull(retrieved);
     }

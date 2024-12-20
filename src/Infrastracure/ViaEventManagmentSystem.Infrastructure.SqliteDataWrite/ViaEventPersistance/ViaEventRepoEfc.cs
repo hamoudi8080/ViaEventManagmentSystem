@@ -3,27 +3,27 @@ using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using ViaEventManagmentSystem.Core.Domain.Common.Values;
 
-namespace ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.ViaEventPersistance;
+namespace ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.ViaEventPersistance;
 
-public class ViaEventRepoEfc(AppDbContext context) : IViaEventRepository
+public  class ViaEventRepoEfc(AppDbContext context) : RepositoryEfcBase<ViaEvent,EventId>(context), IViaEventRepository
 {
-    public Task<ViaEvent> GetById(EventId id)
+    public override Task<ViaEvent> GetById(EventId id)
     {
         return context.Set<ViaEvent>().SingleAsync(e => e.Id == id);
     }
 
-    public async Task Add(ViaEvent entity)
+    public override async Task Add(ViaEvent entity)
     {
         await context.Set<ViaEvent>().AddAsync(entity);
         await context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<ViaEvent>> GetAll()
+    public  async Task<IEnumerable<ViaEvent>> GetAll()
     {
         return await context.Set<ViaEvent>().ToListAsync();
     }
 
-    public async Task Remove(EventId id)
+    public override async Task Remove(EventId id)
     {
         var entity = await context.Set<ViaEvent>().FindAsync(id);
         if (entity != null)

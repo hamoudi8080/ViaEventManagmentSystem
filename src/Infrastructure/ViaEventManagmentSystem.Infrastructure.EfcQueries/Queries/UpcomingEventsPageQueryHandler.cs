@@ -8,6 +8,7 @@ namespace ViaEventManagmentSystem.Infrastructure.EfcQueries.Queries
 {
     public class UpcomingEventsPageQueryHandler : IQueryHandler<UpcomingEventsPage.Query, UpcomingEventsPage.Answer>
     {
+        
         private readonly VeadatabaseProductionContext _context;
 
         public UpcomingEventsPageQueryHandler(VeadatabaseProductionContext context)
@@ -20,7 +21,7 @@ namespace ViaEventManagmentSystem.Infrastructure.EfcQueries.Queries
         public async Task<UpcomingEventsPage.Answer> HandleAsync(UpcomingEventsPage.Query query)
         {
             var upcomingEvents = await _context.ViaEvents
-                .Where(e => e.EventTitle.Contains(query.SearchedText))
+                .Where(e => e.EventTitle.Contains(query.SearchedText)).Include(viaEvent => viaEvent.GuestIds)
                 .ToListAsync();
 
             var filteredEvents = upcomingEvents
@@ -35,7 +36,7 @@ namespace ViaEventManagmentSystem.Infrastructure.EfcQueries.Queries
                 e.MaxNumberOfGuests.ToString(),
                 e.EventVisibility,
                 e.EventStatus,
-                e.Guests.Count().ToString())).ToList();
+                e.GuestIds.Count().ToString())).ToList();
             //calculate max page number
             var maxPageNum = upcomingEvents.Count() / query.PageSize;
             if (upcomingEvents.Count() % query.PageSize > 0)

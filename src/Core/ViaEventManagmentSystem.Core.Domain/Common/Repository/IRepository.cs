@@ -9,7 +9,7 @@ public interface IRepository<T, in TId> where T : Aggregate<TId> {
     public Task<T> GetById(TId id);
     public Task  Add(T entity);
     
-    public Task<IEnumerable<T>> GetAll();
+    
  
   
  

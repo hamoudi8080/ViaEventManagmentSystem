@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace ViaEventManagmentSystem.Infrastracure.SqliteDataWrite;
+namespace ViaEventManagmentSystem.Infrastructure.SqliteDataWrite;
 //refers to the time where e.g. a migration is created.
 //Here, an instance of our DbContext will be created.
 

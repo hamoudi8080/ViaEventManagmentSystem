@@ -6,6 +6,8 @@ namespace ViaEventManagmentSystem.Infrastructure.EfcQueries.Queries;
 
 public class EventHasStatusDraft : IQueryHandler<EventHasStatusDraftPage.Query, EventHasStatusDraftPage.Answer>
 {
+    private IQueryHandler<EventHasStatusDraftPage.Query, EventHasStatusDraftPage.Answer> _queryHandlerImplementation;
+     
     private readonly VeadatabaseProductionContext _context;
 
     public EventHasStatusDraft(VeadatabaseProductionContext context)
@@ -32,7 +34,7 @@ public class EventHasStatusDraft : IQueryHandler<EventHasStatusDraftPage.Query, 
                 e.MaxNumberOfGuests?.ToString() ?? "",
                 e.EventVisibility ?? "",
                 e.EventStatus ?? "",
-                e.Guests.Count.ToString()
+                e.GuestIds.Count.ToString()
             )).ToList();
 
         // Calculate the maximum page number
@@ -48,5 +50,7 @@ public class EventHasStatusDraft : IQueryHandler<EventHasStatusDraftPage.Query, 
         return answer;
         
     }
+ 
+    
 }
  

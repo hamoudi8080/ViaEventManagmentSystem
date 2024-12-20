@@ -15,11 +15,10 @@ public class ViaEventConfigTest
             Console.WriteLine(Path.GetFullPath("TestDatabase.db"));
             var eventId = ViaEventTestFactory.ValidEventId();
 
-            var viaEvent = ViaEvent.Create(eventId);
-            await AppDbContextTest.AddEntityAndSaveChangesAsync(viaEvent, ctx);
-            var retrieved = ctx.ViaEvents.SingleOrDefault(x => x.Id == viaEvent.Payload.Id);
+            var viaEvent = ViaEvent.Create(eventId).Payload;
+            await AppDbContextTest.SaveAndClearAsync(viaEvent, ctx);
+            var retrieved = ctx.ViaEvents.SingleOrDefault(x => x.Id == viaEvent.Id);
             Assert.NotNull(retrieved);
-            
        
         }
       

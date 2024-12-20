@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Infrastracure.SqliteDataWrite;
+using ViaEventManagmentSystem.Infrastructure.SqliteDataWrite;
 
 namespace IntegrationTest;
 
@@ -17,33 +17,15 @@ public class AppDbContextTest
         dbContext.Database.EnsureDeleted();
         dbContext.Database.EnsureCreated();
         return dbContext;
-/*
-var dbContextOptionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-dbContextOptionsBuilder.UseSqlite("Data Source = TestDatabase.db");
-var dbContext = new AppDbContext(dbContextOptionsBuilder.Options);
-dbContext.Database.EnsureCreated();
-return dbContext;
-*/
+
     }
 
-    public static async Task AddEntityAndSaveChangesAsync<T>(Result<T> result, AppDbContext dbContext)
+    public static async Task SaveAndClearAsync<T>(T entity, AppDbContext context) 
         where T : class
     {
-        
-        /*
-         * When you define a DbSet<T> property in your DbContext class,
-         * you're telling Entity Framework Core that you have a table in your database that corresponds to the entity type T.
-         * When you call Set<T>(), Entity Framework Core provides you with a DbSet<T> that you can use to query and save instances of T.
-         */
-        if (result.IsSuccess)
-        {
-            await dbContext.Set<T>().AddAsync(result.Payload);
-            await dbContext.SaveChangesAsync();
-            dbContext.ChangeTracker.Clear();
-        }
-        else
-        {
-            // Handle the case when the result is a failure...
-        }
+        await context.Set<T>().AddAsync(entity);
+        await context.SaveChangesAsync();
+        context.ChangeTracker.Clear();
     }
+     
 }

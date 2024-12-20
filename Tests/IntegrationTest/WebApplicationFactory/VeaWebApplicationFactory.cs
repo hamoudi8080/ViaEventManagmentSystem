@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
  
-using ViaEventManagmentSystem.Infrastracure.SqliteDataWrite;
+using ViaEventManagmentSystem.Infrastructure.SqliteDataWrite;
 using ViaEventManagmentSystem.Infrastructure.EfcQueries;
 
  

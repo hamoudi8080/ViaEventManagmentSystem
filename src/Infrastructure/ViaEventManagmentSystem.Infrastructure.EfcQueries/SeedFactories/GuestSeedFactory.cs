@@ -4,6 +4,7 @@ namespace ViaEventManagmentSystem.Infrastructure.EfcQueries.SeedFactories;
 
 public class GuestSeedFactory
 {
+ 
     public static List<Guest> Seed()
     {
         // var projectRoot = Path.GetDirectoryName(Directory.GetCurrentDirectory());
@@ -30,4 +31,5 @@ public class GuestSeedFactory
         string LastName,
         string Email
     );
+     
 }

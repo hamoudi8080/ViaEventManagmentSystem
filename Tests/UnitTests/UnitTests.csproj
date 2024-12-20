@@ -29,7 +29,7 @@
       <ProjectReference Include="..\..\src\Core\ViaEventManagmentSystem.Core.AppEntry\ViaEventManagmentSystem.Core.AppEntry.csproj" />
       <ProjectReference Include="..\..\src\Core\ViaEventManagmentSystem.Core.Application\ViaEventManagmentSystem.Core.Application.csproj" />
       <ProjectReference Include="..\..\src\Core\ViaEventManagmentSystem.Core.Domain\ViaEventManagmentSystem.Core.Domain.csproj" />
-      <ProjectReference Include="..\..\src\Infrastracure\ViaEventManagmentSystem.Infrastracure.SqliteDataWrite\ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.csproj" />
+      <ProjectReference Include="..\..\src\Infrastracure\ViaEventManagmentSystem.Infrastructure.SqliteDataWrite\ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.csproj" />
     </ItemGroup>
 
     <ItemGroup>

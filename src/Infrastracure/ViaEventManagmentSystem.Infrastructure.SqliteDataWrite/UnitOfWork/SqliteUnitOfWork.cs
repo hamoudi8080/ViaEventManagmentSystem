@@ -1,6 +1,6 @@
 ﻿using ViaEventManagmentSystem.Core.Domain.Common.UnitOfWork;
 
-namespace ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.UnitOfWork;
+namespace ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.UnitOfWork;
 
 public class SqliteUnitOfWork(AppDbContext context) : IUnitOfWork
 {

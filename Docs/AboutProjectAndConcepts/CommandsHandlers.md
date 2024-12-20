@@ -9,3 +9,6 @@ The command handler is typically implemented as a method on a service class.
 The design in command handlers is to have a single command handler for each command. Follow SOLID principles, especially the single responsibility principle, and the open/closed principle.
 
 A handler is handling a single command, and it is responsible for executing the command and updating the domain model accordingly.
+
+##Source:
+https://buildplease.com/pages/fpc-10/

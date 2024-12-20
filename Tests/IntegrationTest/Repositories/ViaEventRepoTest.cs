@@ -2,9 +2,9 @@
 using UnitTests.Common.Factories.EventFactory;
 using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
 using ViaEventManagmentSystem.Core.Domain.Common.UnitOfWork;
-using ViaEventManagmentSystem.Infrastracure.SqliteDataWrite;
-using ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.UnitOfWork;
-using ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.ViaEventPersistance;
+using ViaEventManagmentSystem.Infrastructure.SqliteDataWrite;
+using ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.UnitOfWork;
+using ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.ViaEventPersistance;
 
 namespace IntegrationTest.Repositories;
 
@@ -23,7 +23,7 @@ public class ViaEventRepoTest
         _context.Database.EnsureCreated(); // Create a new database
        _context.Database.Migrate();
 
-        _eventRepository = new ViaEventRepoEfc(_context);
+       // _eventRepository = new ViaEventRepoEfc(_context);
         _unitOfWork = new SqliteUnitOfWork(_context);
     }
     

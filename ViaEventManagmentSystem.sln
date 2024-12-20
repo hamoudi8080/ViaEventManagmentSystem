@@ -22,9 +22,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViaEventManagmentSystem.Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViaEventManagmentSystem.Core.AppEntry", "src\Core\ViaEventManagmentSystem.Core.AppEntry\ViaEventManagmentSystem.Core.AppEntry.csproj", "{C4665CBD-E6A9-41BD-9532-8F57FC3DA165}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastracture", "Infrastracture", "{01679CF6-C1FC-40ED-A426-05ACC97337A7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{01679CF6-C1FC-40ED-A426-05ACC97337A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViaEventManagmentSystem.Infrastracure.SqliteDataWrite", "src\Infrastracure\ViaEventManagmentSystem.Infrastracure.SqliteDataWrite\ViaEventManagmentSystem.Infrastracure.SqliteDataWrite.csproj", "{AD724731-D46D-4DB0-959B-B4D90EB01FFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViaEventManagmentSystem.Infrastructure.SqliteDataWrite", "src\Infrastracure\ViaEventManagmentSystem.Infrastructure.SqliteDataWrite\ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.csproj", "{AD724731-D46D-4DB0-959B-B4D90EB01FFB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest", "Tests\IntegrationTest\IntegrationTest.csproj", "{92D2ACCF-3C74-4EFE-8E14-891E4D542F5A}"
 EndProject
