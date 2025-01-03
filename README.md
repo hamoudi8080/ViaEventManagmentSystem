@@ -1,6 +1,6 @@
 # Domain-Driven Design (DDD)
 
-Domain-Driven Design is a backend-focused approach, leveraging concepts and implementations from Clean Architecture and Hexagonal Architecture. The goal is to build a clean, long-term sustainable core for the application.
+The project is backend-focused,where leveraging concepts and implementations from Clean Architecture and Hexagonal Architecture. The goal is to build a clean, long-term sustainable core for the application.
 
 ## Architectures and Software Design
 
