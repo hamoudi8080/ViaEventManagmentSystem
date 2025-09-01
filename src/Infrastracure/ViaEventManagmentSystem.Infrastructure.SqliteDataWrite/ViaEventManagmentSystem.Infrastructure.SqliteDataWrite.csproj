@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Core\ViaEventManagmentSystem.Core.Domain\ViaEventManagmentSystem.Core.Domain.csproj" />
+      <ProjectReference Include="..\..\Core\ViaEventManagementSystem.Core.Domain\ViaEventManagementSystem.Core.Domain.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Common.Values;
-using IGuestRepository = ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.IGuestRepository;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Guests;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+using ViaEventManagementSystem.Core.Domain.Common.Values;
+using IGuestRepository = ViaEventManagementSystem.Core.Domain.Aggregates.Guests.IGuestRepository;
 
 namespace ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.GuestPersistance;
 

@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 
 
 namespace ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.ViaEventPersistance;

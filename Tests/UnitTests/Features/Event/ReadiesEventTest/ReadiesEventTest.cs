@@ -1,6 +1,7 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Tools.OperationResult;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Features.Event.ReadiesEventTest;

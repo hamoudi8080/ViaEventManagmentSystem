@@ -1,5 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+﻿using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 
 namespace UnitTests.Common.Factories.EventFactory;
 

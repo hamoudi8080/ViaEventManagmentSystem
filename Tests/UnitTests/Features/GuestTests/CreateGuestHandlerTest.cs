@@ -1,8 +1,8 @@
 ﻿using UnitTests.Common.Factories.GuestFactory;
 using UnitTests.Fakes;
-using ViaEventManagmentSystem.Core.AppEntry.Commands.Guest;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Common.UnitOfWork;
+using ViaEventManagementSystem.Core.AppEntry.Commands.Guest;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+using ViaEventManagementSystem.Core.Domain.Common.UnitOfWork;
 
 namespace UnitTests.Features.GuestTests;
 

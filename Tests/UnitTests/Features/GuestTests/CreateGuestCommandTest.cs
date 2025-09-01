@@ -1,5 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.AppEntry.Commands.Guest;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+﻿using ViaEventManagementSystem.Core.AppEntry.Commands.Guest;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 
 namespace UnitTests.Features.GuestTests;
 

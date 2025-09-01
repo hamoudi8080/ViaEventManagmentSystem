@@ -1,5 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+﻿using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 
 namespace UnitTests.Features.Event.ActivateEventTest;
 

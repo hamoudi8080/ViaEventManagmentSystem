@@ -1,5 +1,6 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Tools.OperationResult;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Features.Event.SetMaxNumberOfGuestsTest;
@@ -131,7 +132,7 @@ public abstract class SetMaxNumberOfGuestsTest
 
             // Assert
             Assert.False(result.IsSuccess); // Check if the operation failed
-            Assert.Equal("Maximum number of Guests cannot be less than 5 or more than 50 ",
+            Assert.Equal(ErrorMessage.MaxGuestsNoMustBeWithin5and50.DisplayName,
                 result.Error.Messages[0].ToString()); // Check if the failure message is correct
         }
     }
@@ -147,7 +148,8 @@ public abstract class SetMaxNumberOfGuestsTest
             
             // Assert
             Assert.False(result.IsSuccess); 
-            Assert.Equal(ErrorMessage.MaxGuestsNoMustBeWithin5and50.DisplayName, result.Error.Messages[0].ToString()); 
+            Assert.Equal(ErrorMessage.MaxGuestsNoMustBeWithin5and50.DisplayName,
+                result.Error.Messages[0].ToString()); 
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+﻿using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 
 namespace UnitTests.Features.GuestTests.GuestAcceptInvitationTest;
 

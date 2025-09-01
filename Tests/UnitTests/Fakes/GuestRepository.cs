@@ -1,6 +1,6 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
-using IGuestRepository = ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.IGuestRepository;
+﻿using ViaEventManagementSystem.Core.Domain.Aggregates.Guests;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+using IGuestRepository = ViaEventManagementSystem.Core.Domain.Aggregates.Guests.IGuestRepository;
 
 namespace UnitTests.Fakes;
 

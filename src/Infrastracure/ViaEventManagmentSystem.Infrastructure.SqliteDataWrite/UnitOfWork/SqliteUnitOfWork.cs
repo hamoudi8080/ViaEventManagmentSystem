@@ -1,4 +1,4 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Common.UnitOfWork;
+﻿using ViaEventManagementSystem.Core.Domain.Common.UnitOfWork;
 
 namespace ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.UnitOfWork;
 

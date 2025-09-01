@@ -1,4 +1,4 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+﻿using ViaEventManagementSystem.Core.Domain.Aggregates.Guests.ValueObjects;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Features.GuestTests.ValueObjects;
@@ -59,6 +59,6 @@ public class EmailTest
 
         // Assert
         Assert.False(result.IsSuccess);
-        Assert.Equal(ErrorMessage.TextLengthOutOfRange.ToString(), result.Error.Messages[0].ToString());
+        Assert.Equal(ErrorMessage.Email.TextLengthOutOfRange.ToString(), result.Error.Messages[0].ToString());
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
 using UnitTests.Common.Factories.GuestFactory;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.ValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.Entities.ValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using Xunit.Sdk;
 using ErrorMessage = ViaEventManagmentSystem.Core.Tools.OperationResult.ErrorMessage;
 
@@ -73,7 +73,7 @@ public abstract class InviteGuestTest
 
             // Assert
             Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.OnlyActiveOrReadyEventCanBeInvited.DisplayName,
+            Assert.Equal(ErrorMessage.Invitations.OnlyActiveOrReadyEventCanBeInvited.DisplayName,
                 result.Error.Messages[0].DisplayName);
         }
     }

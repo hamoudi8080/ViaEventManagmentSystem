@@ -1,4 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+﻿using ViaEventManagementSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+using ViaEventManagementSystem.Core.Tools.OperationResult;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Features.GuestTests.ValueObjects;

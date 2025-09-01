@@ -1,5 +1,5 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
-using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
 
 namespace UnitTests.Features.Event.UpdateTitleTest;
 

@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Core\ViaEventManagmentSystem.Core.AppEntry\ViaEventManagmentSystem.Core.AppEntry.csproj" />
+      <ProjectReference Include="..\..\Core\ViaEventManagementSystem.Core.AppEntry\ViaEventManagementSystem.Core.AppEntry.csproj" />
     </ItemGroup>
 
   

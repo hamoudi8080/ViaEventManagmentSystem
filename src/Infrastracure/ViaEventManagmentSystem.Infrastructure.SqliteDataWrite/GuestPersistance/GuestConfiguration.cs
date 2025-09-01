@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Guests;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Guests.ValueObjects;
  
 
 namespace ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.GuestPersistance;

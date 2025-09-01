@@ -1,6 +1,6 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
 using UnitTests.Common.Factories.GuestFactory;
-using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
 
 namespace UnitTests.Features.GuestTests.GuestParticipationTest;
 

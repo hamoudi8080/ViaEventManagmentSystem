@@ -1,7 +1,7 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
 using UnitTests.Common.Factories.GuestFactory;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.ValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.Entities.ValueObjects;
+ 
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Features.GuestTests.GuestAcceptInvitationTest;
@@ -44,7 +44,7 @@ public abstract class GuestAcceptInvitationTest
 
             // Assert
             Assert.False(result.IsSuccess);
-            Assert.Equal(ErrorMessage.GuestIsNotInvitedToEvent.ToString(), result.Error.Messages[0].ToString());
+            Assert.Equal(ErrorMessage.Invitations.GuestNotInvitedToEvent.ToString(), result.Error.Messages[0].ToString());
         }
     }
 

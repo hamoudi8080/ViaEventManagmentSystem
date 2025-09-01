@@ -1,5 +1,7 @@
-﻿using ViaEventManagmentSystem.Infrastructure.EfcQueries;
-using ViaEventManagmentSystem.Infrastructure.EfcQueries.Queries;
+﻿using ViaEventManagementSystem.Infrastructure.EfcQueries;
+using ViaEventManagementSystem.Infrastructure.EfcQueries.Queries;
+using ViaEventManagementSytem.Core.QueryContracts.Contracts;
+using ViaEventManagementSytem.Core.QueryContracts.Queries;
 using ViaEventManagmentSytem.Core.QueryContracts.Contracts;
 using ViaEventManagmentSytem.Core.QueryContracts.Queries;
 

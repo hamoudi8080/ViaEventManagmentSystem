@@ -1,5 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Common.Bases;
-using ViaEventManagmentSystem.Core.Domain.Common.Repository;
+﻿using ViaEventManagementSystem.Core.Domain.Common.Bases;
+using ViaEventManagementSystem.Core.Domain.Common.Repository;
 
 namespace ViaEventManagmentSystem.Infrastructure.SqliteDataWrite;
 

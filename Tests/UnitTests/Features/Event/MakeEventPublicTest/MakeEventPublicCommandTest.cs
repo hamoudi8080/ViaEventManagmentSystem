@@ -1,6 +1,6 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
-using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 
 namespace UnitTests.Features.Event.MakeEventPublicTest;
 
@@ -17,7 +17,11 @@ public class MakeEventPublicCommandTest
 
         // Assert
         Assert.True(result.IsSuccess);
-        Assert.Equal(validEventId, result.Payload.EventId.Value.ToString());
+        Assert.NotNull(result.Payload);
+
+        var cmd = result.Payload!;
+        Assert.Equal(Guid.Parse(validEventId), cmd.EventId.Value);
+        Assert.Equal(EventVisibility.Public, cmd.EventVisibility);
 
     }
 

@@ -1,6 +1,7 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Tools.OperationResult;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Features.Event.ActivateEventTest;
@@ -110,7 +111,7 @@ public abstract class ActivateEventTest
             // Assert
             Assert.False(activationResult.IsSuccess);
             Assert.Contains(activationResult.ErrorCollection!, error => 
-                error.Messages.Any(message => message.DisplayName == ErrorMessage.MaxGuestsNoMustBeWithin5and50.DisplayName));
+                error.Messages.Any(message => message.DisplayName == ErrorMessage.Capacity.MaxGuestsOutOfRange.DisplayName));
              
         }
     }

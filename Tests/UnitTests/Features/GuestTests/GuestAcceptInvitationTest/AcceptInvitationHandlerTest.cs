@@ -1,11 +1,11 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
 using UnitTests.Common.Factories.GuestFactory;
 using UnitTests.Fakes;
-using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
-using ViaEventManagmentSystem.Core.Application.CommandHandlers.Features.Event;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.ValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Common.UnitOfWork;
+using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.Application.CommandHandlers.Features.Event;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.Entities.ValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Common.UnitOfWork;
 
 namespace UnitTests.Features.GuestTests.GuestAcceptInvitationTest;
 

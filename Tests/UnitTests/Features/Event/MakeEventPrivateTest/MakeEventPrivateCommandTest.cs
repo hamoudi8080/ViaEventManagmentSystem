@@ -1,5 +1,7 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
-using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.Tools.OperationResult;
+using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Features.Event.MakeEventPrivateTest;
 
@@ -10,21 +12,20 @@ public class MakeEventPrivateCommandTest
     {
         // Arrange
        
-        var id =ViaEventTestFactory.ValidEventId().Value.ToString();
+        var id = ViaEventTestFactory.ValidEventId().Value.ToString();
         
         // Act
-        Result<MakeEventPrivateCommand> result = MakeEventPrivateCommand.Create(id);
-        MakeEventPrivateCommand command = result.Payload;
+        var result = MakeEventPrivateCommand.Create(id);
+        var command = result.Payload;
         
         // Assert
         Assert.True(result.IsSuccess);
         Assert.NotNull(command.EventId);
-        Assert.NotNull(command.EventId.ToString());
-        Assert.NotEmpty(command.EventId.ToString());
+        Assert.NotEmpty(command.EventId.ToString()!);
     }
     
     [Fact]
-    public void Create_FalingTest()
+    public void Create_FallingTest()
     {
         // Arrange
         string invalidEventId = "";

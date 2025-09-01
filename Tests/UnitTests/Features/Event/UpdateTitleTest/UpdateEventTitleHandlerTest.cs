@@ -1,11 +1,11 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
 using UnitTests.Fakes;
-using ViaEventManagmentSystem.Core.AppEntry.Commands;
-using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
-using ViaEventManagmentSystem.Core.Application.CommandHandlers.Features.Event;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Common.UnitOfWork;
+using ViaEventManagementSystem.Core.AppEntry.Commands;
+using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.Application.CommandHandlers.Features.Event;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Common.UnitOfWork;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Features.Event.UpdateTitleTest;

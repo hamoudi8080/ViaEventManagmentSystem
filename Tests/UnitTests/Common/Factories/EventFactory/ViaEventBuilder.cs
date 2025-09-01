@@ -1,7 +1,8 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+﻿using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.Entities.Invitation;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+using ViaEventManagementSystem.Core.Tools.OperationResult;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Common.Factories.EventFactory;
@@ -88,7 +89,7 @@ public class ViaEventBuilder
         // Validate all required fields before building
         if (_eventId == null)
         {
-            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.InvalidInputError));
+            return Result<ViaEvent>.Failure(Error.BadRequest(ErrorMessage.General.InvalidInput));
         }
 
         if (_startDateTime == null)

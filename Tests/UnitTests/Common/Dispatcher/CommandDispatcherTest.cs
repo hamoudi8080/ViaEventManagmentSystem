@@ -1,8 +1,8 @@
-﻿using ViaEventManagmentSystem.Core.AppEntry.Commands;
-using ViaEventManagmentSystem.Core.AppEntry.Dispatcher;
+﻿using ViaEventManagementSystem.Core.AppEntry.Commands;
+using ViaEventManagementSystem.Core.AppEntry.Dispatcher;
 using Microsoft.Extensions.DependencyInjection;
 using UnitTests.Common.Factories.EventFactory;
-using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
 
 namespace UnitTests.Common.Dispatcher;
 

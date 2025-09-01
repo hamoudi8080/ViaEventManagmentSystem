@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
  
 using ViaEventManagmentSystem.Infrastructure.SqliteDataWrite;
-using ViaEventManagmentSystem.Infrastructure.EfcQueries;
+using ViaEventManagementSystem.Infrastructure.EfcQueries;
 
  
  

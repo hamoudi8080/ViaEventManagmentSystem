@@ -1,6 +1,7 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Tools.OperationResult;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 using Xunit;
 
@@ -61,7 +62,8 @@ namespace UnitTests.Features.Event.UpdateTitleTest
             [InlineData("")]
             public void UpdateTitle_Failure_EmptyTitle(string newTitle)
             {
-
+                // Arrange
+                var viaEvent = ViaEventTestFactory.CreateEvent();
                 
                 // Act
                 Result<EventTitle> eventTitle = EventTitle.Create(newTitle);
@@ -142,7 +144,6 @@ namespace UnitTests.Features.Event.UpdateTitleTest
 
                 // Assert
                 Assert.False(result.IsSuccess);
-
                 Assert.Equal(ErrorMessage.ActiveEventCanotBeModified.DisplayName, result.Error.Messages[0].ToString());
             }
         }

@@ -1,4 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.Tools.OperationResult;
+﻿using ViaEventManagementSystem.Core.Tools.OperationResult;
+using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Features.GuestTests.ValueObjects;
 
@@ -29,7 +30,7 @@ public class FirstNameTest
 
         // Assert
         Assert.False(result.IsSuccess);
-        Assert.Equal(Error.BadRequest(ErrorMessage.FirstNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace), result.Error);
+        Assert.Equal(Error.BadRequest(ErrorMessage.PersonName.FirstNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace), result.Error);
     }
 
  

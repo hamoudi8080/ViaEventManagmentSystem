@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
-using ViaEventManagmentSystem.Core.AppEntry.Dispatcher;
+using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.AppEntry.Dispatcher;
+using ViaEventManagementSystem.Core.Tools.OperationResult;
+using ViaEventManagmentSystem.Core.Tools.OperationResult;
 using ViaEventManagmentSystem.Presentation.WebAPI.Endpoints.Common;
 using EventId = ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects.EventId;
 

@@ -1,5 +1,7 @@
-﻿using ViaEventManagmentSystem.Core.AppEntry.Commands;
-using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
+﻿using ViaEventManagementSystem.Core.AppEntry.Commands;
+using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.Tools.OperationResult;
+using ViaEventManagmentSystem.Core.Tools.OperationResult;
 
 namespace UnitTests.Common.Dispatcher;
 

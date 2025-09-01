@@ -25,10 +25,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Core\Tools\ViaEventManagmentSystem.Core.Tools.OperationResult\ViaEventManagmentSystem.Core.Tools.OperationResult.csproj" />
-      <ProjectReference Include="..\..\src\Core\ViaEventManagmentSystem.Core.AppEntry\ViaEventManagmentSystem.Core.AppEntry.csproj" />
-      <ProjectReference Include="..\..\src\Core\ViaEventManagmentSystem.Core.Application\ViaEventManagmentSystem.Core.Application.csproj" />
-      <ProjectReference Include="..\..\src\Core\ViaEventManagmentSystem.Core.Domain\ViaEventManagmentSystem.Core.Domain.csproj" />
+      <ProjectReference Include="..\..\src\Core\Tools\ViaEventManagementSystem.Core.Tools.OperationResult\ViaEventManagementSystem.Core.Tools.OperationResult.csproj" />
+      <ProjectReference Include="..\..\src\Core\ViaEventManagementSystem.Core.AppEntry\ViaEventManagementSystem.Core.AppEntry.csproj" />
+      <ProjectReference Include="..\..\src\Core\ViaEventManagementSystem.Core.Application\ViaEventManagementSystem.Core.Application.csproj" />
+      <ProjectReference Include="..\..\src\Core\ViaEventManagementSystem.Core.Domain\ViaEventManagementSystem.Core.Domain.csproj" />
       <ProjectReference Include="..\..\src\Infrastracure\ViaEventManagmentSystem.Infrastructure.SqliteDataWrite\ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.csproj" />
     </ItemGroup>
 

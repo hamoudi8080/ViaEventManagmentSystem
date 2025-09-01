@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ViaEventManagmentSystem.Infrastructure.EfcQueries;
-using ViaEventManagmentSystem.Infrastructure.EfcQueries.SeedFactories;
+using ViaEventManagementSystem.Infrastructure.EfcQueries;
+using ViaEventManagementSystem.Infrastructure.EfcQueries.SeedFactories;
 
 namespace IntegrationTest.EfcQueriesTests;
 

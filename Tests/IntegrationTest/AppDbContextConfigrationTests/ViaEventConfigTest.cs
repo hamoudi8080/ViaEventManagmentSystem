@@ -1,7 +1,5 @@
 ﻿using UnitTests.Common.Factories.EventFactory;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
-
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
 namespace IntegrationTest.AppDbContextConfigrationTests;
 
 

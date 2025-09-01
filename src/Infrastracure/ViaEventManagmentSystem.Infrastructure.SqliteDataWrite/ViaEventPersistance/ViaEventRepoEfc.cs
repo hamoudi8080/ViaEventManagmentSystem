@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
-using ViaEventManagmentSystem.Core.Domain.Common.Values;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+using ViaEventManagementSystem.Core.Domain.Common.Values;
 
 namespace ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.ViaEventPersistance;
 

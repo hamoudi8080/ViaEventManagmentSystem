@@ -1,5 +1,6 @@
-﻿using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+﻿using ViaEventManagementSystem.Core.Domain.Aggregates.Guests;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Guests.ValueObjects;
+using ViaEventManagementSystem.Core.Tools.OperationResult;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 using static UnitTests.Common.Factories.GuestFactory.GuestFactory;
 
@@ -73,7 +74,7 @@ public abstract class ViaGuestTest
         
             // Assert
             Assert.False(firstName.IsSuccess);
-            Assert.Equal(ErrorMessage.FirstNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace.ToString(), firstName.Error.Messages[0].ToString());
+            Assert.Equal(ErrorMessage.PersonName.FirstNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace.ToString(), firstName.Error.Messages[0].ToString());
         }
     }
     
@@ -91,7 +92,7 @@ public abstract class ViaGuestTest
 
             // Assert
             Assert.False(lastname.IsSuccess);
-            Assert.Equal(ErrorMessage.LastNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace.ToString(), lastname.Error.Messages[0].ToString());
+            Assert.Equal(ErrorMessage.PersonName.LastNameMustBeBetween2And25CharsOrIsNullOrWhiteSpace.ToString(), lastname.Error.Messages[0].ToString());
         }
     }
 

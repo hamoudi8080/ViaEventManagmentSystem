@@ -1,5 +1,5 @@
-﻿using ViaEventManagmentSystem.Core.AppEntry.Commands.Event;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects;
+﻿using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 
 namespace UnitTests.Features.Event.CreateEvent
 {
@@ -20,15 +20,20 @@ namespace UnitTests.Features.Event.CreateEvent
             // Act
             var result = CreateEventCommand.Create(id.Payload.Value.ToString(), eventTitle, startDateTime, endDateTime, maxNumberOfGuests, eventDescription);
          
+            
             // Assert
             Assert.True(result.IsSuccess);
             Assert.NotNull(result.Payload);
-           
-            Assert.Equal(eventTitle, result.Payload.ViaEvent._EventTitle.Value);
-            Assert.Equal(startDateTime, result.Payload.ViaEvent._StartDateTime.Value);
-            Assert.Equal(endDateTime, result.Payload.ViaEvent._EndDateTime.Value);
-            Assert.Equal(maxNumberOfGuests, result.Payload.ViaEvent._MaxNumberOfGuests.Value);
-            Assert.Equal(eventDescription, result.Payload.ViaEvent._Description.Value);
+
+            var cmd = result.Payload!;
+            Assert.Equal(id.Payload.Value, cmd.EventId.Value);
+            Assert.Equal(eventTitle, cmd.Title.Value);
+            Assert.Equal(eventDescription, cmd.Description.Value);
+            Assert.Equal(startDateTime, cmd.Start.Value);
+            Assert.Equal(endDateTime, cmd.End.Value);
+            Assert.Equal(maxNumberOfGuests, cmd.MaxGuests.Value);
+            
+        
         }
         
         
