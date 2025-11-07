@@ -18,21 +18,20 @@ public class InviteGuestHandler : ICommandHandler<InviteGuestCommand>
     
     public async Task<Result> Handle(InviteGuestCommand command)
     {
-     var viaEvent  = await _eventRepository.GetById(command.EventId);
-     Result ivnviteguest = viaEvent.InviteGuest(command.GuestId);
-     
+        var viaEvent = await _eventRepository.GetById(command.EventId);
+
         if (viaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
-     
-        if (ivnviteguest.IsSuccess)
-        {
-            _unitOfWork.SaveChangesAsync();
-           
-        }
-        return Result.Success();
-     
 
+        Result inviteGuestResult = viaEvent.InviteGuest(command.GuestId);
+
+        if (inviteGuestResult.IsSuccess)
+        {
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        return inviteGuestResult;
     }
 }

@@ -18,19 +18,19 @@ public class UpdateDescriptionHandler : ICommandHandler<UpdateDescriptionCommand
     public async Task<Result> Handle(UpdateDescriptionCommand command)
     {
         var _ViaEvent = await _eventRepository.GetById(command.EventId);
-        Result eventDescriptionResult = _ViaEvent.UpdateDescription(command.Description);
 
         if (_ViaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
 
+        Result eventDescriptionResult = _ViaEvent.UpdateDescription(command.Description);
+
         if (eventDescriptionResult.IsSuccess)
         {
             await _unitOfWork.SaveChangesAsync();
-            
         }
 
-        return Result.Success();
+        return eventDescriptionResult;
     }
 }

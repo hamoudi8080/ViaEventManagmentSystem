@@ -18,19 +18,19 @@ public class AcceptInvitationHandler : ICommandHandler<AcceptInvitationCommand>
     public async Task<Result> Handle(AcceptInvitationCommand command)
     {
         var viaEvent = await _eventRepository.GetById(command.EventId);
-        Result result = viaEvent.AcceptGuestInvitation(command.GuestId);
-        
+
         if (viaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
 
+        Result result = viaEvent.AcceptGuestInvitation(command.GuestId);
+
         if (result.IsSuccess)
         {
             await _unitOfWork.SaveChangesAsync();
-            
         }
 
-        return Result.Success();
+        return result;
     }
 }

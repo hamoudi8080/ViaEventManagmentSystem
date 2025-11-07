@@ -19,18 +19,19 @@ public class ParticipateGuestHandler : ICommandHandler<ParticipateGuestCommand>
     public async Task<Result> Handle(ParticipateGuestCommand command)
     {
         var viaEvent = await _eventRepository.GetById(command.EventId);
-        Result participateGuestResult = viaEvent.AddGuestParticipation(command.GuestId);
 
         if (viaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
 
+        Result participateGuestResult = viaEvent.AddGuestParticipation(command.GuestId);
+
         if (participateGuestResult.IsSuccess)
         {
-            _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync();
         }
 
-        return Result.Success();
+        return participateGuestResult;
     }
 }

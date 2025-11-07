@@ -20,18 +20,19 @@ public class MakeEventPrivateHandler : ICommandHandler<MakeEventPrivateCommand>
     public async Task<Result> Handle(MakeEventPrivateCommand command)
     {
         var _ViaEvent = await _eventRepository.GetById(command.EventId);
-        Result eventPublicResult = _ViaEvent.MakeEventPrivate();
 
         if (_ViaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
-        if (eventPublicResult.IsSuccess)
+
+        Result eventPrivateResult = _ViaEvent.MakeEventPrivate();
+
+        if (eventPrivateResult.IsSuccess)
         {
-            _unitOfWork.SaveChangesAsync();
-            
+            await _unitOfWork.SaveChangesAsync();
         }
-       
-        return Result.Success();
+
+        return eventPrivateResult;
     }
 }

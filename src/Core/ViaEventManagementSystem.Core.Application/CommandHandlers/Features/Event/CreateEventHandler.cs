@@ -16,14 +16,11 @@ public class CreateEventHandler : ICommandHandler<CreateEventCommand>
         => (_eventRepository, _unitOfWork) = (eventRepository, unitOfWork);
     
 
-    public Task<Result> Handle(CreateEventCommand tcommand)
+    public async Task<Result> Handle(CreateEventCommand tcommand)
     {
        // _eventRepository.Add(tcommand.);
-       
-       _unitOfWork.SaveChangesAsync();
-       return Task.FromResult(Result.Success());
-         
 
-
+       await _unitOfWork.SaveChangesAsync();
+       return Result.Success();
     }
 }

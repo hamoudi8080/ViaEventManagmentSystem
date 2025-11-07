@@ -19,18 +19,19 @@ public class UpdateEventMaxNoOfGuestsHandler : ICommandHandler<UpdateEventMaxNoO
     public async Task<Result> Handle(UpdateEventMaxNoOfGuestsCommand command)
     {
         var _ViaEvent = await _eventRepository.GetById(command.EventId);
-        Result eventMaxNoOfGuestsResult = _ViaEvent.SetMaxNumberOfGuests(command.MaxNoOfGuests);
-        
+
         if (_ViaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
-        
+
+        Result eventMaxNoOfGuestsResult = _ViaEvent.SetMaxNumberOfGuests(command.MaxNoOfGuests);
+
         if (eventMaxNoOfGuestsResult.IsSuccess)
         {
             await _unitOfWork.SaveChangesAsync();
         }
 
-        return Result.Success();
+        return eventMaxNoOfGuestsResult;
     }
 }

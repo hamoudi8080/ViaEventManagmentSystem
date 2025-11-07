@@ -18,17 +18,19 @@ public class DeclineInvitationHandler : ICommandHandler<DeclineInvitationCommand
     public async Task<Result> Handle(DeclineInvitationCommand command)
     {
         var _ViaEvent = await _eventRepository.GetById(command.EventId);
-        Result eventDeclineResult = _ViaEvent.RejectGuestInvitation(command.GuestId);
-        
+
         if (_ViaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
+
+        Result eventDeclineResult = _ViaEvent.RejectGuestInvitation(command.GuestId);
+
         if (eventDeclineResult.IsSuccess)
         {
             await _unitOfWork.SaveChangesAsync();
-            
         }
-        return Result.Success();
+
+        return eventDeclineResult;
     }
 }

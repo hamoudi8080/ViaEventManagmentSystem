@@ -19,20 +19,19 @@ public class ActivateEventHandler : ICommandHandler<ActivateEventCommand>
     public async Task<Result> Handle(ActivateEventCommand command)
     {
         ViaEvent viaEvent = await _eventRepository.GetById(command.EventId);
-        Result activateEventResult = viaEvent.ActivateEvent();
-        
+
         if (viaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
-        
+
+        Result activateEventResult = viaEvent.ActivateEvent();
+
         if (activateEventResult.IsSuccess)
         {
-            _unitOfWork.SaveChangesAsync();
-        
+            await _unitOfWork.SaveChangesAsync();
         }
-        
-        return Result.Success();
-         
+
+        return activateEventResult;
     }
 }

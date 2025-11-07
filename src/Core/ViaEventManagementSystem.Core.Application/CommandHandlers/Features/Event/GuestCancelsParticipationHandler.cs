@@ -18,18 +18,19 @@ public class GuestCancelsParticipationHandler : ICommandHandler<GuestCancelsPart
     public async Task<Result> Handle(GuestCancelsParticipationCommand command)
     {
         var viaEvent = await _eventRepository.GetById(command.EventId);
-        Result result = viaEvent.CancelGuestParticipation(command.GuestId);
 
         if (viaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
 
+        Result result = viaEvent.CancelGuestParticipation(command.GuestId);
+
         if (result.IsSuccess)
         {
             await _unitOfWork.SaveChangesAsync();
         }
 
-        return Result.Success();
+        return result;
     }
 }

@@ -19,19 +19,19 @@ public class MakeEventReadyHandler: ICommandHandler<MakeEventReadyCommand>
     public async Task<Result> Handle(MakeEventReadyCommand command)
     {
         var viaEvent = await _eventRepository.GetById(command.EventId);
-        Result eventReadyResult = viaEvent.MakeEventReady();
-        
+
         if (viaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
+
+        Result eventReadyResult = viaEvent.MakeEventReady();
+
         if (eventReadyResult.IsSuccess)
         {
-            _unitOfWork.SaveChangesAsync();
-       
+            await _unitOfWork.SaveChangesAsync();
         }
-        
-        return Result.Success();
-        
+
+        return eventReadyResult;
     }
 }

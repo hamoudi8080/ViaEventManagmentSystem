@@ -18,7 +18,7 @@ public class GuestRepoEfc(AppDbContext context) : IGuestRepository
     public async Task Add(ViaGuest entity)
     {
         await context.Set<ViaGuest>().AddAsync(entity);
-        await context.SaveChangesAsync();
+        // SaveChanges is handled by UnitOfWork
     }
 
     public async Task<IEnumerable<ViaGuest>> GetAll()
@@ -28,11 +28,11 @@ public class GuestRepoEfc(AppDbContext context) : IGuestRepository
 
     public async Task Remove(GuestId id)
     {
-        var entity = await context.Set<ViaEvent>().FindAsync(id);
+        var entity = await context.Set<ViaGuest>().FindAsync(id);
         if (entity != null)
         {
-            context.Set<ViaEvent>().Remove(entity);
-            await context.SaveChangesAsync();
+            context.Set<ViaGuest>().Remove(entity);
+            // SaveChanges is handled by UnitOfWork
         }
     }
 }
