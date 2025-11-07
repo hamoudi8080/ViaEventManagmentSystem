@@ -13,12 +13,14 @@ public class UpdateTitle(ICommandDispatcher dispatcher) : ApiEndpoint.WithReques
     {
         Result<UpdateEventTitleCommand> cmdResult =
             UpdateEventTitleCommand.Create(request.Id, request.RequestBody.Title);
-        if (cmdResult.IsSuccess)
+
+        // Fixed: Return BadRequest when command creation FAILS (not succeeds)
+        if (!cmdResult.IsSuccess)
         {
             return BadRequest(cmdResult.ErrorMessage);
         }
 
-        Result  result = await dispatcher.DispatchAsync(cmdResult.Payload);
+        Result result = await dispatcher.DispatchAsync(cmdResult.Payload);
         return result.IsSuccess ? Ok() : BadRequest(result.ErrorMessage);
     }
 }

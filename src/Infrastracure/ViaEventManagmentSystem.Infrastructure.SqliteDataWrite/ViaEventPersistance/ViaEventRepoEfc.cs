@@ -15,7 +15,7 @@ public  class ViaEventRepoEfc(AppDbContext context) : RepositoryEfcBase<ViaEvent
     public override async Task Add(ViaEvent entity)
     {
         await context.Set<ViaEvent>().AddAsync(entity);
-        await context.SaveChangesAsync();
+        // Don't call SaveChangesAsync here - let UnitOfWork handle it
     }
 
     public  async Task<IEnumerable<ViaEvent>> GetAll()
@@ -29,7 +29,7 @@ public  class ViaEventRepoEfc(AppDbContext context) : RepositoryEfcBase<ViaEvent
         if (entity != null)
         {
             context.Set<ViaEvent>().Remove(entity);
-            await context.SaveChangesAsync();
+            // Don't call SaveChangesAsync here - let UnitOfWork handle it
         }
     }
 }

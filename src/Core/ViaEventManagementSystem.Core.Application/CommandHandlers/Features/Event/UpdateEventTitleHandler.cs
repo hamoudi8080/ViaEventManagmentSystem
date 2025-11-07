@@ -24,20 +24,26 @@ public class UpdateEventTitleHandler : ICommandHandler<UpdateEventTitleCommand>
 
     public async Task<Result> Handle(UpdateEventTitleCommand command)
     {
-        var _ViaEvent = await _eventRepository.GetById(command.EventId);
-        Result eventTitleResult = _ViaEvent.UpdateTitle(command.EventTitle);
-        
-        if (_ViaEvent == null)
+        var viaEvent = await _eventRepository.GetById(command.EventId);
+
+        // Check for null BEFORE using the object
+        if (viaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
-        
-        if (eventTitleResult.IsSuccess)
+
+        // Update the title
+        Result eventTitleResult = viaEvent.UpdateTitle(command.EventTitle);
+
+        // Return early if update failed
+        if (!eventTitleResult.IsSuccess)
         {
-            await _unitOfWork.SaveChangesAsync();
+            return eventTitleResult;
         }
-        
+
+        // Save changes through UnitOfWork
+        await _unitOfWork.SaveChangesAsync();
+
         return Result.Success();
-       
     }
 }

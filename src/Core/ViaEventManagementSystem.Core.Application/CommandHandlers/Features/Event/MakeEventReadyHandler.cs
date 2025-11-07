@@ -19,19 +19,25 @@ public class MakeEventReadyHandler: ICommandHandler<MakeEventReadyCommand>
     public async Task<Result> Handle(MakeEventReadyCommand command)
     {
         var viaEvent = await _eventRepository.GetById(command.EventId);
-        Result eventReadyResult = viaEvent.MakeEventReady();
-        
+
+        // Check for null BEFORE using the object
         if (viaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
-        if (eventReadyResult.IsSuccess)
+
+        // Make event ready
+        var eventReadyResult = viaEvent.MakeEventReady();
+
+        // Return early if making ready failed
+        if (!eventReadyResult.IsSuccess)
         {
-            _unitOfWork.SaveChangesAsync();
-       
+            return Result.Failure(eventReadyResult.ErrorCollection);
         }
-        
+
+        // Save changes through UnitOfWork with await
+        await _unitOfWork.SaveChangesAsync();
+
         return Result.Success();
-        
     }
 }
