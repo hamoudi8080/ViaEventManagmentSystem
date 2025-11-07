@@ -28,10 +28,10 @@ public class GuestRepoEfc(AppDbContext context) : IGuestRepository
 
     public async Task Remove(GuestId id)
     {
-        var entity = await context.Set<ViaEvent>().FindAsync(id);
+        var entity = await context.Set<ViaGuest>().FindAsync(id);
         if (entity != null)
         {
-            context.Set<ViaEvent>().Remove(entity);
+            context.Set<ViaGuest>().Remove(entity);
             await context.SaveChangesAsync();
         }
     }

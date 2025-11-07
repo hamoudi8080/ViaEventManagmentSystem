@@ -71,9 +71,9 @@ public class FirstName : ValueObject
     }
     //The GetEqualityComponents() method is an overridden method from the ValueObject base class.
     //This method is crucial for defining how equality is determined for instances of the value object.
-    
+
     protected override IEnumerable<object> GetEqualityComponents()
     {
-        throw new NotImplementedException();
+        yield return Value;
     }
 }

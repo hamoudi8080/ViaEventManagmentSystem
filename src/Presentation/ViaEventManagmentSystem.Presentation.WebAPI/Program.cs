@@ -39,12 +39,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddControllers(); // <--- Add this line
-/*
+builder.Services.AddControllers();
+
 builder.Services.RegisterDispatcher();
 builder.Services.RegisterHandlers();
-builder.Services.RegisterWritePersistence(@"Data Source = C:\TRMO\RiderProjects\ViaEventAssociation\src\Infrastructure\ViaEventAssociation.Infrastructure.EfcDmPersistence\VEADatabaseProduction.db");
-*/
+builder.Services.RegisterWritePersistence("Data Source=ViaEventDatabase.db");
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
