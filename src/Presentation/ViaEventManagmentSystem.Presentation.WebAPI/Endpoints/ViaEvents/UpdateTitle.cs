@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
 using ViaEventManagementSystem.Core.AppEntry.Dispatcher;
+using ViaEventManagementSystem.Core.Tools.OperationResult;
 using ViaEventManagmentSystem.Core.Tools.OperationResult;
 using ViaEventManagmentSystem.Presentation.WebAPI.Endpoints.Common;
 

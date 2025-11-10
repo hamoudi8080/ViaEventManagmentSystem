@@ -16,14 +16,27 @@ public class CreateEventHandler : ICommandHandler<CreateEventCommand>
         => (_eventRepository, _unitOfWork) = (eventRepository, unitOfWork);
     
 
-    public Task<Result> Handle(CreateEventCommand tcommand)
+    public async Task<Result> Handle(CreateEventCommand command)
     {
-       // _eventRepository.Add(tcommand.);
-       
-       _unitOfWork.SaveChangesAsync();
-       return Task.FromResult(Result.Success());
-         
+        var viaEventResult = ViaEvent.Create(
+            command.EventId,
+            command.Title,
+            command.Description,
+            command.Start,
+            command.End,
+            command.MaxGuests,
+            command.Visibility
+        );
 
+        if (!viaEventResult.IsSuccess)
+        {
+            return viaEventResult;
+        }
 
+        await _eventRepository.Add(viaEventResult.Payload);
+        await _unitOfWork.SaveChangesAsync();
+    
+        return Result.Success();
     }
+
 }

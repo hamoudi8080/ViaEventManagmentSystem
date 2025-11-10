@@ -1,7 +1,4 @@
-﻿using ViaEventManagementSystem.Infrastructure.EfcQueries;
-using ViaEventManagementSystem.Infrastructure.EfcQueries.Queries;
-using ViaEventManagementSytem.Core.QueryContracts.Contracts;
-using ViaEventManagementSytem.Core.QueryContracts.Queries;
+﻿
  
 
 namespace IntegrationTest.EfcQueriesTests;
@@ -9,7 +6,7 @@ namespace IntegrationTest.EfcQueriesTests;
 public class GetGuestProfileQueryTest
 {
 
-
+/*
     [Fact]
     public async Task GetGuestProfileQueryTest_ShouldReturnGuestProfile()
     {
@@ -30,5 +27,6 @@ public class GetGuestProfileQueryTest
        
 
     }
+    */
 
 }

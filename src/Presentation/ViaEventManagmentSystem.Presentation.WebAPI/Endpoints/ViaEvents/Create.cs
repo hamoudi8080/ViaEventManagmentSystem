@@ -1,10 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+
+
+using Microsoft.AspNetCore.Mvc;
 using ViaEventManagementSystem.Core.AppEntry.Commands.Event;
 using ViaEventManagementSystem.Core.AppEntry.Dispatcher;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
+using ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects;
 using ViaEventManagementSystem.Core.Tools.OperationResult;
-using ViaEventManagmentSystem.Core.Tools.OperationResult;
 using ViaEventManagmentSystem.Presentation.WebAPI.Endpoints.Common;
-using EventId = ViaEventManagmentSystem.Core.Domain.Aggregates.Events.EventValueObjects.EventId;
+using EventId = ViaEventManagementSystem.Core.Domain.Aggregates.Events.EventValueObjects.EventId;
 
 namespace ViaEventManagmentSystem.Presentation.WebAPI.Endpoints.ViaEvents;
 
@@ -34,9 +38,9 @@ public class Create : ApiEndpoint.WithoutRequest.WithResponse<CreateEventRespons
 
         Result  result = await _dispatcher.DispatchAsync(cmd.Payload);
         return result.IsSuccess
-            ? Ok(new CreateEventResponse(cmd.Payload.ViaEvent.Id.ToString()))
+            ? Ok(new CreateEventResponse(cmd.Payload.ToString()))
             : BadRequest(result.ErrorMessage);
     }
 }
 
-public record CreateEventResponse(string Id);
+public record CreateEventResponse(string? Id);

@@ -19,18 +19,21 @@ public class MakeEventPublicHandler : ICommandHandler<MakeEventPublicCommand>
     
     public async Task<Result> Handle(MakeEventPublicCommand command)
     {
-        var _ViaEvent = await _eventRepository.GetById(command.EventId);
-        Result eventPublicResult = _ViaEvent.MakeEventPublic();
+        var viaEvent = await _eventRepository.GetById(command.EventId);
 
-        if (_ViaEvent == null)
+        if (viaEvent == null)
         {
             return Result.Failure(Error.NotFound(ErrorMessage.General.EventNotFound));
         }
-        if (eventPublicResult.IsSuccess)
+
+        Result eventPublicResult = viaEvent.MakeEventPublic();
+
+        if (!eventPublicResult.IsSuccess)
         {
-            _unitOfWork.SaveChangesAsync();
-            
+            return eventPublicResult;
         }
+
+        await _unitOfWork.SaveChangesAsync();
         return Result.Success();
       
     }

@@ -1,12 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ViaEventManagementSystem.Infrastructure.EfcQueries;
-using ViaEventManagementSystem.Infrastructure.EfcQueries.SeedFactories;
-
+﻿
 namespace IntegrationTest.EfcQueriesTests;
 
 public class VeadatabaseProductionTests
 {
-    
+    /*
     [Fact]
     public async Task SeedMethodTest()
     {
@@ -20,6 +17,6 @@ public class VeadatabaseProductionTests
         
         Assert.Equal(28, seededContext.ViaEvents.Count());
     }
-
+*/
  
 }

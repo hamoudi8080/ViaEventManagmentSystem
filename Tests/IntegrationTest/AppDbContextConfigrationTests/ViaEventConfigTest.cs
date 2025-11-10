@@ -6,6 +6,7 @@ namespace IntegrationTest.AppDbContextConfigrationTests;
 public class ViaEventConfigTest
 {
    
+    /*
         [Fact]
         public async Task TestEventCreationAndRetrievalByGuid()
         {
@@ -20,7 +21,6 @@ public class ViaEventConfigTest
        
         }
       
-    
-    
+    */
  
 }

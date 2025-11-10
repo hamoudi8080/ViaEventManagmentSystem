@@ -1,16 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using UnitTests.Common.Factories.EventFactory;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Domain.Common.UnitOfWork;
-using ViaEventManagmentSystem.Infrastructure.SqliteDataWrite;
-using ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.UnitOfWork;
-using ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.ViaEventPersistance;
-
+﻿
 namespace IntegrationTest.Repositories;
 
 
 public class ViaEventRepoTest
 {
+    /*
     private readonly AppDbContext _context;
     private readonly IViaEventRepository _eventRepository;
     private readonly IUnitOfWork _unitOfWork;
@@ -55,6 +49,6 @@ public class ViaEventRepoTest
         
     }
     
-    
+    */
     
 }

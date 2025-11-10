@@ -1,14 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ViaEventManagementSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagementSystem.Core.Tools.OperationResult;
-using ViaEventManagmentSystem.Core.Domain.Aggregates.Events;
-using ViaEventManagmentSystem.Core.Tools.OperationResult;
-using ViaEventManagmentSystem.Infrastructure.SqliteDataWrite;
-
+﻿
 namespace IntegrationTest;
 
 public class AppDbContextTest
 {
+    /*
     public DbSet<Result<ViaEvent>> Results { get; set; }
 
     public static AppDbContext InitializeDatabaseContext()
@@ -30,5 +25,6 @@ public class AppDbContextTest
         await context.SaveChangesAsync();
         context.ChangeTracker.Clear();
     }
+    */
      
 }

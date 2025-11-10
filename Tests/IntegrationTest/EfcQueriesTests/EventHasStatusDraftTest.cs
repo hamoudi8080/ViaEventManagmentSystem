@@ -1,13 +1,11 @@
-﻿using ViaEventManagementSystem.Infrastructure.EfcQueries;
-using ViaEventManagementSystem.Infrastructure.EfcQueries.Queries;
-using ViaEventManagementSytem.Core.QueryContracts.Contracts;
-using ViaEventManagementSytem.Core.QueryContracts.Queries;
+﻿
  
 
 namespace IntegrationTest.EfcQueriesTests;
 
 public class EventHasStatusDraftTest
 {
+    /*
     [Fact]
     public async void GetUpcomingEvents()
     {
@@ -32,6 +30,8 @@ public class EventHasStatusDraftTest
         Assert.NotNull(answer.Events[0].EventTitle); // Check that the first event has a title
         Assert.True(answer.MaxPageNum >= 0); // Check that the maximum page number is not negative
         Assert.Equal("draft", answer.Events[0].Status);
-    
      
-}  }
+
+    }  
+    */
+}

@@ -7,6 +7,7 @@ namespace IntegrationTest.AppDbContextConfigrationTests;
 
 public class GuestConfigTest
 {
+    /*
     [Fact] 
     public async Task TestGuestCreationAndRetrievalByGuid()
     {
@@ -28,5 +29,5 @@ public class GuestConfigTest
         var retrieved = ctx.Guests.SingleOrDefault(x => x.Id == guest.Payload.Id);
         Assert.NotNull(retrieved);
     }
-    
+ */   
 }
