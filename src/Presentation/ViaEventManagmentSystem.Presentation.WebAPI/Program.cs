@@ -1,50 +1,24 @@
-/*
 var builder = WebApplication.CreateBuilder(args);
 
-
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-
 builder.Services.AddControllers();
 
- 
- 
-builder.Services.RegisterDispatcher();
-builder.Services.RegisterHandlers();
-builder.Services.RegisterWritePersistence(@"Data Source = C:\TRMO\RiderProjects\ViaEventAssociation\src\Infrastructure\ViaEventAssociation.Infrastructure.EfcDmPersistence\VEADatabaseProduction.db");
- 
-var app = builder.Build();
-app.MapControllers(); // <--- Add this line
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// Only set URLs when NOT in Docker
+if (Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") != "true")
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    builder.WebHost.UseUrls("http://localhost:5001", "https://localhost:5002");
 }
+// In Docker, it will use ASPNETCORE_URLS environment variable (http://+:8080)
 
-app.UseHttpsRedirection();
-
-
-app.Run();
-
-*/
-
-
-
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddControllers(); // <--- Add this line
+// Uncomment when you want database functionality
 /*
 builder.Services.RegisterDispatcher();
 builder.Services.RegisterHandlers();
-builder.Services.RegisterWritePersistence(@"Data Source = C:\TRMO\RiderProjects\ViaEventAssociation\src\Infrastructure\ViaEventAssociation.Infrastructure.EfcDmPersistence\VEADatabaseProduction.db");
+builder.Services.RegisterWritePersistence(@"Data Source=/app/data/VEADatabaseProduction.db");
 */
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -54,6 +28,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-app.MapControllers(); // <--- Add this line
+// Remove this in Docker (or make it conditional)
+// app.UseHttpsRedirection();
+
+app.MapControllers();
 app.Run();

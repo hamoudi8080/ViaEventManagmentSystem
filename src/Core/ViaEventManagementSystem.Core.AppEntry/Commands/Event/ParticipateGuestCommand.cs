@@ -20,13 +20,11 @@ public class ParticipateGuestCommand : ICommand
         Result<EventId> idResult = EventId.Create(eventId);
         Result<GuestId> guestResult = GuestId.Create(guestId);
         
-        /*
-        var result = Result.CombineFromOthers<ParticipateGuestCommand>(idResult, guestResult);
+   
+        var result = Result.CombineResultsInto<ParticipateGuestCommand>(idResult, guestResult);
         
-        return Result<ParticipateGuestCommand>.WithPayloadIfSuccess(result,
-            () => new ParticipateGuestCommand(idResult.Payload!, guestResult.Payload!));
-            */
-        return null;
+        return result.WithPayloadIfSuccess(() => new ParticipateGuestCommand(idResult.Payload!, guestResult.Payload!));
+
     }   
     
 }

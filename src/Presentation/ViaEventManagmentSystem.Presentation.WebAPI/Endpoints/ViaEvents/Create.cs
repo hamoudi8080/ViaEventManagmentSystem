@@ -41,6 +41,7 @@ public class Create : ApiEndpoint.WithoutRequest.WithResponse<CreateEventRespons
             ? Ok(new CreateEventResponse(cmd.Payload.ToString()))
             : BadRequest(result.ErrorMessage);
     }
+
 }
 
 public record CreateEventResponse(string? Id);

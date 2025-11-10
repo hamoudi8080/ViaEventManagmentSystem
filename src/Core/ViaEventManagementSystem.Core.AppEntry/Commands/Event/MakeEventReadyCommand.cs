@@ -16,13 +16,8 @@ public class MakeEventReadyCommand : ICommand
     public static Result<MakeEventReadyCommand> Create(string eventId) {
         Result<EventId> idResult = EventId.Create(eventId);
         
-        /*
-        var result = Result.CombineFromOthers<MakeEventReadyCommand>(idResult);
-        
-        return Result<MakeEventReadyCommand>.WithPayloadIfSuccess(result,
-            () => new MakeEventReadyCommand(idResult.Payload!));
-        */
-        return null;
+        var result = Result.CombineResultsInto<MakeEventReadyCommand>(idResult);
+        return result.WithPayloadIfSuccess(() => new MakeEventReadyCommand(idResult.Payload!));
         
     }
 }
