@@ -4,7 +4,7 @@ WORKDIR /src
 # Copy everything
 COPY . .
 
-# Restore and build
+# Restore which download the dependencies nad nuget things and build which compiles the code to intermediate language machine code. 
 RUN dotnet restore "src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/ViaEventManagmentSystem.Presentation.WebAPI.csproj"
 RUN dotnet build "src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/ViaEventManagmentSystem.Presentation.WebAPI.csproj" -c Release -o /app/build
 

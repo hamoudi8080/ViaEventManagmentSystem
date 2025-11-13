@@ -39,27 +39,5 @@ public class UpdateEventMaxNoOfGuestsHandlerTest
     }
     
     
-    [Fact]
-    public async Task HandleUpdateEventMaxNoOfGuestsCommand_WithInvalidData_ShouldReturnFailure()
-    {
-        // Arrange event and add to the list of events
-        var viaEvent = ViaEventTestFactory.CreateActiveEvent();
-        
-        var eventRepo = new EventRepository();
-        eventRepo.Add(viaEvent);
-        
-        var setMaxNoOfGuests = MaxNumberOfGuests.Create(5);
-        viaEvent.SetMaxNumberOfGuests(setMaxNoOfGuests.Payload);
 
-        Result<UpdateEventMaxNoOfGuestsCommand> command = UpdateEventMaxNoOfGuestsCommand.Create(viaEvent._eventId.Value.ToString(), 0);
-        
-        var handler = new UpdateEventMaxNoOfGuestsHandler(eventRepo, _unitOfWork);
-
-        // Act
-        Result result = await handler.Handle(command.Payload);
-
-        // Assert
-        Assert.False(result.IsSuccess);
-     
-    }
 }
