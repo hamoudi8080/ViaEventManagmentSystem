@@ -23,7 +23,7 @@ jobs:
           dotnet-version: '8.0.x'
       
       - name: 📦 Restore dependencies
-        run: dotnet restore ViaEventManagmntSystem/ViaEventManagmentSystem.sln
+        run: dotnet restore ViaEventManagmentSystem/ViaEventManagementSystem.sln
       
       - name: 🔨 Build solution
         run: dotnet build ViaEventManagmentSystem/ViaEventManagementSystem.sln --configuration Release --no-restore
@@ -31,6 +31,7 @@ jobs:
       - name: 🧪 Run tests
         run: dotnet test ViaEventManagmentSystem/Tests/UnitTests/UnitTests.csproj --no-build --verbosity normal
         
+
 
   # Job 2: Build Docker image (runs AFTER tests pass)
   build-docker:
