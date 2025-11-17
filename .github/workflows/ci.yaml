@@ -1,0 +1,56 @@
+# CI Pipeline for ViaEventManagementSystem Backend
+name: Backend CI with Docker
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  # Job 1: Test the code (fast feedback)
+  test-backend:
+    name: Test .NET Backend
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+      
+      - name: 🔧 Setup .NET 8.0
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+      
+      - name: 📦 Restore dependencies
+        run: dotnet restore ViaEventManagmntSystem/ViaEventManagmentSystem.sln
+      
+      - name: 🔨 Build solution
+        run: dotnet build ViaEventManagmentSystem/ViaEventManagementSystem.sln --configuration Release --no-restore
+      
+      - name: 🧪 Run tests
+        run: dotnet test ViaEventManagmentSystem/Tests/UnitTests/UnitTests.csproj --no-build --verbosity normal
+        
+
+  # Job 2: Build Docker image (runs AFTER tests pass)
+  build-docker:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: test-backend  # Only run if tests pass!
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+      
+      - name: 🐳 Build Docker image
+        run: |
+          cd ViaEventManagmentSystem
+          docker build -t viaevent-backend:latest .
+        # This builds your Docker image
+        # If Dockerfile has errors, this step will fail
+      
+      - name: ✅ Verify Docker image
+        run: docker images
+        # Lists built images to confirm success
+
+ 
