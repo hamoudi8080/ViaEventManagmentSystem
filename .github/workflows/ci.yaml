@@ -3,9 +3,9 @@ name: Backend CI with Docker
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   # Job 1: Test the code (fast feedback)
