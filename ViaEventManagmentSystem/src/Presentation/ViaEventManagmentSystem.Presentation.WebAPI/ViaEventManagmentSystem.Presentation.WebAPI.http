@@ -1,0 +1,6 @@
+@ViaEventManagmentSystem.Presentation.WebAPI_HostAddress = http://localhost:5294
+
+GET {{ViaEventManagmentSystem.Presentation.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
