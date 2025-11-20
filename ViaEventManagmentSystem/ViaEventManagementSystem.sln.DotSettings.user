@@ -235,9 +235,9 @@
     &lt;TestId&gt;xUnit::3691FAEB-C3BB-4862-9246-1EB06D9D42DE::net8.0::UnitTests.Common.Factories.EventFactory.ViaEventBuilderTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ec6547ae_002Dd361_002D4069_002Dabe0_002D66e6b77aa6dd/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="F1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ec6547ae_002Dd361_002D4069_002Dabe0_002D66e6b77aa6dd/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="F1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\s192830\RiderProjects\ViaEvent\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fe7f65ca_002Dc52f_002D4a61_002D83fd_002D4f6bac53b872/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Create_WhenInvoked_ShouldReturnDeclineInvitationCommand" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fe7f65ca_002Dc52f_002D4a61_002D83fd_002D4f6bac53b872/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Create_WhenInvoked_ShouldReturnDeclineInvitationCommand" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\s192830\RiderProjects\ViaEvent\ViaEventManagmentSystem\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
