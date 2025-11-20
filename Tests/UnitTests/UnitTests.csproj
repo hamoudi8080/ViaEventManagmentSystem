@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-preview.2.24128.5" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0"/>
+        <PackageReference Include="Moq" Version="4.20.70" />
+        <PackageReference Include="xunit" Version="2.4.2"/>
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="coverlet.collector" Version="6.0.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Core\Tools\ViaEventManagementSystem.Core.Tools.OperationResult\ViaEventManagementSystem.Core.Tools.OperationResult.csproj" />
+      <ProjectReference Include="..\..\src\Core\ViaEventManagementSystem.Core.AppEntry\ViaEventManagementSystem.Core.AppEntry.csproj" />
+      <ProjectReference Include="..\..\src\Core\ViaEventManagementSystem.Core.Application\ViaEventManagementSystem.Core.Application.csproj" />
+      <ProjectReference Include="..\..\src\Core\ViaEventManagementSystem.Core.Domain\ViaEventManagementSystem.Core.Domain.csproj" />
+      <ProjectReference Include="..\..\src\Infrastracure\ViaEventManagmentSystem.Infrastructure.SqliteDataWrite\ViaEventManagmentSystem.Infrastructure.SqliteDataWrite.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Common\Factories\" />
+      <Folder Include="Common\Values\" />
+    </ItemGroup>
+
+</Project>

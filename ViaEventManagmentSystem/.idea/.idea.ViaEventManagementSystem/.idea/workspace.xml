@@ -10,227 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5fc2164-8e54-4e41-a354-9624a55a06ff" name="Changes" comment="some fixes in tests">
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/copilot.data.migration.agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/copilot.data.migration.ask.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/copilot.data.migration.edit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/AboutProjectAndConcepts/CommandsHandlers.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/AboutProjectAndConcepts/DDD.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/AboutProjectAndConcepts/Patterns.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/AboutProjectAndConcepts/QuestionsAndAnswers.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/AboutProjectAndConcepts/Testing.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assets/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assets/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assets/img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assets/img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assets/img_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assignment1/domain model.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assignment2/concrete domain model.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assignment2/domain model.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assignment3/assignment3 opration result model.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assignment4/CompletedFeatureStatus.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assignment4/ConcreteDomainModel.drawio" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assignment4/ConcreteDomainModel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assignment5/CompletedFeatureStatus.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Assignment5/FeatureStatusCommandAndHandler.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Docs.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Requiremets/Requirements.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Requiremets/VIA Event Association Requirements.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Docs/Requiremets/~$A Event Association Requirements.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/AppDbContextConfigrationTests/GuestConfigTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/AppDbContextConfigrationTests/PersistenceTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/AppDbContextConfigrationTests/ViaEventConfigTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/AppDbContextTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/EfcQueriesTests/EventHasStatusDraftTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/EfcQueriesTests/GetGuestProfileQueryTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/EfcQueriesTests/UpcomingEventQueryTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/EfcQueriesTests/VeadatabaseProductionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/GlobalUsings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/IntegrationTest.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/Repositories/ViaEventRepoTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/WebApplicationFactory/Events/CreateEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/IntegrationTest/WebApplicationFactory/VeaWebApplicationFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Common/Dispatcher/CommandDispatcherTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Common/Dispatcher/CommandExecutionTimerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Common/Dispatcher/MockTitleHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Common/Factories/EventFactory/ViaEventBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Common/Factories/EventFactory/ViaEventBuilderTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Common/Factories/EventFactory/ViaEventTestFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Common/Factories/GuestFactory/GuestFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Fakes/EventRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Fakes/GuestRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/ActivateEventTest/ActivateEventCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/ActivateEventTest/ActivateEventHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/ActivateEventTest/ActivateEventTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/CreateEvent/CreateEventCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/CreateEvent/CreateEventTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/EventTimeDurationTest/EventTimeDurationCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/EventTimeDurationTest/EventTimeDurationTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/EventVisibilityTest/EventVisibilityTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/MakeEventPrivateTest/MakeEventPrivateCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/MakeEventPrivateTest/MakeEventPrivateHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/MakeEventPrivateTest/MakeEventPrivateTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/MakeEventPublicTest/MakeEventPublicCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/MakeEventPublicTest/MakeEventPublicHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/MakeEventPublicTest/MakeEventPublicTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/ReadiesEventTest/MakeEventReadyCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/ReadiesEventTest/MakeEventReadyHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/ReadiesEventTest/ReadiesEventTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/SetMaxNumberOfGuestsTest/SetMaxNumberOfGuestsTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/SetMaxNumberOfGuestsTest/UpdateEventMaxNoOfGuestsCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/SetMaxNumberOfGuestsTest/UpdateEventMaxNoOfGuestsHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/UpdateDescriptionTest/UpdateDescriptionCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/UpdateDescriptionTest/UpdateDescriptionHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/UpdateDescriptionTest/UpdateDescriptionTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/UpdateTitleTest/UpdateEventTitleCommandTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/UpdateTitleTest/UpdateEventTitleHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/UpdateTitleTest/UpdateTitleTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/ValueObjects/EventDescriptionTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/ValueObjects/EventTitleTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/ValueObjects/EventVisibilityTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/Event/ValueObjects/MaxNumberOfGuestsTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/CreateGuestCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/CreateGuestHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestAcceptInvitationTest/AcceptInvitationCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestAcceptInvitationTest/AcceptInvitationHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestAcceptInvitationTest/GuestAcceptInvitationTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestCancelsParticipationTest/GuestCancelsParticipationCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestCancelsParticipationTest/GuestCancelsParticipationHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestCancelsParticipationTest/GuestCancelsParticipationTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestParticipationTest/GuestParticipationTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestParticipationTest/ParticipateGuestCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestParticipationTest/ParticipateGuestHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestRejectInvitationTest/DeclineInvitationCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestRejectInvitationTest/DeclineInvitationHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/GuestRejectInvitationTest/GuestRejectInvitationTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/InviteGuestTest/InviteGuestCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/InviteGuestTest/InviteGuestHandlerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/InviteGuestTest/InviteGuestTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/ValueObjects/EmailTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/ValueObjects/FirstNameTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/ValueObjects/LastNameTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/Features/GuestTests/ViaGuestTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/GlobalUsings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/OperationResult/OperationResulUnitTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/Tests/UnitTests/UnitTests.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/ViaEventManagementSystem.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/ViaEventManagementSystem.sln.DotSettings.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/ViaEventManagmentSystem.sln.DotSettings.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/Tools/ViaEventManagementSystem.Core.Tools.ObjectMapper/IMapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/Tools/ViaEventManagementSystem.Core.Tools.ObjectMapper/IMappingConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/Tools/ViaEventManagementSystem.Core.Tools.ObjectMapper/ObjectMapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/Tools/ViaEventManagementSystem.Core.Tools.ObjectMapper/ViaEventManagementSystem.Core.Tools.ObjectMapper.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/Enumeration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/Error.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/ErrorConstant.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/ErrorMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/Result.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/ViaEventManagementSystem.Core.Tools.OperationResult.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/AcceptInvitationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/ActivateEventCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/CreateEventCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/DeclineInvitationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/EventTimeDurationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/GuestCancelsParticipationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/InviteGuestCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/MakeEventPrivateCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/MakeEventPublicCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/MakeEventReadyCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/ParticipateGuestCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/UpdateDescriptionCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/UpdateEventMaxNoOfGuestsCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/UpdateEventTitleCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Guest/CreateGuestCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/ICommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/ICommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Dispatcher/CommandDispatcher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Dispatcher/Decorator/CommandExecutionTimer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/Dispatcher/ICommandDispatcher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.AppEntry/ViaEventManagementSystem.Core.AppEntry.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/AcceptInvitationHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/ActivateEventHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/CreateEventHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/DeclineInvitationHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/GuestCancelsParticipationHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/InviteGuestHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/MakeEventPrivateHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/MakeEventPublicHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/MakeEventReadyHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/ParticipateGuestHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/UpdateDescriptionHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/UpdateEventMaxNoOfGuestsHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/UpdateEventTitleHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Guest/CreateGuestHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/Extension/ApplicationExtension.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/Extension/DispatherExtension.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Application/ViaEventManagementSystem.Core.Application.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/Entities/Invitation/Invitation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/Entities/ValueObjects/InvitationId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/Entities/ValueObjects/InvitationStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/Entities/ValueObjects/RequestInvitationId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EndDateTime.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EventDescription.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EventId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EventStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EventTitle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EventVisibility.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/MaxNumberOfGuests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/StartDateTime.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/Util/EventVisibilityEnum.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/IViaEventRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/ViaEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/IGuestRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/Readme.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/ValueObjects/Email.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/ValueObjects/FirstName.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/ValueObjects/GuestId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/ValueObjects/LastName.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/ViaGuest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Common/Bases/Aggregate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Common/Bases/Entity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Common/Bases/ValueObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Common/Repository/IRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Common/UnitOfWork/IUnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Common/UnitOfWork/UnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Common/Values/MId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/Common/Values/ViaId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSystem.Core.Domain/ViaEventManagementSystem.Core.Domain.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSytem.Core.QueryContracts/Contracts/IQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSytem.Core.QueryContracts/Contracts/IQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSytem.Core.QueryContracts/Queries/EventHasStatusDraftPage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSytem.Core.QueryContracts/Queries/GetGuestProfilePage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSytem.Core.QueryContracts/Queries/UpcomingEventsPage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSytem.Core.QueryContracts/QueryDispatching/IQueryDispatcher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSytem.Core.QueryContracts/QueryDispatching/QueryDispatcher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Core/ViaEventManagementSytem.Core.QueryContracts/ViaEventManagementSytem.Core.QueryContracts.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/DesignTimeContextFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/EventEntityConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/GuestEntityConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/InvitationEntityConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/Migrations/20251113160222_InitialCreate.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/Migrations/20251113160222_InitialCreate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/Migrations/SqliteDmContextModelSnapshot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/SqliteDmContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/VEADatabaseProduction.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/VieEventAssociation.Infrastructure.SqliteDmPersistence.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Endpoints/Common/ApiEndpoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Endpoints/ViaEvents/Create.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Endpoints/ViaEvents/HelloController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Endpoints/ViaEvents/UpdateTitle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/ViaEventManagmentSystem.Presentation.WebAPI.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/ViaEventManagmentSystem.Presentation.WebAPI.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViaEventManagmentSystem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,6 +27,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/487764c4dc815ef1e9090514895a23ed9e2d8eda1f7fd6958ac0fb25e8437/Guid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f5545b2656401abe1a371ad2756d7d2328a38293f7ee8b163801bbf55cee8/TestInvoker.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
@@ -336,13 +117,14 @@
       <updated>1763378995595</updated>
       <workItem from="1763378999746" duration="19000" />
       <workItem from="1763379173065" duration="41000" />
-      <workItem from="1763379240049" duration="8793000" />
+      <workItem from="1763379240049" duration="9418000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

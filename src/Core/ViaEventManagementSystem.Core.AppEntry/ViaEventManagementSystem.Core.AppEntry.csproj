@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Tools\ViaEventManagementSystem.Core.Tools.OperationResult\ViaEventManagementSystem.Core.Tools.OperationResult.csproj" />
+      <ProjectReference Include="..\ViaEventManagementSystem.Core.Domain\ViaEventManagementSystem.Core.Domain.csproj" />
+<!--      <ProjectReference Include="..\ViaEventManagmentSystem.Core.Domain\ViaEventManagmentSystem.Core.Domain.csproj" />-->
+    </ItemGroup>
+
+    
+
+    
+ 
+</Project>
