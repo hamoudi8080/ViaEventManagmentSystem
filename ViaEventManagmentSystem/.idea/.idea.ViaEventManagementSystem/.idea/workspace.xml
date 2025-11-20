@@ -10,7 +10,112 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5fc2164-8e54-4e41-a354-9624a55a06ff" name="Changes" comment="some fixes in tests">
-      <change beforePath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ViaEventManagmentSystem/.idea/.idea.ViaEventManagementSystem/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViaEventManagementSystem.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViaEventManagementSystem.sln.DotSettings.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViaEventManagmentSystem.sln.DotSettings.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/Tools/ViaEventManagementSystem.Core.Tools.ObjectMapper/IMapper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/Tools/ViaEventManagementSystem.Core.Tools.ObjectMapper/IMappingConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/Tools/ViaEventManagementSystem.Core.Tools.ObjectMapper/ObjectMapper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/Tools/ViaEventManagementSystem.Core.Tools.ObjectMapper/ViaEventManagementSystem.Core.Tools.ObjectMapper.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/Enumeration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/Error.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/ErrorConstant.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/ErrorMessage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/Result.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/Tools/ViaEventManagementSystem.Core.Tools.OperationResult/ViaEventManagementSystem.Core.Tools.OperationResult.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/AcceptInvitationCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/ActivateEventCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/CreateEventCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/DeclineInvitationCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/EventTimeDurationCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/GuestCancelsParticipationCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/InviteGuestCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/MakeEventPrivateCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/MakeEventPublicCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/MakeEventReadyCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/ParticipateGuestCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/UpdateDescriptionCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/UpdateEventMaxNoOfGuestsCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Event/UpdateEventTitleCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/Guest/CreateGuestCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/ICommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Commands/ICommandHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Dispatcher/CommandDispatcher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Dispatcher/Decorator/CommandExecutionTimer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/Dispatcher/ICommandDispatcher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.AppEntry/ViaEventManagementSystem.Core.AppEntry.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/AcceptInvitationHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/ActivateEventHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/CreateEventHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/DeclineInvitationHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/GuestCancelsParticipationHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/InviteGuestHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/MakeEventPrivateHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/MakeEventPublicHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/MakeEventReadyHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/ParticipateGuestHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/UpdateDescriptionHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/UpdateEventMaxNoOfGuestsHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Event/UpdateEventTitleHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/CommandHandlers/Features/Guest/CreateGuestHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/Extension/ApplicationExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/Extension/DispatherExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Application/ViaEventManagementSystem.Core.Application.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/Entities/Invitation/Invitation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/Entities/ValueObjects/InvitationId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/Entities/ValueObjects/InvitationStatus.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/Entities/ValueObjects/RequestInvitationId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EndDateTime.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EventDescription.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EventId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EventStatus.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EventTitle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/EventVisibility.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/MaxNumberOfGuests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/StartDateTime.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/EventValueObjects/Util/EventVisibilityEnum.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/IViaEventRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Events/ViaEvent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/IGuestRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/Readme.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/ValueObjects/Email.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/ValueObjects/FirstName.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/ValueObjects/GuestId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/ValueObjects/LastName.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Aggregates/Guests/ViaGuest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Common/Bases/Aggregate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Common/Bases/Entity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Common/Bases/ValueObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Common/Repository/IRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Common/UnitOfWork/IUnitOfWork.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Common/UnitOfWork/UnitOfWork.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Common/Values/MId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/Common/Values/ViaId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSystem.Core.Domain/ViaEventManagementSystem.Core.Domain.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSytem.Core.QueryContracts/Contracts/IQuery.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSytem.Core.QueryContracts/Contracts/IQueryHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSytem.Core.QueryContracts/Queries/EventHasStatusDraftPage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSytem.Core.QueryContracts/Queries/GetGuestProfilePage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSytem.Core.QueryContracts/Queries/UpcomingEventsPage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSytem.Core.QueryContracts/QueryDispatching/IQueryDispatcher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSytem.Core.QueryContracts/QueryDispatching/QueryDispatcher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Core/ViaEventManagementSytem.Core.QueryContracts/ViaEventManagementSytem.Core.QueryContracts.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/DesignTimeContextFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/EventEntityConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/GuestEntityConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/InvitationEntityConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/SqliteDmContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Infrastructure/VieEventAssociation.Infrastructure.SqliteDmPersistence/VieEventAssociation.Infrastructure.SqliteDmPersistence.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Endpoints/Common/ApiEndpoint.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Endpoints/ViaEvents/Create.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Endpoints/ViaEvents/HelloController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Endpoints/ViaEvents/UpdateTitle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/Properties/launchSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/ViaEventManagmentSystem.Presentation.WebAPI.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/ViaEventManagmentSystem.Presentation.WebAPI.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/appsettings.Development.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Presentation/ViaEventManagmentSystem.Presentation.WebAPI/appsettings.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +126,7 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/487764c4dc815ef1e9090514895a23ed9e2d8eda1f7fd6958ac0fb25e8437/Guid.cs" root0="FORCE_HIGHLIGHTING" />
@@ -46,7 +151,7 @@
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "ec6547ae-d361-4069-abe0-66e6b77aa6dd.executor": "Debug",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "master",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -118,6 +223,7 @@
       <workItem from="1763378999746" duration="19000" />
       <workItem from="1763379173065" duration="41000" />
       <workItem from="1763379240049" duration="9418000" />
+      <workItem from="1763628112858" duration="1733000" />
     </task>
     <servers />
   </component>
