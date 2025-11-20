@@ -1,5 +1,5 @@
 # CI Pipeline for ViaEventManagementSystem Backend
-name: Backend CI with Docker
+name: CI
 
 on:
   push:
@@ -29,7 +29,7 @@ jobs:
         run: dotnet build ViaEventManagmentSystem/ViaEventManagementSystem.sln --configuration Release --no-restore
       
       - name: 🧪 Run tests
-        run: dotnet test ViaEventManagmentSystem/Tests/UnitTests/UnitTests.csproj --no-build --verbosity normal
+        run: dotnet test ViaEventManagmentSystem/Tests/UnitTests/UnitTests.csproj --configuration Release --no-build --verbosity normal
         
 
 
